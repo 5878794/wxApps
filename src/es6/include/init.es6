@@ -1,17 +1,13 @@
 //兼容es7
-let regeneratorRuntime = require('regenerator-runtime');
+const regeneratorRuntime = require('regenerator-runtime');
+const app = getApp();
+
+let fn = {
+	alert(){
+
+	}
+};
 
 
-
-
-let backObj = {};
-
-
-if(isWxApp){
-	backObj = require('./page_wx');
-}else{
-	backObj = require('./page_wrap');
-}
-
-
-module.exports = backObj;
+Object.assign(app,fn);
+module.exports = app;

@@ -1,19 +1,17 @@
 
 
-let app = require('./all/page');
+let app = require('../include/init');
 
 
 
 let page = {
-	init(){
-		console.log('start')
-		console.log('thisname='+this.name)
-	},
-	name:123
+	onLoad(){
+		console.log('loaded')
+	}
 };
 
 
 
-app.run(page);
+Page(page);
 
 

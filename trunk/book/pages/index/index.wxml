@@ -1,3 +1,0 @@
-    <view class='mainList' bindtap='openUrl' data-itUrl='{{item.url}}' wx:for='{{appList}}'>{{item.name}}
-    </view>
-
