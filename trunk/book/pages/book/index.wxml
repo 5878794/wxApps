@@ -1,12 +1,1 @@
-<view class='search'>
-    <input type='text' placeholder='请输入关键字' id='search' name='search' />
-</view>
-
-<view wx:for='{{bookList}}' class='list box_h' bindtap='openBookList'>
-    <view class='list_left diandian'>{{item.name}}</view>
-    <view class='list_right boxflex1'>{{item.notReaded? item.notReaded : 0}}</view>
-</view>
-
-
-
-<view bindtap='refreshList' class='refreshBtn'>刷新列表</view>
+<view class="aa">123</view>

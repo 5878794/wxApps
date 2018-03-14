@@ -26,9 +26,6 @@ view {
   width: 100%;
   justify-content: center;
 }
-.border_box {
-  box-sizing: border-box;
-}
 .boxflex1 {
   flex: 1;
 }
@@ -39,29 +36,4 @@ view {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-}
-
-
-.search{
-    padding:20rpx; height: 60rpx; line-height: 60rpx;
-    border-bottom: 1rpx solid #ccc;
-    font-size:30rpx;
-}
-.list{
-    padding: 20rpx; height: 60rpx; line-height: 60rpx;
-    background: #eee; border-bottom:1rpx solid #ccc;
-}
-.list_left{
-    width: 90%;
-}
-.list_right{
-    text-align: right;
-}
-
-.refreshBtn{
-    width: 80%; height: 80rpx; border-radius: 10rpx; line-height: 80rpx;
-    background: green; color: #fff;
-    text-align: center;
-    position: fixed; left:50%; bottom: 100rpx;
-    margin-left: -40%;
 }
