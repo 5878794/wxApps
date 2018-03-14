@@ -4,16 +4,15 @@
 
 
 
-let fs = require('fs'),
+let lib = require('./fn.es6'),
+	fs = require('fs'),
 	path = require('path'),
 	glob = require("glob"),
-	exec = require('child_process').exec,
-	setting = require('./setting.es6');
+	exec = require('child_process').exec;
 
 
 let lessDir = path.join(__dirname,'../src/less/'),
-	wwwDir = path.join(__dirname,'../trunk/css/'),
-	wxDir = path.join(__dirname,'../wxApp_trunk/pages/');
+	wxDir = path.join(__dirname,'../trunk/');
 
 
 let runExec = function(cmdText){
@@ -27,23 +26,32 @@ let runExec = function(cmdText){
 };
 
 
-let renderFn = function(opt={}){
-	let entryFiles = glob.sync(lessDir+"*.less"),
-		isWxApp = (opt.isWxApp)? 'true' : 'false';
+let renderFn = function(projectName){
+
+	console.log('编译 '+projectName+' 下的less');
+	let projectPath = lib.getProjectDirPath(lessDir,projectName);
+	console.log('------------------------------------------------------------------------');
+
+
+	let entryFiles = glob.sync(projectPath+"*.less");
 
 	entryFiles.map(filePath=>{
-		let fileName = filePath.replace(lessDir,"").split('.')[0],
-			outPath = (opt.isWxApp)?
-				path.join(wxDir,'/'+fileName+'/'+fileName+'.wxss') :
-				path.join(wwwDir,'/'+fileName+'.css'),
-			cmdText = 'lessc --functions --modify-var="wxWidth='+setting.wxWidth+'"  --modify-var="psdWidth='+setting.psdWidth+'" --modify-var="isWxApp='+isWxApp+'"   '+filePath+' ' +outPath;
+		let fileName = filePath.replace(projectPath,"").split('.')[0],
+			outPath = path.join(wxDir,'/'+projectName+'/pages/'+projectName+'/'+fileName+'.wxss'),
+			cmdText = 'lessc '+filePath+' ' +outPath;
 
 		runExec(cmdText);
+
+		console.log('ok  ' +filePath);
 	});
+
+	console.log('------------------------------------------------------------------------');
+	console.log('less compile end');
 };
 
 
-renderFn({isWxApp:true});
-renderFn({isWxApp:false});
-
+var arguments = process.argv.splice(2);
+arguments.map(pp=>{
+	renderFn(pp);
+});
 
