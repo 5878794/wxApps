@@ -1,0 +1,16 @@
+<view class="search box_h">
+  <input type="text" id="search" name="search" />
+  <image  class="search_btn" src="../image/search.png" mode="aspectFit" />
+</view>
+<view class="info">
+  <text>注:在浏览器中打开</text>
+  <text class="red">http://www.biquge.tw</text>
+  <text>在地址栏中找到对应书籍的编号,eg:</text>
+  <text class="red">0_50</text>
+  <text>进行搜索。</text>
+</view>
+<view class="list">
+  <view class="list_name">阿什顿发</view>
+  <view class="list_a">作者:打发</view>
+  <view class="list_info">阿萨德飞机阿斯利康打飞机啊凉快圣诞节疯狂拉升江东父老卡时间段风口浪尖</view>
+</view>

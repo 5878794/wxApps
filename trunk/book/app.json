@@ -1,7 +1,6 @@
 {
   "pages":[
-    "pages/book/index",
-    "pages/book/search"
+    "pages/search/index"
   ],
   "window":{
     "backgroundTextStyle":"#ffffff",

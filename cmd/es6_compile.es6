@@ -20,7 +20,7 @@ let getEs6FileList = function(projectName){
 
 	files.map(filePath=>{
 		let fileName = filePath.replace(projectPath,"").split('.')[0],
-			key = 'trunk/'+projectName+'/pages/'+projectName+'/'+fileName;
+			key = 'trunk/'+projectName+'/pages/'+fileName+'/'+'index';
 
 		obj[key] = filePath;
 	});

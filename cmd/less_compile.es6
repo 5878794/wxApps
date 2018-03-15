@@ -37,7 +37,7 @@ let renderFn = function(projectName){
 
 	entryFiles.map(filePath=>{
 		let fileName = filePath.replace(projectPath,"").split('.')[0],
-			outPath = path.join(wxDir,'/'+projectName+'/pages/'+projectName+'/'+fileName+'.wxss'),
+			outPath = path.join(wxDir,'/'+projectName+'/pages/'+fileName+'/'+'index'+'.wxss'),
 			cmdText = 'lessc '+filePath+' ' +outPath;
 
 		runExec(cmdText);

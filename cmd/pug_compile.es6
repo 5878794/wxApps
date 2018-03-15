@@ -51,10 +51,25 @@ let renderFn = function(projectName){
 		// '<img src="1.jpg">'.replace(/(<img.*?)>/gi ,"$1 />")
 		html = html.replace(/(<input.*?)>/gi ,"$1 />");
 
+		//闭合image
+		html = html.replace(/<img(.*?)>/gi ,"<image $1 />");
+
+
+		//生成目录
+		let createPath = path.join(wxDir,'/'+projectName+'/pages/'+fileName+'/');
+
+		if(!fs.existsSync(createPath)){
+			let pPath = path.join(wxDir,'/'+projectName+'/pages/');
+			if(!fs.existsSync(pPath)){
+				fs.mkdirSync(pPath, '0777');
+			}
+			fs.mkdirSync(createPath, '0777');
+		}
+
 
 
 		//根据微信app结构生成 wxml文件
-		let wxFilePath = path.join(wxDir,'/'+projectName+'/pages/'+projectName+'/'+fileName+'.wxml');
+		let wxFilePath = path.join(wxDir,'/'+projectName+'/pages/'+fileName+'/'+'index.wxml');
 		fs.writeFileSync(wxFilePath,html,function(err){
 			if(err){
 				console.log(filePath+'    err!');
@@ -66,7 +81,8 @@ let renderFn = function(projectName){
 		let jsonText = {navigationBarTitleText:titleName};
 		jsonText = JSON.stringify(jsonText);
 		//json地址路径
-		let jsonFileName = path.join(wxDir,'/'+projectName+'/pages/'+projectName+'/'+fileName+'.json');
+		let jsonFileName = path.join(wxDir,'/'+projectName+'/pages/'+fileName+'/'+'index.json');
+
 		fs.writeFileSync(jsonFileName,jsonText,function(err){
 			if(err){
 				console.log(filePath+'    err!');
