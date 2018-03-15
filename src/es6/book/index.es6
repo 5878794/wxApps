@@ -7,12 +7,28 @@ let app = require('../include/init');
 
 let page = {
 	data:{
-
+		bookList:[
+			{id:1,name:'aa',notReadNumber:10,url:''},
+			{id:2,name:'bb',notReadNumber:33,url:''}
+		]
 	},
 	async init(){
+		// app.setNavigationBarColor('#ffffff','#333333');
+
+		await this.createBookList();
 
 
-
+	},
+	async createBookList(){
+		let data = await app.getLocalData('bookList') || [];
+		this.setData({
+			bookList:data
+		})
+	},
+	async search(){
+		app.openUrl('./search')
+	},
+	async refresh(){
 
 	}
 };

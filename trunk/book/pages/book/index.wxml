@@ -1,1 +1,8 @@
-<view class="aa">123</view>
+<view class="box_h row" wx:for="{{bookList}}" wx:key="item" data-id="{{item.id}}">
+  <view class="boxflex1">{{item.name}}</view>
+  <view class="notReadNumber">{{item.notReadNumber}}</view>
+</view>
+<view class="box_h center btnMain">
+  <view class="searchBtn" bindtap="search">搜 索</view>
+  <view class="refreshBtn" bindtap="refresh">刷 新</view>
+</view>

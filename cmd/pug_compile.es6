@@ -47,6 +47,12 @@ let renderFn = function(projectName){
 		$('title').remove();
 		html = $('body').html();
 
+		//闭合input标签
+		// '<img src="1.jpg">'.replace(/(<img.*?)>/gi ,"$1 />")
+		html = html.replace(/(<input.*?)>/gi ,"$1 />");
+
+
+
 		//根据微信app结构生成 wxml文件
 		let wxFilePath = path.join(wxDir,'/'+projectName+'/pages/'+projectName+'/'+fileName+'.wxml');
 		fs.writeFileSync(wxFilePath,html,function(err){

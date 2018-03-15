@@ -4,7 +4,9 @@ const app = getApp();
 let fn = {
 	run(page){
 		page.onLoad = function(){
-			page.init();
+			this.init().then().catch(rs=>{
+				app.alert(JSON.stringify(rs));
+			});
 		};
 		Page(page);
 	},
@@ -106,12 +108,13 @@ let fn = {
 	//设置顶部系统条颜色
 	//@param  fontColor:str   '#ffffff'
 	//@param  bgColor:str     '#ffffff'
+	//注意其中fontColor 只能是#ffffff 或  #000000
 	setNavigationBarColor(fontColor,bgColor){
 		wx.setNavigationBarColor({
 			frontColor: fontColor,
 			backgroundColor: bgColor,
 			animation: {
-				duration: 400,
+				duration: 0,
 				timingFunc: 'easeIn'
 			}
 		})
