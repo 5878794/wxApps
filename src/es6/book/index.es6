@@ -1,17 +1,24 @@
 
+const regeneratorRuntime = require('regenerator-runtime');
 
 let app = require('../include/init');
 
 
 
 let page = {
-	onLoad(){
-		console.log('loaded')
+	data:{
+
+	},
+	async init(){
+
+
+
+
 	}
 };
 
 
 
-Page(page);
+app.run(page);
 
 

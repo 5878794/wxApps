@@ -1,11 +1,202 @@
-//兼容es7
 const regeneratorRuntime = require('regenerator-runtime');
 const app = getApp();
 
 let fn = {
-	alert(){
+	run(page){
+		page.onLoad = function(){
+			page.init();
+		};
+		Page(page);
+	},
 
+
+	//ajax  promise
+	//opt={
+	//  url:'',
+	//  data:{}
+	// }
+	ajax(opt){
+		return new Promise((success,error)=>{
+			wx.request({
+				url: opt.url,
+				dataType:'json',
+				data: JSON.stringify(opt.data),
+				method: "post",
+				success: function (rs) {
+					rs = rs.data;
+					success(rs.html)
+				},
+				error: function (rs) {
+					error(rs);
+				}
+			})
+		});
+	},
+
+
+	//获取某个url的html内容
+	async getUrlHtml(url){
+		return await this.ajax({
+			url:'https://bensxu.duapp.com/book/api/getHtml',
+			data:{
+				url:url
+			}
+		})
+	},
+
+
+	//alert promise
+	//@param:msg     str
+	//@param:title   str
+	alert(msg,title){
+		return new Promise(success=>{
+			title = title || "系统提示";
+			wx.showModal({
+				title:title,
+				content:msg,
+				showCancel:false,
+				confirmText:"确定",
+				success:function(){
+					success();
+				}
+			})
+		});
+	},
+
+
+	//info.show(text);
+	//info.hide()
+	info:{
+		show(msg){
+			wx.showToast({
+				title: msg,
+				icon: 'none',
+				duration: 2000
+			})
+		},
+		hide(){
+			wx.hideToast()
+		}
+	},
+
+
+	//loading.show(text)
+	//loading.hide();
+	loading:{
+		show:function(text){
+			wx.showLoading({
+				title:text,
+				mask:true
+			});
+		},
+		hide:function(){
+			wx.hideLoading();
+		}
+	},
+
+
+	//设置标题
+	//#param:title  str
+	setTitle(title){
+		wx.setNavigationBarTitle({
+			title: title,
+		})
+	},
+
+	//设置顶部系统条颜色
+	//@param  fontColor:str   '#ffffff'
+	//@param  bgColor:str     '#ffffff'
+	setNavigationBarColor(fontColor,bgColor){
+		wx.setNavigationBarColor({
+			frontColor: fontColor,
+			backgroundColor: bgColor,
+			animation: {
+				duration: 400,
+				timingFunc: 'easeIn'
+			}
+		})
+	},
+
+
+	//打开新页面
+	//@param:url   str
+	openUrl(url){
+		wx.navigateTo({ url: url });
+	},
+	//返回前几页
+	//@param  number:number
+	goBack(number = 1){
+		wx.navigateBack({
+			delta: number
+		})
+	},
+
+
+	//打电话
+	//@param:tel   number
+	tel(tel){
+		wx.makePhoneCall({
+			phoneNumber:tel
+		})
+	},
+
+
+	//本地数据缓存  promise 一堆
+	//10M空间
+	//@param   key:str
+	//@param   val:str/obj
+	setLocalData(key,val){
+		return new Promise((success,error)=>{
+			wx.setStorage({
+				key:key,
+				data:val,
+				success:function(){
+					success();
+				},
+				error:function(msg){
+					error(msg);
+				}
+			})
+		});
+	},
+	//@param   key:str
+	getLocalData(key){
+		return new Promise(success=>{
+			wx.getStorage({
+				key:key,
+				complete:function(obj){
+					obj = obj || {};
+					obj = obj.data || '';
+					success(obj)
+				}
+			})
+		});
+	},
+	//@param   key:str
+	delLocalData(key){
+		return new Promise(success=>{
+			wx.removeStorage({
+				key: key,
+				success: function(res) {
+					success();
+				}
+			})
+		})
+	},
+	//清除所有缓存
+	clearLocalData(){
+		wx.clearStorageSync();
+	},
+
+
+	//滚动页面到指定位置
+	scrollTo(top=0,duration=300){
+		wx.pageScrollTo({
+			scrollTop: top,
+			duration: duration
+		})
 	}
+
 };
 
 
