@@ -1,7 +1,7 @@
 
 const regeneratorRuntime = require('regenerator-runtime');
 
-let app = require('../include/init');
+let app = require('./include/init');
 
 let page = {
 	async init(){
