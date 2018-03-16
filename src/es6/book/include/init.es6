@@ -3,11 +3,28 @@ const app = getApp();
 
 let fn = {
 	run(page){
-		page.onLoad = function(){
-			this.init().then().catch(rs=>{
+		//转换onload函数
+		page.onLoad = function(opt){
+			this.init(opt).then().catch(rs=>{
 				app.alert(JSON.stringify(rs));
 			});
 		};
+
+		//自动带上input的数据绑定功能
+		//input的 id、name、{{value}} 三个值设置成一样的
+		//input 加 bindinput = 'inputChange'
+		page.inputChange = function(e){
+			let id = e.target.id,
+				val = e.detail.value,
+				newObj = {};
+
+			newObj[id] = val;
+
+			//this 指向page对象
+			this.setData(newObj);
+		};
+
+
 		Page(page);
 	},
 
@@ -55,7 +72,7 @@ let fn = {
 			title = title || "系统提示";
 			wx.showModal({
 				title:title,
-				content:msg,
+				content:JSON.stringify(msg),
 				showCancel:false,
 				confirmText:"确定",
 				success:function(){

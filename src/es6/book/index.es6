@@ -13,8 +13,6 @@ let page = {
 		]
 	},
 	async init(){
-		// app.setNavigationBarColor('#ffffff','#333333');
-		console.log('init')
 		await this.createBookList();
 
 

@@ -1,5 +1,10 @@
-title 书名
+title
 view(style='margin-top:20rpx;')
 
 
-view(class='list diandian') 啊大煞风景阿克琉斯大家反馈啦啊大煞风景阿克琉斯大家反馈啦
+view(   wx:for='{{bookList}}'
+        wx:key='index'
+        data-url='{{item.url}}'
+        class='list diandian'
+        bindTap='showInfo'
+    ) {{item.name}}
