@@ -1,6 +1,6 @@
 {
   "pages":[
-    "pages/search/index"
+    "pages/info/index"
   ],
   "window":{
     "backgroundTextStyle":"#ffffff",

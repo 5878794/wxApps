@@ -1,3 +1,6 @@
+page {
+  background: #eef2f6;
+}
 view {
   display: block;
 }
@@ -31,6 +34,10 @@ view {
 }
 .boxflex2 {
   flex: 2;
+}
+.breakall {
+  word-wrap: break-word;
+  word-break: break-all;
 }
 .diandian {
   text-overflow: ellipsis;
