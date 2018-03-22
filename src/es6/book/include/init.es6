@@ -6,7 +6,11 @@ let fn = {
 		//转换onload函数
 		page.onLoad = function(opt){
 			this.init(opt).then().catch(rs=>{
-				app.alert(JSON.stringify(rs));
+				if(typeof rs == 'string'){
+					app.alert(rs);
+				}else{
+					app.alert(JSON.stringify(rs));
+				}
 			});
 		};
 
@@ -68,11 +72,13 @@ let fn = {
 	//@param:msg     str
 	//@param:title   str
 	alert(msg,title){
+		msg = (typeof msg == 'string')? msg : JSON.stringify(msg);
+
 		return new Promise(success=>{
 			title = title || "系统提示";
 			wx.showModal({
 				title:title,
-				content:JSON.stringify(msg),
+				content:msg,
 				showCancel:false,
 				confirmText:"确定",
 				success:function(){
@@ -102,7 +108,7 @@ let fn = {
 	//loading.show(text)
 	//loading.hide();
 	loading:{
-		show:function(text){
+		show:function(text='极速加载中'){
 			wx.showLoading({
 				title:text,
 				mask:true

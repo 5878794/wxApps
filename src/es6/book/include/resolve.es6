@@ -31,5 +31,28 @@ module.exports = {
 			},
 			bookList
 		};
+	},
+	getBookChapter(html){
+		let $ = cheerio.load(html,{decodeEntities: false});
+
+		let bookName = $('.bookname').find('h1').text(),
+			bookInfo = $('#content').html();
+
+		if(bookName && bookInfo){
+			bookInfo = bookInfo.split('<br>');
+
+			return {
+				bookName,
+				bookInfo
+			}
+		}else{
+			return {
+				bookName:'错误',
+				bookInfo:['无法解析页面']
+			}
+		}
+
+
+
 	}
 };

@@ -27,7 +27,8 @@ let page = {
 		let url = e.currentTarget.dataset.url,
 			bookId = this.data.bookId;
 
-		console.log(url,bookId)
+		app.openUrl('../info/index?bookId='+bookId+'&url='+url);
+		// console.log(url,bookId)
 	}
 };
 
