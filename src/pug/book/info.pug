@@ -1,5 +1,21 @@
 title 章节
 
-view(class='info breakall')
+view(class='info breakall' bindtap='showSet' style='background:{{background}};font-size:{{fontSize}}rpx')
 
     view(wx:for='{{bookInfo}}') {{item}}
+
+
+
+view(class='set box_h center_s' style='display:{{showSet}}')
+    view(class='set_font center' bindtap='showFontSet') T
+    view(class='set_color center' bindtap='showBgSet') B
+    view(class='set_next center' bindtap='showNext') ->
+
+    view(class='set_font_main box_h center_s' style='display:{{showSetFont}};')
+        view(class='set_font_main_left center' bindtap='fontLess') -
+        view(class='set_font_main_text center') {{fontSize}}
+        view(class='set_font_main_right center' bindtap='fontAdd') +
+
+    view(class='set_color_main box_h center_s' style='display:{{showSetBg}};')
+        view(wx:for='{{bgColors}}' bindtap='changeBg' class='set_color_main_item center' data-bg='{{item}}' style='background:{{item}}')
+

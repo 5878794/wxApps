@@ -1,3 +1,16 @@
-<view class="info breakall">
+<view class="info breakall" bindtap="showSet" style="background:{{background}};font-size:{{fontSize}}rpx">
   <view wx:for="{{bookInfo}}">{{item}}</view>
+</view>
+<view class="set box_h center_s" style="display:{{showSet}}">
+  <view class="set_font center" bindtap="showFontSet">T</view>
+  <view class="set_color center" bindtap="showBgSet">B</view>
+  <view class="set_next center" bindtap="showNext">-></view>
+  <view class="set_font_main box_h center_s" style="display:{{showSetFont}};">
+    <view class="set_font_main_left center" bindtap="fontLess">-</view>
+    <view class="set_font_main_text center">{{fontSize}}</view>
+    <view class="set_font_main_right center" bindtap="fontAdd">+</view>
+  </view>
+  <view class="set_color_main box_h center_s" style="display:{{showSetBg}};">
+    <view class="set_color_main_item center" wx:for="{{bgColors}}" bindtap="changeBg" data-bg="{{item}}" style="background:{{item}}"></view>
+  </view>
 </view>
