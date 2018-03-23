@@ -29,10 +29,13 @@ let page = {
 
 		await this.getCacheReadSet();
 
+		let _this = this;
 
 		app.loading.show('极速加载');
 		this.getInfoA().then(rs=>{
+			app.scrollTo(0,0);
 			app.loading.hide();
+			this.saveListReadCatch();
 		}).catch(rs=>{
 			console.log(rs)
 			app.alert(rs);
@@ -106,8 +109,41 @@ let page = {
 			showSetBg:'none'
 		});
 
-		//TODO
+		let data = app.globalData[this.data.bookId];
+		if(!data){
+			app.alert('无法获取书籍目录');
+			return;
+		}
 
+		let bookList = data.bookList;
+		let finded;
+		bookList.map((rs,i)=>{
+			if(rs.url==this.data.url){
+				finded = i;
+			}
+		});
+
+		if(!finded){
+			app.alert('未找到下一章节数据');
+			return;
+		}
+
+		let next = bookList[finded+1];
+		if(!next){
+			app.info.show('已到书目结尾！！！');
+			return;
+		}
+
+
+		let nextUrl = next.url,
+			nextBookId = this.data.bookId;
+
+		this.init({
+			bookId:nextBookId,
+			url:nextUrl
+		}).then(rs=>{
+
+		}).catch(rs=>{app.alert(rs)})
 	},
 
 	//减小字体
@@ -155,6 +191,18 @@ let page = {
 			background:bg,
 			fontSize:this.data.fontSize
 		});
+	},
+
+
+	//保存列表已读状态
+	async saveListReadCatch(){
+		let url = this.data.url,
+			bookId = this.data.bookId;
+
+		let nowCatch = await app.getLocalData('readList') || {};
+		nowCatch[bookId] = url;
+
+		await app.setLocalData('readList',nowCatch);
 	}
 };
 

@@ -6,6 +6,7 @@ let fn = {
 		//转换onload函数
 		page.onLoad = function(opt){
 			this.init(opt).then().catch(rs=>{
+				console.log(rs);
 				if(typeof rs == 'string'){
 					app.alert(rs);
 				}else{
@@ -220,6 +221,21 @@ let fn = {
 		wx.pageScrollTo({
 			scrollTop: top,
 			duration: duration
+		})
+	},
+
+	//获取指定元素的实际属性
+	//如果传入的是class获取的是第一个找到的class的dom的属性
+	//@param:id    .class/#id
+	getDomParam(id){
+		return new Promise(success=>{
+			let query = wx.createSelectorQuery();
+			query.select(id).boundingClientRect();
+			query.exec(function (res) {
+				if(res[0]){
+					success(res[0]);
+				}
+			})
 		})
 	}
 
