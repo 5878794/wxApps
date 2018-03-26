@@ -53,3 +53,22 @@ view {
   box-sizing: border-box;
   padding: 0 20rpx;
 }
+.addBook {
+  position: fixed;
+  right: 40rpx;
+  bottom: 80rpx;
+  width: 100rpx;
+  height: 100rpx;
+  z-index: 30;
+  border: 5rpx solid #fff;
+  background: #000;
+  color: #fff;
+  font-size: 80rpx;
+  border-radius: 100rpx;
+  line-height: 90rpx;
+  text-align: center;
+}
+.addBook text {
+  position: relative;
+  top: -5rpx;
+}

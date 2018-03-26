@@ -1,2 +1,5 @@
 <view style="margin-top:20rpx;"></view>
 <view class="list diandian" wx:for="{{bookList}}" wx:key="index" data-url="{{item.url}}" bindtap="showInfo" style="color:{{item.color}}">{{item.name}}</view>
+<view class="addBook center" style="display:{{search}}" bindtap="addBook">
+  <text>+</text>
+</view>

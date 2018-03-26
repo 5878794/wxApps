@@ -94,6 +94,9 @@ let fn = {
 	//info.hide()
 	info:{
 		show(msg){
+			if(typeof msg != 'string'){
+				msg = JSON.stringify(msg);
+			}
 			wx.showToast({
 				title: msg,
 				icon: 'none',

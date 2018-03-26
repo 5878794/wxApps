@@ -12,7 +12,7 @@ let page = {
 		showBookList:false
 	},
 	onShow(){
-		app.setTitle('aaa');
+		// app.setTitle('aaa');
 	},
 	async init(){
 
@@ -65,7 +65,7 @@ let page = {
 
 	showList(e){
 		let id = e.currentTarget.dataset.bookid;
-		app.openUrl('../list/index?id='+id);
+		app.openUrl('../list/index?id='+id+'&search=1');
 	}
 };
 
