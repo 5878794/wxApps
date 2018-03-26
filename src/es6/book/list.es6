@@ -9,7 +9,8 @@ let page = {
 		bookList:[],
 		bookId:'',
 		search:'none',
-		bookName:''
+		bookName:'',
+		bookInfo:''
 	},
 	async init(opt){
 		let id = opt.id,
@@ -29,6 +30,7 @@ let page = {
 
 		//设置顶部头
 		this.setData({
+			bookInfo:data.bookInfo,
 			bookName:data.bookInfo.bookName
 		});
 		app.setTitle(data.bookInfo.bookName);
@@ -37,12 +39,10 @@ let page = {
 
 	},
 	async checkIsShowAddBtn(bookId){
-		console.log(bookId)
 		let allBook = await app.getLocalData('bookList') || [],
 			isFind = false;
 
 		allBook.map(rs=>{
-			console.log(rs.id,bookId,(rs.id==bookId))
 			if(rs.id == bookId){
 				isFind = true;
 			}
@@ -119,7 +119,9 @@ let page = {
 		old.push({
 			id:this.data.bookId,
 			bookList:this.data.bookList,
-			name:this.data.bookName
+			name:this.data.bookName,
+			bookInfo:this.data.bookInfo,
+			refreshTime:new Date().getTime()
 		});
 
 		await app.setLocalData('bookList',old);

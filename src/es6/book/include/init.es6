@@ -48,9 +48,10 @@ let fn = {
 				method: "post",
 				success: function (rs) {
 					rs = rs.data;
-					success(rs.html)
+					success(rs.html);
 				},
 				error: function (rs) {
+					console.log(rs);
 					error(rs);
 				}
 			})
