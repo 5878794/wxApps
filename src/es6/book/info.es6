@@ -7,6 +7,7 @@ let app = require('./include/init'),
 
 let page = {
 	data:{
+		top:0,
 		bookId:'',
 		url:'',
 		bookInfo:[],
@@ -23,19 +24,53 @@ let page = {
 			'rgb(255, 255, 255)'
 		]
 	},
+	isShow:false,
+	showRun(fn){
+		if(this.isShow){
+			fn();
+		}else{
+			this.showRunfns.push(fn);
+		}
+	},
+	showRunfns:[],
 	async init(opt){
 		this.setData({bookId:opt.bookId});
 		this.setData({url:opt.url});
 
 		await this.getCacheReadSet();
 
-		let _this = this;
+		//判断是否是非正常关闭
+		let readCatch = await app.getLocalData('readUrlCatch');
+		if(readCatch){
+			let top = readCatch.top,
+				bookInfo = readCatch.bookInfo,
+				bookName = readCatch.bookName;
+
+			this.setData({
+				bookInfo:bookInfo,
+				bookName:bookName
+			});
+			app.setTitle(bookName);
+
+			this.setData({
+				top:top
+			});
+			this.showRun(function(){
+				setTimeout(function(){
+					app.scrollTo(top,100);
+				},500)
+
+			});
+
+			return;
+		}
 
 		app.loading.show('极速加载');
-		this.getInfoA().then(rs=>{
+		this.getInfoA().then(async rs=>{
 			app.scrollTo(0,0);
 			app.loading.hide();
 			this.saveListReadCatch();
+			this.saveScroller();
 		}).catch(rs=>{
 			console.log(rs)
 			app.alert(rs);
@@ -45,6 +80,12 @@ let page = {
 
 
 	},
+	onShow(){
+		this.isShow = true;
+		this.showRunfns.map(rs=>rs());
+		this.showRunfns = [];
+	},
+
 	//获取页面缓存设置
 	async getCacheReadSet(){
 		let set = await app.getLocalData('pageReadSet') || {};
@@ -71,7 +112,8 @@ let page = {
 
 
 		this.setData({
-			bookInfo:bookInfo
+			bookInfo:bookInfo,
+			bookName:bookName
 		});
 		app.setTitle(bookName);
 
@@ -203,6 +245,33 @@ let page = {
 		nowCatch[bookId] = url;
 
 		await app.setLocalData('readList',nowCatch);
+	},
+
+
+	async saveScroller(){
+		//判断是否已存储这本书，未存储不缓存
+		let bookId = this.data.bookId,
+			bookList = await app.getLocalData('bookList'),
+			isFind = false;
+
+
+		bookList.map(rs=>{
+			if(rs.id == bookId){
+				isFind = true;
+			}
+		});
+
+		if(!isFind){return;}
+
+		//写入缓存
+		let scroll = await app.getScrollState(),
+			id = this.data.bookId,
+			url = this.data.url,
+			bookInfo = this.data.bookInfo,
+			bookName = this.data.bookName,
+			top = scroll.top;
+		console.log(scroll)
+		await app.setLocalData('readUrlCatch',{id,url,top,bookInfo,bookName});
 	}
 };
 

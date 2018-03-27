@@ -1,6 +1,11 @@
 title 章节
 
-view(class='info breakall' bindtap='showSet' style='background:{{background}};font-size:{{fontSize}}rpx')
+view(
+    class='info breakall'
+    bindtap='showSet'
+    style='background:{{background}};font-size:{{fontSize}}rpx'
+    bindtouchend='saveScroller'
+)
 
     view(wx:for='{{bookInfo}}') {{item}}
 

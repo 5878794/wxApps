@@ -90,6 +90,25 @@ let fn = {
 		});
 	},
 
+	confirm(msg,title){
+		msg = (typeof msg == 'string')? msg : JSON.stringify(msg);
+		return new Promise((success,error)=>{
+			title = title || "系统提示";
+			wx.showModal({
+				title: title,
+				content: msg,
+				success: function(res) {
+					if (res.confirm) {
+						success();
+					} else if (res.cancel) {
+						error();
+					}
+				}
+			})
+		})
+
+	},
+
 
 	//info.show(text);
 	//info.hide()
@@ -241,6 +260,23 @@ let fn = {
 				}
 			})
 		})
+	},
+
+
+	//获取视窗滚动的距离
+	getScrollState(){
+		return new Promise(success=>{
+			wx.createSelectorQuery().selectViewport().scrollOffset(function(res){
+				//res.scrollLeft
+				//res.scrollTop
+				//res.id
+				//res.dataset
+				success({
+					left:res.scrollLeft,
+					top:res.scrollTop
+				});
+			}).exec();
+		});
 	}
 
 };

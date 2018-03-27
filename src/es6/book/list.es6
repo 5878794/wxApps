@@ -24,7 +24,7 @@ let page = {
 		}
 
 		this.setData({bookId:id});
-		this.setData({pageIsRun:true});
+
 
 
 
@@ -36,6 +36,14 @@ let page = {
 		app.setTitle(data.bookInfo.bookName);
 
 		await this.handlerReadedList(data,id);
+
+		//判断是否是非正常关闭
+		let readCatch = await app.getLocalData('readUrlCatch');
+		if(readCatch){
+			let id = readCatch.id,
+				url = readCatch.url;
+			app.openUrl('../info/index?bookId='+id+'&url='+url);
+		}
 
 	},
 	async checkIsShowAddBtn(bookId){
@@ -59,13 +67,17 @@ let page = {
 		// console.log(url,bookId)
 	},
 
-	onShow(){
-
+	async onShow(){
 		if(this.data.pageIsRun){
 			let id = this.data.bookId,
 				data = app.globalData[id];
 			this.handlerReadedList(data,id).then().catch();
+			app.delLocalData('readUrlCatch');
+		}else{
+			this.setData({pageIsRun:true});
 		}
+
+
 	},
 
 	async handlerReadedList(data,id){
@@ -76,16 +88,20 @@ let page = {
 		let isFind = false,
 			n = 0;
 		data.bookList.map((rs,i)=>{
-			if(!isFind){
-				if(rs.url == nowReadUrl){
-					isFind = true;
-					n = i;
-					rs.color = '#ccc';
-				}else{
-					rs.color = '#ccc';
-				}
-			}else{
+			if(!nowReadUrl){
 				rs.color = '#333';
+			}else{
+				if(!isFind){
+					if(rs.url == nowReadUrl){
+						isFind = true;
+						n = i;
+						rs.color = '#ccc';
+					}else{
+						rs.color = '#ccc';
+					}
+				}else{
+					rs.color = '#333';
+				}
 			}
 		});
 
@@ -95,10 +111,16 @@ let page = {
 		});
 
 
-		let domParam = await app.getDomParam('.list'),
-			domHeight = domParam.height;
-		//
-		app.scrollTo((n-2)*domHeight,0);
+		setTimeout(async function(){
+			let domParam = await app.getDomParam('.list'),
+				domHeight = domParam.height;
+			//
+
+			app.scrollTo((n-2)*domHeight,100);
+		},500)
+
+
+
 	},
 
 	//添加书籍到书架

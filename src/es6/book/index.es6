@@ -15,16 +15,25 @@ let page = {
 		]
 	},
 	async init(){
+
 		await this.createBookList();
-		this.setData({
-			pageIsRun:true
-		});
 
 
+
+		//判断是否是非正常关闭
+		let readCatch = await app.getLocalData('readUrlCatch');
+		if(readCatch){
+			let id = readCatch.id;
+			app.openUrl('../list/index?id='+id);
+		}
 	},
 	onShow(){
 		if(this.data.pageIsRun){
 			this.createBookList();
+		}else{
+			this.setData({
+				pageIsRun:true
+			});
 		}
 	},
 	async createBookList(){
@@ -131,7 +140,38 @@ let page = {
 			id = target.dataset.id;
 
 		app.openUrl('../list/index?id='+id);
+	},
+
+
+
+	async delBook(e){
+
+
+
+		let target = e.currentTarget,
+			id = target.dataset.id,
+			name = target.dataset.name;
+
+		app.confirm('确定要删除"'+name+'"吗？').then(async rs=>{
+			let old = await app.getLocalData('bookList') || [],
+				newData = [];
+
+			old.map(rs=>{
+				if(rs.id != id){
+					newData.push(rs);
+				}
+			});
+
+			await app.setLocalData('bookList',newData);
+			this.setData({
+				bookList:newData
+			});
+		}).catch(rs=>console.log(rs));
+
 	}
+
+
+
 };
 
 

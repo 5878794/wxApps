@@ -6,6 +6,8 @@ view(
     wx:key='item'
     data-id='{{item.id}}'
     bindtap='openList'
+    bindlongpress='delBook'
+    data-name='{{item.name}}'
 )
     view(class='boxflex1') {{item.name}}
     view(class='notReadNumber') {{item.notReadNumber}}

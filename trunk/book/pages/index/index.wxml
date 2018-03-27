@@ -1,4 +1,4 @@
-<view class="box_h row" wx:for="{{bookList}}" wx:key="item" data-id="{{item.id}}" bindtap="openList">
+<view class="box_h row" wx:for="{{bookList}}" wx:key="item" data-id="{{item.id}}" bindtap="openList" bindlongpress="delBook" data-name="{{item.name}}">
   <view class="boxflex1">{{item.name}}</view>
   <view class="notReadNumber">{{item.notReadNumber}}</view>
 </view>
