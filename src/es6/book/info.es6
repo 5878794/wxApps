@@ -145,7 +145,9 @@ let page = {
 	},
 
 	//下一章
-	showNext(){
+	async showNext(){
+		await app.delLocalData('readUrlCatch');
+
 		this.setData({
 			showSetFont:'none',
 			showSetBg:'none'
