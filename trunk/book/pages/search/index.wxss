@@ -84,3 +84,7 @@ view {
   padding: 0 20rpx;
   margin: 15rpx 0;
 }
+.search_btn:active,
+.list:active {
+  opacity: 0.6;
+}

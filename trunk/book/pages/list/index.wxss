@@ -72,3 +72,7 @@ view {
   position: relative;
   top: -5rpx;
 }
+.list:active,
+.addBook:active {
+  opacity: 0.6;
+}

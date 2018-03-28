@@ -168,6 +168,16 @@ let page = {
 			});
 		}).catch(rs=>console.log(rs));
 
+	},
+
+
+	touchstart(e){
+		console.log(e.target)
+	},
+
+
+	touchend(e){
+		console.log(e.target)
 	}
 
 

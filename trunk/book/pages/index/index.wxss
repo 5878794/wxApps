@@ -51,6 +51,9 @@ view {
   border-bottom: 1rpx solid #333;
   background: #fff;
 }
+.row:active {
+  opacity: 0.6;
+}
 .notReadNumber {
   width: 100rpx;
   text-align: right;
@@ -77,4 +80,8 @@ view {
 .searchBtn {
   background: #eee;
   color: #333;
+}
+.refreshBtn:active,
+.searchBtn:active {
+  opacity: 0.6;
 }

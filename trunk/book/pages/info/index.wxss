@@ -64,6 +64,11 @@ view {
   width: 33.33333%;
   height: 100rpx;
 }
+.set_font:active,
+.set_next:active,
+.set_font:active {
+  opacity: 0.6;
+}
 .set_font_main {
   width: 100%;
   height: 100rpx;
