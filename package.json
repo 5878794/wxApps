@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "js min": "webpack --display-error-details ",
-    "js dev": "webpack --display-error-details -d",
-    "jade": "pug -o ./trunk/  -P -w ./src/pug/.",
-    "jadeTemplate": "pug -c -D --name-after-file -o ./trunk/template  ./src/pug_template",
-    "browser-sync": "browser-sync start --server --files 'css/*.css,*.html'"
+    "js": "node ./cmd/es6_compile.es6 book",
+    "jade": "node ./cmd/pug_compile.es6 book ",
+    "less":"node ./cmd/less_compile.es6 book"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +19,7 @@
     "babel-preset-stage-3": "^6.22.0",
     "cheerio": "^1.0.0-rc.2",
     "fs": "0.0.1-security",
+    "html-to-json": "^0.6.0",
     "jade": "^1.11.0",
     "less": "^3.0.1",
     "less-plugin-functions": "^1.0.0",
