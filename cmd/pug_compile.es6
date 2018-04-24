@@ -45,6 +45,15 @@ let renderFn = function(projectName){
 		let $ = cheerio.load(html,{decodeEntities: false}),
 			titleName = $('title').text();
 		$('title').remove();
+
+		html = $('body').html();
+		//正则解析html中含id的标签头
+		let ids = html.match(/(?<=\bid\s*=\s*[\'\"]\s*)[a-z0-9_-]+(?=[\'\"])/ig);
+
+		//给带id的元素自动添加变量
+		addJQ($,ids);
+
+		//获取添加变量后的html
 		html = $('body').html();
 
 		//闭合input标签
@@ -53,6 +62,7 @@ let renderFn = function(projectName){
 
 		//闭合image
 		html = html.replace(/<img(.*?)>/gi ,"<image $1 />");
+
 
 
 		//生成目录
@@ -77,6 +87,18 @@ let renderFn = function(projectName){
 			}
 		});
 
+
+		//根据ids生成jq需要的附加data文件
+		// let jqFilePath = path.join(wxDir,'/'+projectName+'/pages/'+fileName+'/'+'jq_data.js'),
+		// 	jq_data_text = createDataText(ids);
+		// fs.writeFileSync(jqFilePath,jq_data_text,function(err){
+		// 	if(err){
+		// 		console.log(filePath+'    err!');
+		// 		console.log(err);
+		// 	}
+		// });
+
+
 		//提取title中的标题 生成json文件
 		let jsonText = {navigationBarTitleText:titleName};
 		jsonText = JSON.stringify(jsonText);
@@ -100,6 +122,43 @@ let renderFn = function(projectName){
 };
 
 
+var addJQ = function($,ids){
+
+
+	ids.map(id=>{
+		let obj = $('#'+id),
+			_class = obj.attr('class') || '',
+			_style = obj.attr('style') || '',
+			_data = obj.attr('data') || '',
+			_animation = obj.attr('animation') || '';
+
+		obj.attr({
+			class:_class+' {{__jq.'+id+'.class}}',
+			style:_style+' {{__jq.'+id+'.style}}',
+			data:_data+' {{__jq.'+id+'.data}}',
+			animation:_animation+' {{__jq.'+id+'.animation}}',
+		});
+	});
+
+
+
+};
+
+var createDataText = function(ids){
+	let data = {};
+	ids.map(id=>{
+		data[id] = {
+			animation:'',
+			class:'',
+			style:'',
+			data:'',
+		};
+	});
+	let tt = {__jq:data};
+	let text = 'module.exports='+JSON.stringify(tt)+'';
+
+	return text;
+};
 
 
 var arguments = process.argv.splice(2);

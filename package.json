@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "js": "node ./cmd/es6_compile.es6 book",
-    "jade": "node ./cmd/pug_compile.es6 book ",
-    "less":"node ./cmd/less_compile.es6 book"
+    "jade": "node ./cmd/pug_compile.es6 artSpace "
   },
   "author": "",
   "license": "ISC",
