@@ -128,15 +128,13 @@ var addJQ = function($,ids){
 	ids.map(id=>{
 		let obj = $('#'+id),
 			_class = obj.attr('class') || '',
-			_style = obj.attr('style') || '',
-			_data = obj.attr('data') || '',
-			_animation = obj.attr('animation') || '';
+			_style = obj.attr('style') || '';
 
 		obj.attr({
 			class:_class+' {{__jq.'+id+'.class}}',
 			style:_style+' {{__jq.'+id+'.style}}',
-			data:_data+' {{__jq.'+id+'.data}}',
-			animation:_animation+' {{__jq.'+id+'.animation}}',
+			data:'{{__jq.'+id+'.data}}',
+			animation:'{{__jq.'+id+'.animation}}',
 		});
 	});
 

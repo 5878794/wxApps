@@ -1,3 +1,27 @@
 .red{
     color:red;
+    text-align: center;
+     /* -webkit-animation:show_hide 1s cubic-bezier(0.4, 0.26, 0, 0.97) 1s infinite forwards;  */
+        /* animation:show_hide 1s cubic-bezier(0.4, 0.26, 0, 0.97) 1s infinite forwards; */
+
+}
+
+
+@-webkit-keyframes show_hide {
+    0% {
+        transform:scale(1); opacity:1;
+    }
+    100% {
+        transform:scale(2); opacity:0;
+    }
+}
+
+
+@keyframes show_hide {
+    0% {
+        transform:scale(1); opacity:1;
+    }
+    100% {
+        transform:scale(2);opacity:0;
+    }
 }

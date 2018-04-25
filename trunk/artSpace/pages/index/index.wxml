@@ -1,10 +1,10 @@
 <view class="top box_h">
-  <view class="top_home center {{__jq.home.class}}" id="home" style="color:red; {{__jq.home.style}}" data=" {{__jq.home.data}}" animation=" {{__jq.home.animation}}"></view>
+  <view class="top_home center {{__jq.home.class}}" id="home" style="color:red; {{__jq.home.style}}" data="{{__jq.home.data}}" animation="{{__jq.home.animation}}"></view>
   <view class="boxflex1"></view>
-  <view class="top_menu center {{__jq.menu.class}}" id="menu" style=" {{__jq.menu.style}}" data=" {{__jq.menu.data}}" animation=" {{__jq.menu.animation}}"></view>
+  <view class="top_menu center {{__jq.menu.class}}" id="menu" style=" {{__jq.menu.style}}" data="{{__jq.menu.data}}" animation="{{__jq.menu.animation}}"></view>
 </view>
 <view class="index_main box_s">
   <view class="index_img"></view>
-  <view class="index_btn {{__jq.open.class}}" id="open" style=" {{__jq.open.style}}" data=" {{__jq.open.data}}" animation=" {{__jq.open.animation}}">进入</view>
+  <view class="index_btn {{__jq.open.class}}" style="color:green; {{__jq.open.style}}" id="open" data="{{__jq.open.data}}" animation="{{__jq.open.animation}}">进入</view>
   <view class="index_bg"></view>
 </view>
