@@ -1,10 +1,11 @@
 <view class="top box_h">
-  <view class="top_home center {{__jq.home.class}}" id="home" style="color:red; {{__jq.home.style}}" data="{{__jq.home.data}}" animation="{{__jq.home.animation}}"></view>
+  <view class="top_home center {{__jq.home.class}}" id="home" style="color:red; {{__jq.home.style}}" data="{{__jq.home.data}}" animation="{{__jq.home.animation}}" bindtap="{{__jq.home.tap}}"></view>
   <view class="boxflex1"></view>
-  <view class="top_menu center {{__jq.menu.class}}" id="menu" style=" {{__jq.menu.style}}" data="{{__jq.menu.data}}" animation="{{__jq.menu.animation}}"></view>
+  <view class="top_menu center {{__jq.menu.class}}" id="menu" style=" {{__jq.menu.style}}" data="{{__jq.menu.data}}" animation="{{__jq.menu.animation}}" bindtap="{{__jq.menu.tap}}"></view>
 </view>
 <view class="index_main box_s">
   <view class="index_img"></view>
-  <view class="index_btn {{__jq.open.class}}" style="color:green; {{__jq.open.style}}" id="open" data="{{__jq.open.data}}" animation="{{__jq.open.animation}}">进入</view>
+  <view class="index_btn {{__jq.open.class}}" style="text-align:right; {{__jq.open.style}}" id="open" data="{{__jq.open.data}}" animation="{{__jq.open.animation}}" bindtap="{{__jq.open.tap}}">进入</view>
   <view class="index_bg"></view>
 </view>
+<view class="list diandian {{__jq.a.class}}" wx:for="{{bookList}}" data-url="{{index}}" id="a" style=" {{__jq.a.style}}" data="{{__jq.a.data}}" animation="{{__jq.a.animation}}" bindtap="{{__jq.a.tap}}">{{item}}</view>

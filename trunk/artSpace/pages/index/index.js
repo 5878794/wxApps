@@ -1,9 +1,17 @@
 const regeneratorRuntime = require('../../utils/libs/runtime.js');
 const jq = require('../../utils/libs/jq.js'); 
+const app =require('../../utils/app.js')
+
 global.jq = jq;
+global.app = app;
+
 Page({
     data:{
-        
+        bookList:[1,2,3]
+        // ccc:'aaa'
+    },
+    aaa(e){
+        console.log(e)
     },
     onLoad:function(){
         global.a = this;

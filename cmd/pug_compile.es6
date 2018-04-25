@@ -123,23 +123,20 @@ let renderFn = function(projectName){
 
 
 var addJQ = function($,ids){
-
-
 	ids.map(id=>{
 		let obj = $('#'+id),
 			_class = obj.attr('class') || '',
 			_style = obj.attr('style') || '';
+
 
 		obj.attr({
 			class:_class+' {{__jq.'+id+'.class}}',
 			style:_style+' {{__jq.'+id+'.style}}',
 			data:'{{__jq.'+id+'.data}}',
 			animation:'{{__jq.'+id+'.animation}}',
+			bindtap:'{{__jq.'+id+'.tap}}'
 		});
 	});
-
-
-
 };
 
 var createDataText = function(ids){

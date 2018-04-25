@@ -1,5 +1,10 @@
 let getParam = Symbol(),
-    setParam = Symbol();
+    setParam = Symbol(),
+    getDomParam = Symbol(),
+    createRadomNumber = Symbol(),
+    nu = 0;
+
+const regeneratorRuntime = require('./runtime.js');    
 
 class jq{
     constructor(id,obj){
@@ -185,6 +190,75 @@ class jq{
         return this;
 
     }
+
+    //获取id元素的属性
+    //获取class元素的属性
+    [getDomParam](id){
+        return new Promise(success=>{
+            let query = wx.createSelectorQuery();
+            query.select(id).boundingClientRect();
+            query.exec(function (res) {
+                if (res[0]) {
+                    success(res[0]);
+                }else{
+                    console.log('获取失败！');
+                    error('获取失败')
+                }
+            })
+        })
+    }
+
+    //获取id元素的宽度,获取class元素的属性(class为第一个元素)
+    //#ID 或 .class
+    async width(){
+        let domParam = await this[getDomParam]('#' + this.id);
+        return domParam.width;
+    }
+    async height(){
+        let domParam = await this[getDomParam]('#' + this.id);
+        return domParam.height;
+    }
+    async offset(){
+        let domParam = await this[getDomParam]('#' + this.id),
+            win = wx.getSystemInfoSync(),
+            winWidth = win.windowWidth,
+            winHeight = win.windowHeight;
+
+        return {
+            top: domParam.top,
+            left: domParam.left,
+            right: winWidth-domParam.right,
+            bottom:winHeight-domParam.bottom
+        }
+    }
+
+    //生成随机数
+    [createRadomNumber](){
+        let time = new Date().getTime(),
+            fn = 'fn'+time;
+        if(this.obj[fn]){
+            nu++;
+            fn = fn+""+nu;
+        }
+
+        return fn;    
+    }
+
+    tap(fn){
+        let fnName = this[createRadomNumber]();
+        this.obj[fnName] = function(e){
+            fn(e.currentTarget);
+        }
+
+        let tapName = this[getParam]('tap');
+        if(tapName){
+            this.obj[tapName] = null;
+        }
+
+        this[setParam]('tap',fnName);
+        return this;
+    }
+   
     
 }
 

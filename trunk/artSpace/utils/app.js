@@ -237,6 +237,13 @@ module.exports = {
                     top: res.scrollTop
                 });
             }).exec();
-        });
+        })
+    },
+
+
+    device(){
+        return wx.getSystemInfoSync();
     }
+
+
 };
