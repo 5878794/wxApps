@@ -9,3 +9,17 @@
   <view class="index_bg"></view>
 </view>
 <view class="list diandian {{__jq.a.class}}" wx:for="{{bookList}}" data-url="{{index}}" id="a" style=" {{__jq.a.style}}" data="{{__jq.a.data}}" animation="{{__jq.a.animation}}" bindtap="{{__jq.a.tap}}">{{item}}</view>
+
+
+
+
+<swiper indicator-dots="{{true}}"
+  autoplay="{{true}}" interval="{{5000}}" duration="{{1000}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item.imgUrl}}" data-url="{{item.src}}" class="slide-image" width="355" height="150" bindtap="go"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view>123</view>

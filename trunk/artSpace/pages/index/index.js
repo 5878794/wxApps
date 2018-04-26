@@ -7,7 +7,22 @@ global.app = app;
 
 Page({
     data:{
-        bookList:[1,2,3]
+        bookList:[1,2,3],
+        imgUrls:[
+            // {
+            //     imgUrl:'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+            //     src:'http://www.baidu.com'
+            // },
+            // {
+            //     imgUrl: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+            //     src:'#'
+            // },
+            // {
+            //     imgUrl: 'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg',
+            //     src:'http://bensxu.duapp.com'
+            // }
+            
+        ]
         // ccc:'aaa'
     },
     aaa(e){
@@ -49,5 +64,8 @@ Page({
                 success();
             },time)
         })
+    },
+    go(e){
+        console.log(e.target.dataset.url)
     }
 });
