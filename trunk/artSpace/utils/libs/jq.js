@@ -34,7 +34,7 @@ class jq{
         }
 
         oldData[this.id][type] = val;
-        console.log(oldData)
+        // console.log(oldData)
         this.obj.setData({ __jq:oldData});
     }
 
@@ -65,7 +65,7 @@ class jq{
             if(rs!=text){
                 newClass.push(rs);
             }
-        })
+        });
         newClass = newClass.join(' ');
 
 
@@ -89,7 +89,7 @@ class jq{
                     val = rs[1];
                 styleObj[key] = val;
             }
-        })
+        });
 
         
         if(typeof obj == 'string'){
@@ -182,7 +182,7 @@ class jq{
             'transition': 'all ' + time + 'ms ' + type,
             'transform-origin':'center center',
             '-webkit-transform-origin':'center center'
-        }
+        };
 
         let newObj = Object.assign(obj,animateObj);
 
@@ -248,7 +248,7 @@ class jq{
         let fnName = this[createRadomNumber]();
         this.obj[fnName] = function(e){
             fn(e.currentTarget);
-        }
+        };
 
         let tapName = this[getParam]('tap');
         if(tapName){

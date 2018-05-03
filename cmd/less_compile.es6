@@ -8,6 +8,7 @@ let lib = require('./fn.es6'),
 	fs = require('fs'),
 	path = require('path'),
 	glob = require("glob"),
+	less = require("less"),
 	exec = require('child_process').exec;
 
 
@@ -38,20 +39,85 @@ let renderFn = function(projectName){
 	entryFiles.map(filePath=>{
 		let fileName = filePath.replace(projectPath,"").split('.')[0],
 			outPath = path.join(wxDir,'/'+projectName+'/pages/'+fileName+'/'+'index'+'.wxss'),
-			cmdText = 'lessc '+filePath+' ' +outPath;
+			cmdText = 'lessc -x '+filePath+' ' +outPath;
 
 		runExec(cmdText);
 
 		console.log('ok  ' +filePath);
 	});
 
+
+};
+
+let renderPublish = async function(projectName){
+	let projectPath = lib.getProjectDirPath(lessDir,projectName);
+
+	let include = path.join(projectPath,'./include/');
+	let entryFiles = glob.sync(include+"*.less");
+
+	let outPath = path.join(wxDir,'/'+projectName+'/app.wxss'),
+		readText = [];
+
+	console.log(' ');
+
+	for(let i=0,l=entryFiles.length;i<l;i++){
+		let file = entryFiles[i],
+			text = await readFile(file),
+			css = await lessRender(text);
+
+		console.log(file);
+
+		readText.push(css);
+	}
+
+
+	let readText1 = readText.join('');
+
+	await writeFile(readText1,outPath);
+
 	console.log('------------------------------------------------------------------------');
-	console.log('less compile end');
+
+};
+
+
+let readFile = function(file){
+	return new Promise((success,error)=>{
+		fs.readFile(file,'utf-8',(err,data)=>{
+			if(err){
+				throw err;
+			}
+			success(data);
+
+		});
+	})
+};
+let lessRender = function(text){
+	return new Promise((success,error)=>{
+		less.render(text,{
+			compress:true
+		},(err,css)=>{
+			if(err){
+				throw err;
+			}
+			success(css.css);
+		})
+	})
+};
+let writeFile = function(text,path){
+	return new Promise((success,error)=>{
+		fs.writeFile(path,text,(err)=>{
+			if(err){
+				throw err;
+			}
+			success();
+		})
+	})
 };
 
 
 var arguments = process.argv.splice(2);
 arguments.map(pp=>{
 	renderFn(pp);
+	renderPublish(pp).then(rs=>{console.log('all ok')}).catch(rs=>console.log(rs));
 });
 
