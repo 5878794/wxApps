@@ -48,7 +48,7 @@ let renderFn = function(projectName){
 
 		html = $('body').html();
 		//正则解析html中含id的标签头
-		let ids = html.match(/(?<=\bid\s*=\s*[\'\"]\s*)[a-z0-9_-]+(?=[\'\"])/ig);
+		let ids = html.match(/(?<=\bid\s*=\s*[\'\"]\s*)[a-z0-9_-]+(?=[\s*\'\"])/ig);
 
 		//给带id的元素自动添加变量
 		addJQ($,ids);

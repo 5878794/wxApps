@@ -1,0 +1,76 @@
+@import "../fn/fn.less";
+
+page{
+    background: @pageBg;
+    font-family: 'Open Sans', sans-serif ;
+    color:#eee;
+    font-weight: 300;
+}
+
+
+//loading 页面
+.loading{
+    display: none;
+    width: 100%; position: fixed; z-index: 100000;
+    left:0; top:0; height: 100%;
+    background: @pageBg; color: #fff;
+    font-size: @fontSize1; line-height: @fontSize1;
+    letter-spacing:8rpx;
+}
+.loading_logo{
+    width: 34rpx; height: 60rpx; display: block;
+    margin-bottom: 60rpx;
+    -webkit-animation:logo_rotate 4s linear infinite;
+    animation:logo_rotate 4s linear infinite;
+}
+.loading_text1{
+    font-size: @fontSize4; letter-spacing: 14rpx;
+}
+.loading_pre{
+    margin-top: 60rpx;
+}
+
+
+@-webkit-keyframes logo_rotate {
+    0% {transform:rotate3d(0,0,0,0);}
+    25% {transform:rotate3d(0,0.5,0,180deg);}
+    50% {transform:rotate3d(0,0,0.5,180deg);}
+    75% {transform:rotate3d(0.5,0,0,180deg);}
+    100% {transform:rotate3d(0,0,0,180deg);}
+}
+@keyframes logo_rotate {
+    0% {transform:rotate3d(0,0,0,0)}
+    25% {transform:rotate3d(0,0.5,0,180deg);}
+    50% {transform:rotate3d(0,0,0.5,180deg);}
+    75% {transform:rotate3d(0.5,0,0,180deg);}
+    100% {transform:rotate3d(0,0,0,180deg);}
+}
+
+
+
+//顶部
+.top{
+    width: 100%; height: 90rpx; z-index: 50;
+    position: fixed; left:0; top:0;
+}
+.top_home,
+.top_menu{
+    width: 120rpx; height: 90rpx; background: @pageBg;
+}
+.top_home image{
+    width: 22rpx; height: 40rpx;
+}
+.top_menu image{
+    width: 30rpx; height: 30rpx;
+}
+
+.top_home:active image,
+.top_menu:active image{
+    transform:scale(0.8);
+}
+
+
+
+//菜单
+
+

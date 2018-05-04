@@ -1,19 +1,31 @@
 title ART SPACE
 
+include ./include/loading
 include ./include/top
-
-+top1()
-view(class='index_main box_s')
-    view(class='index_img')
-    view(class='index_btn' style='text-align:right;' id='open') 进入
-    view(class='index_bg')
+include ./include/menu
 
 
-view(   wx:for='{{bookList}}'
-        class='list diandian'
-        data-url='{{index}}'
-        id = 'a'
-    ) {{item}}
++loading()
++top()
++menu()
+
+
+view(class='index_main box_s center_s')
+    img(class='index_img' mode='aspectFit' src='../../image/index/title.png')
+    view(class='index_btn box_h center' id='open')
+        view O
+        view P
+        view E
+        view N
+        view(class='space')
+        view M
+        view E
+        view N
+        view U
+    view(class='boxflex1')
+    img(class='index_bg' mode='aspectFit' src='../../image/index/bg.png')
+
+
 
 
 

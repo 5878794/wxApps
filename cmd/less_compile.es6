@@ -63,7 +63,7 @@ let renderPublish = async function(projectName){
 	for(let i=0,l=entryFiles.length;i<l;i++){
 		let file = entryFiles[i],
 			text = await readFile(file),
-			css = await lessRender(text);
+			css = await lessRender(text,file);
 
 		console.log(file);
 
@@ -72,7 +72,6 @@ let renderPublish = async function(projectName){
 
 
 	let readText1 = readText.join('');
-
 	await writeFile(readText1,outPath);
 
 	console.log('------------------------------------------------------------------------');
@@ -84,6 +83,7 @@ let readFile = function(file){
 	return new Promise((success,error)=>{
 		fs.readFile(file,'utf-8',(err,data)=>{
 			if(err){
+				error(err);
 				throw err;
 			}
 			success(data);
@@ -91,12 +91,19 @@ let readFile = function(file){
 		});
 	})
 };
-let lessRender = function(text){
+let lessRender = function(text,file){
+	file = file.substr(0,file.lastIndexOf('/'));
+	text = text.replace(/(?<=import\s*[\'\"]\s*)[a-z0-9_\-\.\\\/]+(?=[\s*\'\"])/ig,function(tt){
+		console.log(tt,file)
+		return path.join(file,tt);
+	});
+
 	return new Promise((success,error)=>{
 		less.render(text,{
 			compress:true
 		},(err,css)=>{
 			if(err){
+				error(err);
 				throw err;
 			}
 			success(css.css);
@@ -107,6 +114,7 @@ let writeFile = function(text,path){
 	return new Promise((success,error)=>{
 		fs.writeFile(path,text,(err)=>{
 			if(err){
+				error(err);
 				throw err;
 			}
 			success();

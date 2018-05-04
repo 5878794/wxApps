@@ -1,11 +1,28 @@
+<view class="loading box_s center {{__jq.loading.class}}" id="loading" style=" {{__jq.loading.style}}" data="{{__jq.loading.data}}" animation="{{__jq.loading.animation}}" bindtap="{{__jq.loading.tap}}"><image  class="loading_logo" src="../../image/logo.png" mode="aspectFit" />
+  <view class="loading_text">AURA SPACE</view>
+  <view class="loading_text1">THE WORLD OF ART</view>
+  <view class="loading_pre">{{loading_pre}}</view>
+</view>
 <view class="top box_h">
-  <view class="top_home center {{__jq.home.class}}" id="home" style="color:red; {{__jq.home.style}}" data="{{__jq.home.data}}" animation="{{__jq.home.animation}}" bindtap="{{__jq.home.tap}}"></view>
+  <view class="top_home center {{__jq.home.class}}" id="home" style=" {{__jq.home.style}}" data="{{__jq.home.data}}" animation="{{__jq.home.animation}}" bindtap="{{__jq.home.tap}}"><image  class="hover_animate" src="../../image/logo.png" mode="aspectFit" /></view>
   <view class="boxflex1"></view>
-  <view class="top_menu center {{__jq.menu.class}}" id="menu" style=" {{__jq.menu.style}}" data="{{__jq.menu.data}}" animation="{{__jq.menu.animation}}" bindtap="{{__jq.menu.tap}}"></view>
+  <view class="top_menu center {{__jq.menu.class}}" id="menu" style=" {{__jq.menu.style}}" data="{{__jq.menu.data}}" animation="{{__jq.menu.animation}}" bindtap="{{__jq.menu.tap}}"><image  class="hover_animate" src="../../image/menu.png" mode="aspectFit" /></view>
 </view>
-<view class="index_main box_s">
-  <view class="index_img"></view>
-  <view class="index_btn {{__jq.open.class}}" style="text-align:right; {{__jq.open.style}}" id="open" data="{{__jq.open.data}}" animation="{{__jq.open.animation}}" bindtap="{{__jq.open.tap}}">进入</view>
-  <view class="index_bg"></view>
+<view class="menu">
+  <view class="menu_close"></view>
+  <view class="menu_main"></view>
 </view>
-<view class="list diandian {{__jq.a.class}}" wx:for="{{bookList}}" data-url="{{index}}" id="a" style=" {{__jq.a.style}}" data="{{__jq.a.data}}" animation="{{__jq.a.animation}}" bindtap="{{__jq.a.tap}}">{{item}}</view>
+<view class="index_main box_s center_s"><image  class="index_img" mode="aspectFit" src="../../image/index/title.png" />
+  <view class="index_btn box_h center {{__jq.open.class}}" id="open" style=" {{__jq.open.style}}" data="{{__jq.open.data}}" animation="{{__jq.open.animation}}" bindtap="{{__jq.open.tap}}">
+    <view>O</view>
+    <view>P</view>
+    <view>E</view>
+    <view>N</view>
+    <view class="space"></view>
+    <view>M</view>
+    <view>E</view>
+    <view>N</view>
+    <view>U</view>
+  </view>
+  <view class="boxflex1"></view><image  class="index_bg" mode="aspectFit" src="../../image/index/bg.png" />
+</view>
