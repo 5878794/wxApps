@@ -1,4 +1,9 @@
 mixin menu()
     view(class='menu')
-        view(class='menu_close')
-        view(class='menu_main')
+        view(class='menu_body')
+            img(class='menu_close hove_animate' mode='aspectFit' src='../../image/close.png')
+            view(class='menu_main')
+                //当前页面显示加 class='select'
+                view(class='menu_item box_h' data-url='{{list.url}}' wx:for='{{menu}}' wx:for-key='index' wx:for-item='list')
+                    view(wx:for='{{list.name}}' wx:for-item='text'  class="{{ (text ==' ') ? 'space' : '' }}") {{text}}
+

@@ -9,8 +9,14 @@
   <view class="top_menu center {{__jq.menu.class}}" id="menu" style=" {{__jq.menu.style}}" data="{{__jq.menu.data}}" animation="{{__jq.menu.animation}}" bindtap="{{__jq.menu.tap}}"><image  class="hover_animate" src="../../image/menu.png" mode="aspectFit" /></view>
 </view>
 <view class="menu">
-  <view class="menu_close"></view>
-  <view class="menu_main"></view>
+  <view class="menu_body"><image  class="menu_close hove_animate" mode="aspectFit" src="../../image/close.png" />
+    <view class="menu_main">
+      <!--当前页面显示加 class='select'-->
+      <view class="menu_item box_h" data-url="{{list.url}}" wx:for="{{menu}}" wx:for-key="index" wx:for-item="list">
+        <view class="{{ (text ==' ') ? 'space' : '' }}" wx:for="{{list.name}}" wx:for-item="text">{{text}}</view>
+      </view>
+    </view>
+  </view>
 </view>
 <view class="index_main box_s center_s"><image  class="index_img" mode="aspectFit" src="../../image/index/title.png" />
   <view class="index_btn box_h center {{__jq.open.class}}" id="open" style=" {{__jq.open.style}}" data="{{__jq.open.data}}" animation="{{__jq.open.animation}}" bindtap="{{__jq.open.tap}}">
