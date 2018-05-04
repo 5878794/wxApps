@@ -1,0 +1,13 @@
+<view class="show_title">
+  <view class="show_title_name">AURA SHOW</view>
+  <view class="show_title_number box_h">/ {{list.length}} projects</view>
+</view>
+<view class="show_main">
+  <view class="show_list" wx:for="{{list}}" wx:key="index" wx:item="item">
+    <view class="hover_animate">{{item.year}}</view>
+    <view class="hover_animate list_area">{{item.name}}</view>
+    <view class="hover_animate">{{item.msg}}</view>
+    <view class="show_list_line hover_animate"></view>
+    <view class="show_img"><image  src="../../{{item.img}}" mode="widthFix" /></view>
+  </view>
+</view>

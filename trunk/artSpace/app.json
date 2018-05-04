@@ -1,6 +1,11 @@
 {
   "pages":[
+
+    "pages/show/index",
     "pages/index/index"
+
+
+
   ],
   "window":{
     "backgroundTextStyle":"#ffffff",
