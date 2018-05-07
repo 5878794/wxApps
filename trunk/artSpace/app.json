@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/artist/index",
     "pages/show_info/index",
     "pages/show/index",
     "pages/index/index"

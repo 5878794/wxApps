@@ -1,0 +1,28 @@
+title ARTIST
+
+include ./include/loading
+include ./include/top
+include ./include/menu
+
+
++loading()
++top()
++menu()
+
+
+view(class='show_title')
+    view(class='show_title_name') ARTIST
+    view(class='show_title_number box_h') / {{list.length}} peoples
+
+
+view(class='show_main')
+    view(class='show_list' data-id='{{item.id}}' wx:for='{{list}}' wx:key='index' wx:item='item')
+        view(class='show_list_names')
+            view(class='hover_animate list_name') {{item.name1}}
+            view(class='hover_animate list_area') {{item.name2}}
+        view(class='show_list_line hover_animate')
+        view(class='show_img')
+            img(src='http://bensxu.duapp.com/h5/artSpace/{{item.image}}' mode='widthFix')
+
+
+
