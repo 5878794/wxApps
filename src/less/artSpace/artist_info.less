@@ -1,0 +1,56 @@
+@import "./fn/fn.less";
+
+.show_title{
+  display: inline-block;
+  padding: 100rpx 40rpx 0 40rpx;
+  letter-spacing: 6rpx;
+  max-width:100%;
+  word-break: break-all;
+}
+.show_title_name{
+  font-size: @fontSizeTitle;
+}
+.show_title_number{
+  display: block;
+  width: auto;
+  max-width: 100%;
+  text-align: right;
+  padding-bottom: 40rpx;
+  color:@fontSelectColor;
+  font-size: @fontSize3;
+}
+
+.show_main{
+  padding: 60rpx 40rpx 0 40rpx;
+}
+.show_list{
+    display: block; margin: 20rpx 0;
+}
+.show_list image{
+   width: 100%;
+}
+
+
+.show_text{
+   font-size: @fontSize3; color: @fontColor; line-height: 150%;
+   width: 90%; margin: 0 auto;
+}
+.show_text_main{
+   height: 0; overflow: hidden; opacity:0;
+}
+.show_text_arrow{
+   width: 100%; height: 100rpx;
+}
+.show_text_arrow image{
+   display: block; width:72rpx; height: 64rpx;
+  -webkit-transform: scale(0.5) rotate(90deg);
+  transform: scale(0.5) rotate(90deg);
+}
+.select .show_text_main{
+   height:auto;  opacity:1;
+}
+.select .show_text_arrow image{
+  -webkit-transform: scale(0.5) rotate(-90deg);
+  transform: scale(0.5) rotate(-90deg);
+}
+
