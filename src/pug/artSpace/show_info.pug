@@ -1,0 +1,41 @@
+title ART SPACE
+
+include ./include/loading
+include ./include/top
+include ./include/menu
+include ./include/bottom
+
+
++loading()
++top()
++menu()
+
+
+
+
+
+view(class='show_info_top')
+    view(class='show_info_bg' )
+        img(src='{{imgUrl}}')
+
+    view(class='show_info_main')
+        view(class='show_info_texts' id='texts')
+            view(class='show_info_title') {{title}}
+            view(class='show_info_title1') {{title1}}
+            view(class='show_info_address' wx:for='{{address}}' wx:key='index1')
+                view {{item}}
+            view(class='show_info_name') {{name}}
+            view(class='show_info_date') {{date}}
+        img(class='show_info_img' src='{{imgUrl}}' mode='widthFix')
+
+
+view(class='show_info_bottom')
+    view(class='show_info_info' wx:for='{{info}}' wx:key='index1')
+        view {{item}}
+    view(class='show_info_btn hover_animate' id='go_action') CONTACT
+
+
++bottom()
+
+
+

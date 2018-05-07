@@ -49,7 +49,7 @@ module.exports = {
 			]
 		},
 		{
-			id:1,
+			id:2,
 			img:'image/show/1.jpg',
 
 			//列表上显示
@@ -72,7 +72,7 @@ module.exports = {
 			]
 		},
 		{
-			id:1,
+			id:3,
 			img:'image/show/1.jpg',
 
 			//列表上显示

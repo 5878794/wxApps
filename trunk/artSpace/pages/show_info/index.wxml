@@ -18,16 +18,36 @@
     </view>
   </view>
 </view>
-<view class="show_title">
-  <view class="show_title_name">AURA SHOW</view>
-  <view class="show_title_number box_h">/ {{list.length}} projects</view>
-</view>
-<view class="show_main">
-  <view class="show_list" data-id="{{item.id}}" wx:for="{{list}}" wx:key="index" wx:item="item">
-    <view class="hover_animate">{{item.year}}</view>
-    <view class="hover_animate list_area">{{item.name}}</view>
-    <view class="hover_animate">{{item.msg}}</view>
-    <view class="show_list_line hover_animate"></view>
-    <view class="show_img"><image  src="../../{{item.img}}" mode="widthFix" /></view>
+<view class="show_info_top">
+  <view class="show_info_bg"><image  src="{{imgUrl}}" /></view>
+  <view class="show_info_main">
+    <view class="show_info_texts {{__jq.texts.class}}" id="texts" style=" {{__jq.texts.style}}" data="{{__jq.texts.data}}" animation="{{__jq.texts.animation}}" bindtap="{{__jq.texts.tap}}">
+      <view class="show_info_title">{{title}}</view>
+      <view class="show_info_title1">{{title1}}</view>
+      <view class="show_info_address" wx:for="{{address}}" wx:key="index1">
+        <view>{{item}}</view>
+      </view>
+      <view class="show_info_name">{{name}}</view>
+      <view class="show_info_date">{{date}}</view>
+    </view><image  class="show_info_img" src="{{imgUrl}}" mode="widthFix" />
   </view>
+</view>
+<view class="show_info_bottom">
+  <view class="show_info_info" wx:for="{{info}}" wx:key="index1">
+    <view>{{item}}</view>
+  </view>
+  <view class="show_info_btn hover_animate {{__jq.go_action.class}}" id="go_action" style=" {{__jq.go_action.style}}" data="{{__jq.go_action.data}}" animation="{{__jq.go_action.animation}}" bindtap="{{__jq.go_action.tap}}">CONTACT</view>
+</view>
+<view class="bottom box_h">
+  <view></view>
+  <view>A</view>
+  <view>U</view>
+  <view>R</view>
+  <view>A</view>
+  <view>S</view>
+  <view>P</view>
+  <view>A</view>
+  <view>C</view>
+  <view>E</view>
+  <view></view>
 </view>
