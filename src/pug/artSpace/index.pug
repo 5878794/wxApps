@@ -5,25 +5,27 @@ include ./include/top
 include ./include/menu
 
 
+
 +loading()
-+top()
-+menu()
+view(id='page')
+    +top()
+    +menu()
 
 
-view(class='index_main box_s center_s')
-    img(class='index_img' mode='aspectFit' src='../../image/index/title.png')
-    view(class='index_btn box_h center' id='open')
-        view O
-        view P
-        view E
-        view N
-        view(class='space')
-        view M
-        view E
-        view N
-        view U
-    view(class='boxflex1')
-    img(class='index_bg' mode='aspectFit' src='../../image/index/bg.png')
+    view(class='index_main box_s center_s')
+        img(class='index_img' mode='aspectFit' src='../../image/index/title.png')
+        view(class='index_btn box_h center' id='open' data-id='aaa')
+            view O
+            view P
+            view E
+            view N
+            view(class='space')
+            view M
+            view E
+            view N
+            view U
+        view(class='boxflex1')
+        img(class='index_bg' mode='aspectFit' src='http://bensxu.duapp.com/h5/artSpace/image/index/bg.png')
 
 
 

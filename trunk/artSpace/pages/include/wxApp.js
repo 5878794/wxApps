@@ -3,8 +3,8 @@ const pageFn = require('./pagePublish');
 
 module.exports = {
     ready(obj){
-        let newObj = Object.assign(obj,pageFn);
-        Page(newObj);
+        obj = Object.assign(obj,pageFn);
+        Page(obj);
     },
 
 

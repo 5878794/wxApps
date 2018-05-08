@@ -1,5 +1,9 @@
 @import "../fn/fn.less";
 
+page > view{
+    opacity: 0;
+}
+
 page{
     background: @pageBg;
     font-family: 'Open Sans', sans-serif ;
@@ -74,12 +78,14 @@ page{
 //菜单
 .menu{
     position: fixed; left:0; top:0; width: 100%; height: 100%;
-    z-index: 999; background: rgba(0,0,0,0.5); display: none;
+    z-index: 999; background: rgba(0,0,0,0); display: none;
 }
 .menu_body{
     box-sizing: border-box; padding: 80rpx; width: auto; height: 100%;
     position: fixed; right:0; top:0; font-size: @fontSize3;
     background: @pageBg; color: @fontColor;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
 }
 .menu_close{
     position: absolute; left:0; top:0; width: 61rpx; height: 61rpx;

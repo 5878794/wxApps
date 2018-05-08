@@ -16,7 +16,8 @@ class jq{
 
     //获取参数
     [getParam](type){
-        let oldData = this.obj.data.__jq || {};
+        let oldData = this.obj.data || {};
+        oldData = oldData.__jq || {};
         oldData = oldData[this.id] || {};
         oldData = oldData[type] || ''; 
 
@@ -28,7 +29,8 @@ class jq{
 
     //设置参数
     [setParam](type,val){
-        let oldData = this.obj.data.__jq || {};
+        let oldData = this.obj.data || {};
+        oldData = oldData.__jq || {};
         if(!oldData[this.id]){
             oldData[this.id] = {};
         }
@@ -177,6 +179,7 @@ class jq{
 
     //css动画
     cssAnimate(obj,time='1000',type='linear',callback){
+        callback = callback || function(){};
         let animateObj = {
             '-webkit-transition': 'all ' + time+'ms '+type,
             'transition': 'all ' + time + 'ms ' + type,
@@ -187,6 +190,11 @@ class jq{
         let newObj = Object.assign(obj,animateObj);
 
         this.css(newObj);
+
+        setTimeout(function(){
+            callback();
+        },time);
+
         return this;
 
     }
@@ -247,7 +255,7 @@ class jq{
     tap(fn){
         let fnName = this[createRadomNumber]();
         this.obj[fnName] = function(e){
-            fn(e.currentTarget);
+            fn(e);
         };
 
         let tapName = this[getParam]('tap');
