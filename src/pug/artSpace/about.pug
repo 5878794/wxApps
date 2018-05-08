@@ -1,0 +1,36 @@
+title ABOUT
+
+include ./include/loading
+include ./include/top
+include ./include/menu
+include ./include/bottom
+
+
++loading()
++top()
++menu()
+
+
+view(class='about_title')
+    view welcome to
+    view the world of art
+view(class='about_info')
+    view Aura space is located in the global center of
+    view chengdu.China.
+view(class='about_img')
+    image(src='http://bensxu.duapp.com/h5/artSpace/image/about/img.png' mode='widthFix')
+
+swiper(class='about_banner' indicator-dots='false' autoplay='true' duration='1000' interval='5000')
+    block(wx:for='{{banner}}' wx:key='index')
+        swiper-item
+            img(src='http://bensxu.duapp.com/h5/artSpace/{{item}}' mode='widthFix')
+
+view(class='about_text')
+    view(wx:for='{{text}}' wx:key='index') {{item}}
+
+
+
++bottom()
+
+
+
