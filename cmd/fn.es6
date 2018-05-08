@@ -11,7 +11,6 @@ module.exports = {
 		let files = fs.readdirSync(dirPath),
 			backData = null;
 
-
 		files.map(all=>{
 				//实际地址
 			let thisPath = path.join(dirPath,all,'/'),

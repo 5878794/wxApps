@@ -1,7 +1,7 @@
-const regeneratorRuntime = require('./../include/runtime');
-const jq = require('./../include/jq');
-const wxApp = require('./../include/wxApp');
-const data = require('./../include/art_space_data');
+const regeneratorRuntime = require('./include/runtime');
+const jq = require('./include/jq');
+const wxApp = require('./include/wxApp');
+const data = require('./include/art_space_data');
 
 
 wxApp.ready({
@@ -17,16 +17,10 @@ wxApp.ready({
 		],
 
 
-		list:[],
-		nowImgSrc:''
+
 	},
 	onLoad:function(){
 
-		let data = this.getData();
-		this.setData({
-			list:data,
-			nowImgSrc:data[0]
-		});
 
 		// let newMenuData = [];
 		// this.data.menu1.map(rs=>{
@@ -38,12 +32,5 @@ wxApp.ready({
 		// });
 		// console.log(newMenuData)
 		// this.setData({menu:newMenuData});
-	},
-	getData(){
-		return data.pavilion;
-	},
-	imageLoad(e){
-		console.log(e.detail.width)
-		console.log(e.detail.height)
 	}
 });

@@ -1,7 +1,7 @@
-const regeneratorRuntime = require('./../include/runtime');
-const jq = require('./../include/jq');
-const wxApp = require('./../include/wxApp');
-const data = require('./../include/art_space_data');
+const regeneratorRuntime = require('./include/runtime');
+const jq = require('./include/jq');
+const wxApp = require('./include/wxApp');
+const data = require('./include/art_space_data');
 
 
 wxApp.ready({
@@ -16,17 +16,22 @@ wxApp.ready({
 			{name:'CONTACT',url:'666'}
 		],
 
+		list:{
+			text:[],
+			name:'',
+			works:[]
+		}
 
-		list:[],
-		nowImgSrc:''
+
+
 	},
-	onLoad:function(){
+	onLoad:function(opt){
 
-		let data = this.getData();
+		let data = this.getPageData(opt.id);
 		this.setData({
-			list:data,
-			nowImgSrc:data[0]
+			list:data
 		});
+
 
 		// let newMenuData = [];
 		// this.data.menu1.map(rs=>{
@@ -39,11 +44,15 @@ wxApp.ready({
 		// console.log(newMenuData)
 		// this.setData({menu:newMenuData});
 	},
-	getData(){
-		return data.pavilion;
-	},
-	imageLoad(e){
-		console.log(e.detail.width)
-		console.log(e.detail.height)
+	getPageData(id){
+		id = id || 2;
+		let pageData = null;
+		data.artist.map(rs=>{
+			if(rs.id == id){
+				pageData = rs;
+			}
+		});
+
+		return pageData;
 	}
 });

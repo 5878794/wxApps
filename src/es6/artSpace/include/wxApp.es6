@@ -1,4 +1,13 @@
+const pageFn = require('./pagePublish');
+
+
 module.exports = {
+    ready(obj){
+        let newObj = Object.assign(obj,pageFn);
+        Page(newObj);
+    },
+
+
     //ajax promise
     // opt={
     //     url:'',  //@param:str

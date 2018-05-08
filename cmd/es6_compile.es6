@@ -2,7 +2,9 @@ let lib = require('./fn.es6'),
 	webpack = require('webpack'),
 	path = require('path'),
 	glob = require("glob"),
-	es6Dir = path.join(__dirname,'../src/es6/');
+	fs = require("fs"),
+	es6Dir = path.join(__dirname,'../src/es6/'),
+	jsDir = path.join(__dirname,'../trunk/');
 
 
 
@@ -11,23 +13,23 @@ let lib = require('./fn.es6'),
 
 
 //获取es6文件列表
-let getEs6FileList = function(projectName){
-	let projectPath = lib.getProjectDirPath(es6Dir,projectName);
-
-
-	let files = glob.sync(projectPath+"*.es6"),
-		obj = {};
-
-	files.map(filePath=>{
-		let fileName = filePath.replace(projectPath,"").split('.')[0],
-			key = 'trunk/'+projectName+'/pages/'+fileName+'/'+'index';
-
-		obj[key] = filePath;
-	});
-
-
-	return obj;
-};
+// let getEs6FileList = function(projectName){
+// 	let projectPath = lib.getProjectDirPath(es6Dir,projectName);
+//
+//
+// 	let files = glob.sync(projectPath+"*.es6"),
+// 		obj = {};
+//
+// 	files.map(filePath=>{
+// 		let fileName = filePath.replace(projectPath,"").split('.')[0],
+// 			key = 'trunk/'+projectName+'/pages/'+fileName+'/'+'index';
+//
+// 		obj[key] = filePath;
+// 	});
+//
+//
+// 	return obj;
+// };
 
 
 
@@ -121,32 +123,79 @@ let param = {
 };
 
 
+// let renderFn = function(projectName){
+// 	console.log('编译 '+projectName+' 下的es6');
+// 	console.log('------------------------------------------------------------------------');
+
+// 	//生成不同的文件编译对象
+// 	param.entry = getEs6FileList(projectName);
+//
+// 	for(let values of Object.values(param.entry)){
+// 		console.log(values);
+// 	}
+// 	console.log('------------------------------------------------------------------------');
+//
+//
+// 	let compiler = webpack(param);
+// 	compiler.run((err, stats) => {
+// 		if(err){
+// 			console.log(err);
+// 		}
+// 		// console.log('----------');
+// 		// console.log(stats);
+//
+//
+// 		console.log('es6 compile end');
+// 	});
+// };
+
+
+
+
+
+
 let renderFn = function(projectName){
 	console.log('编译 '+projectName+' 下的es6');
 	console.log('------------------------------------------------------------------------');
 
-	//生成不同的文件编译对象
-	param.entry = getEs6FileList(projectName);
+	//拷贝页面文件
+	let projectPath = lib.getProjectDirPath(es6Dir,projectName),
+		files = glob.sync(projectPath+"*.es6");
 
-	for(let values of Object.values(param.entry)){
-		console.log(values);
+	//简单拷贝es6文件到指定位置，并修改文件后缀名
+	files.map(rs=>{
+		console.log(rs);
+		let filename = rs.replace(projectPath,'').split('.')[0],
+			descPath = path.join(jsDir,projectName,'pages',filename,'index.js');
+
+		let text = fs.readFileSync(rs,'utf-8');
+		text = text.replace(/[\.\/]*include/ig,'./../include');
+		fs.writeFileSync(descPath,text);
+	});
+
+
+	//拷贝公共类文件
+	let libPath = path.join(projectPath,'include'),
+		libFiles = glob.sync(libPath+"/*.es6"),
+		descLib = path.join(jsDir,projectName,'pages','include');
+
+	if(!fs.existsSync(descLib)){
+		fs.mkdirSync(descLib);
 	}
+
+	//拷贝到pages下面
+	libFiles.map(rs=>{
+		let filename = rs.replace(libPath,'').split('.')[0],
+			descPath = path.join(descLib,filename+'.js');
+		fs.copyFileSync(rs,descPath);
+	});
+
+
+
+
 	console.log('------------------------------------------------------------------------');
 
-
-	let compiler = webpack(param);
-	compiler.run((err, stats) => {
-		if(err){
-			console.log(err);
-		}
-		// console.log('----------');
-		// console.log(stats);
-
-
-		console.log('es6 compile end');
-	});
 };
-
 
 
 

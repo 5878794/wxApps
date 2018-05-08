@@ -1,13 +1,10 @@
-const regeneratorRuntime = require('../../utils/runtime.js');
-const jq = require('../../utils/jq.js');
-const wxApp =require('../../utils/wxApp.js');
-const pageFn = require('../../utils/pagePublish');
-const data = require('../../utils/art_space_data');
+const regeneratorRuntime = require('./../include/runtime');
+const jq = require('./../include/jq');
+const wxApp = require('./../include/wxApp');
+const data = require('./../include/art_space_data');
 
-global.jq = jq;
-global.app = wxApp;
 
-Page({
+wxApp.ready({
 	data:{
 		loading_pre:10,
 		menu:[
