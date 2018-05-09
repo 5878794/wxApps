@@ -4,6 +4,6 @@ mixin menu()
             img(id='menu_close' class='menu_close hove_animate' mode='aspectFit' src='../../image/close.png')
             view(class='menu_main')
                 //当前页面显示加 class='select'
-                view(class='menu_item box_h' data-url='{{list.url}}' wx:for='{{menu}}' wx:key='index1' wx:for-item='list')
+                view(class='menu_item box_h' id='menu_list' data-url='{{list.url}}' wx:for='{{menu}}' wx:key='index1' wx:for-item='list')
                     view(wx:for='{{list.name}}' wx:key='index2'  wx:for-item='text'  class="{{ (text ==' ') ? 'space' : '' }}") {{text}}
 

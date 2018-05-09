@@ -73,6 +73,12 @@ module.exports = {
 		jq(this,'menu_close').tap(function(){
 			_this.hideMenu();
 		});
+
+		jq(this,'menu_list').tap(function(e){
+			let url = e.currentTarget.dataset.url;
+			console.log(url)
+
+		});
 	},
 	showMenu(){
 		let _this = this;
