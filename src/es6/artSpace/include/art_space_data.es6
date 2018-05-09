@@ -2,6 +2,14 @@
 
 
 module.exports = {
+	menu:[
+		{name:'HOME PAGE',url:'index'},
+		{name:'ART SHOW',url:'show'},
+		{name:'ARTIST',url:'artist'},
+		{name:'GALLERY',url:'gallery'},
+		{name:'ABOUT AURA',url:'about'},
+		{name:'CONTACT',url:'contact'}
+	],
 	//展馆图片  大小 2000*1333
 	pavilion:[
 		'image/pavilion/p1.jpg',

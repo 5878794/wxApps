@@ -49,9 +49,19 @@ let renderFn = function(projectName){
 		html = $('body').html();
 		//正则解析html中含id的标签头
 		let ids = html.match(/(?<=\bid\s*=\s*[\'\"]\s*)[a-z0-9_-]+(?=[\s*\'\"])/ig);
-
+		// let idss = html.match(/(?<=\bids\s*=\s*[\'\"]\s*)[a-z0-9_-]+(?=[\s*\'\"])/ig);
 		//给带id的元素自动添加变量
 		addJQ($,ids);
+
+
+		// let classObj = addJQS($,idss);
+		//
+		// //添加1个隐藏的dom记录ids的种类和数量
+		// let view = $('<view id="__class_total__" style="width:0;height: 0;display: none;"></view>');
+		// classObj.map(_class=>{
+		// 	view.attr(_class);
+		// });
+		// $('body').append(view);
 
 		//获取添加变量后的html
 		html = $('body').html();
@@ -135,9 +145,46 @@ var addJQ = function($,ids){
 				style:_style+' {{__jq.'+id+'.style}}',
 				data:'{{__jq.'+id+'.data}}',
 				animation:'{{__jq.'+id+'.animation}}',
-				bindtap:'{{__jq.'+id+'.tap}}'
+				catchtap:'{{__jq.'+id+'.catch_tap}}'
 			});
 		});
+	}
+};
+
+var addJQS = function($,idss){
+
+	if(idss){
+		//h5方式去重
+		idss = [...new Set(idss)];
+		let totalObj = [];
+
+		idss.map(ids=>{
+			let obj = $('view[ids="'+ids+'"]');
+
+			for(let i=0,l=obj.length;i<l;i++){
+				let _obj = obj.eq(i),
+					_class = _obj.attr('class') || '',
+					_style = _obj.attr('style') || '',
+					n = 'n'+i;
+
+				_obj.attr({
+					class:_class+' {{__jq.'+ids+'.'+n+'.class}}',
+					style:_style+' {{__jq.'+ids+'.'+n+'.style}}',
+					data:'{{__jq.'+ids+'.'+n+'.data}}',
+					animation:'{{__jq.'+ids+'.'+n+'.animation}}',
+					catchtap:'{{__jq.'+ids+'.'+n+'.catch_tap}}'
+				});
+
+			}
+
+			let __obj__ = {};
+			__obj__['data-'+ids] = obj.length;
+			totalObj.push(__obj__);
+		});
+
+		return totalObj;
+	}else{
+		return [];
 	}
 };
 

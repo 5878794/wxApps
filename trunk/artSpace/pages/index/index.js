@@ -18,21 +18,7 @@ wxApp.ready({
 	addEvent(){
 		let _this = this;
 		jq(_this,'open').tap(function(){
-			jq(_this,'menu').css({
-				display:'block'
-			});
-
-			setTimeout(function(){
-				jq(_this,'menu').cssAnimate({
-					background:'rgba(0,0,0,0.5)'
-				},500,'linear',function(){
-					jq(_this,'menu_body').cssAnimate({
-						transform:'translateX(0)'
-					},500,'linear')
-				});
-			},10)
-
-
+			_this.showMenu();
 		});
 	}
 });

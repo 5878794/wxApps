@@ -252,18 +252,19 @@ class jq{
         return fn;    
     }
 
+    //不冒泡的事件
     tap(fn){
         let fnName = this[createRadomNumber]();
         this.obj[fnName] = function(e){
             fn(e);
         };
 
-        let tapName = this[getParam]('tap');
+        let tapName = this[getParam]('catch_tap');
         if(tapName){
             this.obj[tapName] = null;
         }
 
-        this[setParam]('tap',fnName);
+        this[setParam]('catch_tap',fnName);
         return this;
     }
    

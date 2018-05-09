@@ -1,4 +1,5 @@
 const jq = require('./jq');
+const data = require('./art_space_data');
 const loadImg = require('./art_space_loading_imgs');
 
 module.exports = {
@@ -14,7 +15,18 @@ module.exports = {
 			loading_imgs:imgData
 		});
 
+		this.bindMenuData();
+		this.topEventBind();
+		this.menuEventBind();
 	},
+	bindMenuData(){
+		this.setData({
+			menu:data.menu
+		});
+
+
+	},
+
 	loadingImgLoaded(){
 		let length = loadImg[this.page].length,
 			loaded = this.loaded + 1;
@@ -44,5 +56,52 @@ module.exports = {
 		jq(this,'page').cssAnimate({
 			opacity:1
 		},500);
+	},
+
+	topEventBind(){
+
+	},
+
+	menuEventBind(){
+		let _this = this;
+		jq(this,'menu').tap(function(){
+			_this.hideMenu();
+		});
+		jq(this,'menu_body').tap(function(){
+
+		});
+		jq(this,'menu_close').tap(function(){
+			_this.hideMenu();
+		});
+	},
+	showMenu(){
+		let _this = this;
+		jq(_this,'menu').css({
+			display:'block'
+		});
+
+		setTimeout(function(){
+			jq(_this,'menu').cssAnimate({
+				background:'rgba(0,0,0,0.5)'
+			},500,'linear',function(){
+				jq(_this,'menu_body').cssAnimate({
+					transform:'translateX(0)'
+				},500,'linear')
+			});
+		},10)
+	},
+	hideMenu(){
+		let _this = this;
+		jq(_this,'menu').cssAnimate({
+			background:'rgba(0,0,0,0)'
+		},500,'linear',function(){
+			jq(_this,'menu').css({
+				display:'none'
+			});
+		});
+		jq(_this,'menu_body').cssAnimate({
+			transform:'translateX(100%)'
+		},500,'linear')
 	}
+
 };
