@@ -12,6 +12,7 @@ module.exports = {
 	allInit(page){
 		this.setData({loading_pre:'0'});
 		this.showLoading();
+
 		let imgData = loadImg[page];
 		this.page = page;
 		this.setData({

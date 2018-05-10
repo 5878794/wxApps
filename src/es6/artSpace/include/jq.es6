@@ -209,18 +209,18 @@ class jq{
 
         return this;
     }
-    cssAnimateStopToEnd(){
-        let animateObj = {
-            '-webkit-transition': '',
-            'transition': '',
-        };
-        this.css(animateObj);
-
-        clearTimeout(this.cssAnimateTimeout);
-        if(this.cssAnimateCallback){
-            this.cssAnimateCallback();
-        }
-    }
+    // cssAnimateStopToEnd(){
+    //     let animateObj = {
+    //         '-webkit-transition': '',
+    //         'transition': '',
+    //     };
+    //     this.css(animateObj);
+    //
+    //     clearTimeout(this.cssAnimateTimeout);
+    //     if(this.cssAnimateCallback){
+    //         this.cssAnimateCallback();
+    //     }
+    // }
 
 
     //获取id元素的属性
@@ -296,16 +296,18 @@ class jq{
 }
 
 
-let jqCatch = {};
+// let jqCatch = {};
 
 
 //obj指到传入page的对象，一般this
 module.exports = function(obj,id){
-    if(jqCatch[id]){
-        return jqCatch[id];
-    }else{
-        let aa = new jq(id,obj);
-        jqCatch[id] = aa;
-        return aa;
-    }
+    // if(jqCatch[id]){
+    //     return jqCatch[id];
+    // }else{
+    //     let aa = new jq(id,obj);
+    //     jqCatch[id] = aa;
+    //     return aa;
+    // }
+
+    return new jq(id,obj);
 };

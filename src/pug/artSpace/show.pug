@@ -4,20 +4,22 @@ include ./include/loading
 include ./include/top
 include ./include/menu
 
+
 +loading()
-+top()
-+menu()
+view(id='page')
+    +top()
+    +menu()
 
-view(class='show_title')
-    view(class='show_title_name') AURA SHOW
-    view(class='show_title_number box_h') / {{list.length}} projects
+    view(class='show_title')
+        view(class='show_title_name') AURA SHOW
+        view(class='show_title_number box_h') / {{list.length}} projects
 
 
-view(class='show_main')
-    view(class='show_list' data-id='{{item.id}}' wx:for='{{list}}' wx:key='index' wx:item='item')
-        view(class='hover_animate') {{item.year}}
-        view(class='hover_animate list_area') {{item.name}}
-        view(class='hover_animate') {{item.msg}}
-        view(class='show_list_line hover_animate')
-        view(class='show_img')
-            img(src='../../{{item.img}}' mode='widthFix')
+    view(class='show_main')
+        view(class='show_list' data-id='{{item.id}}' wx:for='{{list}}' wx:key='index' wx:item='item')
+            view(class='hover_animate') {{item.year}}
+            view(class='hover_animate list_area') {{item.name}}
+            view(class='hover_animate') {{item.msg}}
+            view(class='show_list_line hover_animate')
+            view(class='show_img')
+                img(src='../../{{item.img}}' mode='widthFix')

@@ -8,10 +8,6 @@
     "pages/artist/index",
     "pages/show_info/index",
     "pages/show/index"
-
-
-
-
   ],
   "window":{
     "backgroundColor":"#171717",

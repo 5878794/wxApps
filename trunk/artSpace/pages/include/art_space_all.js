@@ -10,9 +10,12 @@ module.exports = {
 	loaded:0,
 	//入口函数
 	allInit(page){
+		global.qq = this;
 		this.setData({loading_pre:'0'});
 		this.showLoading();
+
 		let imgData = loadImg[page];
+		console.log(imgData)
 		this.page = page;
 		this.setData({
 			loading_imgs:imgData

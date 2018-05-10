@@ -11,7 +11,6 @@ wxApp.ready({
 
 	},
 	onLoad:function(){
-		global.aa = this;
 		Object.assign(this,all);
 		this.allInit('index');
 
