@@ -1,27 +1,51 @@
-let getParam = Symbol(),
-    setParam = Symbol(),
+let getObjs = Symbol(),
+    setObjs = Symbol(),
     getDomParam = Symbol(),
     createRadomNumber = Symbol(),
+    init = Symbol(),
+    getDom = Symbol(),
     nu = 0;
 
 const regeneratorRuntime = require('./runtime.js');    
 
-class jq{
-    constructor(id,obj){
-        this.id = id;
+class jqs{
+    constructor(ids,obj){
+        this.ids = ids;
         this.obj = obj;
 
-        this.cssAnimateCallback = null;
-        this.cssAnimateTimeout = null;
+        //初始化data对象
+        this.data = this.obj.data || {};
+        this.data = this.data.__jqs || {};
+
+        this.choosed = '';
+        this.total = 0;
+
+        this[init]();
+
+        return this;
+    }
+
+    [init](){
+        let allClass = this.obj.data || {};
+        allClass = allClass.__jqs__ || {};
+
+        this.total = allClass[this.ids] || 0;
+    }
+
+    eq(n){
+        console.log(n)
+        n = (n<0)? 0 : n;
+        n = (n>=this.total)? this.total-1 : n;
+        this.choosed = n;
+
         return this;
     }
 
     //获取参数
-    [getParam](type){
-        let oldData = this.obj.data || {};
-        oldData = oldData.__jq || {};
-        oldData = oldData[this.id] || {};
-        oldData = oldData[type] || ''; 
+    [getObjs](type,n){
+        let oldData = this.data[this.ids] || {};
+        oldData = oldData['n'+n] || {};
+        oldData = oldData[type] || '';
 
         if(type == 'data' && !oldData){
             oldData = {};
@@ -30,31 +54,50 @@ class jq{
     }
 
     //设置参数
-    [setParam](type,val){
-        let oldData = this.obj.data || {};
-        oldData = oldData.__jq || {};
-        if(!oldData[this.id]){
-            oldData[this.id] = {};
+    [setObjs](type,val,n){
+
+        if(!this.data[this.id]){
+            this.data[this.id] = {};
+        }
+        if(!this.data[this.id]['n'+n]){
+            this.data[this.id]['n'+n] = {};
         }
 
-        oldData[this.id][type] = val;
+
+        this.data[this.id]['n'+n][type] = val;
         // console.log(oldData)
-        this.obj.setData({ __jq:oldData});
+        this.obj.setData({ __jqs:this.data});
+    }
+
+
+    //获取要设置的序号
+    [getDom](){
+        if(this.choosed === ''){
+            let a = [];
+            for(let i=0,l=this.total;i<l;i++){
+                a.push(i);
+            }
+            return a;
+        }else{
+            return [this.choosed];
+        }
     }
 
     //添加class
     addClass(text){
-        let className = this[getParam]('class'),
-            classArray = className.split('');
+        let number = this[getDom]();
 
-        if (classArray.indexOf(text)==-1){
-            className += ' '+text;
-        }else{
-            return this;
-        }
+        number.map(n=>{
+            let className = this[getObjs]('class',n),
+                classArray = className.split('');
 
-        this[setParam]('class',className);
+            if (classArray.indexOf(text)==-1){
+                className += ' '+text;
+                this[setObjs]('class',className,n);
+            }
+        });
 
+        console.log(this)
         return this;
     }
 
@@ -76,14 +119,6 @@ class jq{
         this[setParam]('class', newClass);
 
         return this;
-    }
-
-    hasClass(text){
-        let className = this[getParam]('class'),
-            classArray = className.split('');
-
-
-        return (classArray.indexOf(text) > -1)
     }
 
     //设置css
@@ -190,7 +225,6 @@ class jq{
     //css动画
     cssAnimate(obj,time='1000',type='linear',callback){
         callback = callback || function(){};
-        this.cssAnimateCallback = callback;
         let animateObj = {
             '-webkit-transition': 'all ' + time+'ms '+type,
             'transition': 'all ' + time + 'ms ' + type,
@@ -198,30 +232,17 @@ class jq{
             '-webkit-transform-origin':'center center'
         };
 
-        this.css(animateObj);
-        // let newObj = Object.assign(obj,animateObj);
+        let newObj = Object.assign(obj,animateObj);
 
-        this.css(obj);
+        this.css(newObj);
 
-        this.cssAnimateTimeout = setTimeout(function(){
+        setTimeout(function(){
             callback();
         },time);
 
         return this;
-    }
-    cssAnimateStopToEnd(){
-        let animateObj = {
-            '-webkit-transition': '',
-            'transition': '',
-        };
-        this.css(animateObj);
 
-        clearTimeout(this.cssAnimateTimeout);
-        if(this.cssAnimateCallback){
-            this.cssAnimateCallback();
-        }
     }
-
 
     //获取id元素的属性
     //获取class元素的属性
@@ -295,17 +316,7 @@ class jq{
     
 }
 
-
-let jqCatch = {};
-
-
 //obj指到传入page的对象，一般this
 module.exports = function(obj,id){
-    if(jqCatch[id]){
-        return jqCatch[id];
-    }else{
-        let aa = new jq(id,obj);
-        jqCatch[id] = aa;
-        return aa;
-    }
+    return new jqs(id,obj);
 };

@@ -4,12 +4,14 @@ const wxApp = require('./../include/wxApp');
 const data = require('./../include/art_space_data');
 const all = require('./../include/art_space_all');
 
+global.jq = jq;
 
 wxApp.ready({
 	data:{
 
 	},
 	onLoad:function(){
+		global.aa = this;
 		Object.assign(this,all);
 		this.allInit('index');
 
