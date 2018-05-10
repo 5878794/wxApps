@@ -14,9 +14,10 @@
 
   ],
   "window":{
+    "backgroundColor":"#171717",
     "backgroundTextStyle":"#ffffff",
-    "navigationBarBackgroundColor": "#191919",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarBackgroundColor": "#171717",
+    "navigationBarTitleText": "Bens",
     "navigationBarTextStyle":"#ffffff"
   }
 }

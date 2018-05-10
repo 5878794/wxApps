@@ -76,6 +76,14 @@ class jq{
         return this;
     }
 
+    hasClass(text){
+        let className = this[getParam]('class'),
+            classArray = className.split('');
+
+
+        return (classArray.indexOf(text) > -1)
+    }
+
     //设置css
     css(obj){
         //获取原来设置的值

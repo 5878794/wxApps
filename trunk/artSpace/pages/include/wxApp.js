@@ -137,6 +137,9 @@ module.exports = {
     openUrl(url) {
         wx.navigateTo({ url: url });
     },
+    closeAndOpenUrl(url){
+        wx.redirectTo({url:url});
+    },
 
     //返回前几页
     //@param  number:number
