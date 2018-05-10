@@ -116,6 +116,9 @@ module.exports = {
 	showMenu(){
 		let _this = this;
 		_this.isHinded = false;
+
+		// jq(_this,'menu').cssAnimateStopToEnd();
+		// jq(_this,'menu_body').cssAnimateStopToEnd();
 		jq(_this,'menu').css({
 			display:'block'
 		});
@@ -133,20 +136,26 @@ module.exports = {
 	},
 	hideMenu(){
 		let _this = this;
-		jq(_this,'menu').cssAnimate({
-			background:'rgba(0,0,0,0)'
-		},300,'linear',function(){
-			jq(_this,'menu').css({
-				display:'none'
+		// jq(_this,'menu').cssAnimateStopToEnd();
+		// jq(_this,'menu_body').cssAnimateStopToEnd();
+
+		setTimeout(function(){
+			jq(_this,'menu').cssAnimate({
+				background:'rgba(0,0,0,0)'
+			},300,'linear',function(){
+				jq(_this,'menu').css({
+					display:'none'
+				});
+				_this.isHinded = true;
+				setTimeout(function(){
+					_this.hideMenuText();
+				},100);
 			});
-			_this.isHinded = true;
-			setTimeout(function(){
-				_this.hideMenuText();
-			},100);
-		});
-		jq(_this,'menu_body').cssAnimate({
-			transform:'translateX(100%)'
-		},300,'linear')
+			jq(_this,'menu_body').cssAnimate({
+				transform:'translateX(100%)'
+			},300,'linear')
+		},10)
+
 	},
 	async showMenuText(){
 		let data = this.data.menu_list_opacity_animate,

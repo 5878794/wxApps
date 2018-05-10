@@ -11,6 +11,8 @@ class jq{
         this.id = id;
         this.obj = obj;
 
+        this.cssAnimateCallback = null;
+        this.cssAnimateTimeout = null;
         return this;
     }
 
@@ -188,6 +190,7 @@ class jq{
     //css动画
     cssAnimate(obj,time='1000',type='linear',callback){
         callback = callback || function(){};
+        this.cssAnimateCallback = callback;
         let animateObj = {
             '-webkit-transition': 'all ' + time+'ms '+type,
             'transition': 'all ' + time + 'ms ' + type,
@@ -195,16 +198,28 @@ class jq{
             '-webkit-transform-origin':'center center'
         };
 
-        let newObj = Object.assign(obj,animateObj);
+        this.css(animateObj);
+        // let newObj = Object.assign(obj,animateObj);
 
-        this.css(newObj);
+        this.css(obj);
 
-        setTimeout(function(){
+        this.cssAnimateTimeout = setTimeout(function(){
             callback();
         },time);
 
         return this;
+    }
+    cssAnimateStopToEnd(){
+        let animateObj = {
+            '-webkit-transition': '',
+            'transition': '',
+        };
+        this.css(animateObj);
 
+        clearTimeout(this.cssAnimateTimeout);
+        if(this.cssAnimateCallback){
+            this.cssAnimateCallback();
+        }
     }
 
 
@@ -280,7 +295,17 @@ class jq{
     
 }
 
+
+let jqCatch = {};
+
+
 //obj指到传入page的对象，一般this
 module.exports = function(obj,id){
-    return new jq(id,obj);
+    if(jqCatch[id]){
+        return jqCatch[id];
+    }else{
+        let aa = new jq(id,obj);
+        jqCatch[id] = aa;
+        return aa;
+    }
 };
