@@ -9,13 +9,11 @@ module.exports = {
 	page:null,
 	loaded:0,
 	//入口函数
-	allInit(page){
-		global.qq = this;
+	allInit(page,id){
 		this.setData({loading_pre:'0'});
 		this.showLoading();
 
-		let imgData = loadImg[page];
-		console.log(imgData)
+		let imgData = loadImg(page,id);
 		this.page = page;
 		this.setData({
 			loading_imgs:imgData
@@ -57,7 +55,7 @@ module.exports = {
 	},
 
 	loadingImgLoaded(){
-		let length = loadImg[this.page].length,
+		let length = loadImg(this.page).length,
 			loaded = this.loaded + 1;
 		this.loaded = loaded;
 
@@ -67,6 +65,9 @@ module.exports = {
 
 		if(length == loaded){
 			setTimeout(()=>{
+				if(this.loadedOk){
+					this.loadedOk();
+				}
 				this.hideLoading();
 			},500);
 		}

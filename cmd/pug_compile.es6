@@ -49,9 +49,10 @@ let renderFn = function(projectName){
 		html = $('body').html();
 		//正则解析html中含id的标签头
 		let ids = html.match(/(?<=\bid\s*=\s*[\'\"]\s*)[a-z0-9_-]+(?=[\s*\'\"])/ig);
-		// let idss = html.match(/(?<=\bids\s*=\s*[\'\"]\s*)[a-z0-9_-]+(?=[\s*\'\"])/ig);
+		let idss = html.match(/(?<=\bjq\s*=\s*[\'\"]\s*)[a-z0-9_-]+(?=[\s*\'\"])/ig);
 		//给带id的元素自动添加变量
 		addJQ($,ids);
+		addJQS($,idss);
 
 
 		// let classObj = addJQS($,idss);
@@ -154,12 +155,8 @@ var addJQ = function($,ids){
 var addJQS = function($,idss){
 
 	if(idss){
-		//h5方式去重
-		idss = [...new Set(idss)];
-		let totalObj = [];
-
 		idss.map(ids=>{
-			let obj = $('view[ids="'+ids+'"]');
+			let obj = $('view[jq="'+ids+'"]');
 
 			for(let i=0,l=obj.length;i<l;i++){
 				let _obj = obj.eq(i),
@@ -168,23 +165,15 @@ var addJQS = function($,idss){
 					n = 'n'+i;
 
 				_obj.attr({
-					class:_class+' {{__jq.'+ids+'.'+n+'.class}}',
-					style:_style+' {{__jq.'+ids+'.'+n+'.style}}',
-					data:'{{__jq.'+ids+'.'+n+'.data}}',
-					animation:'{{__jq.'+ids+'.'+n+'.animation}}',
-					catchtap:'{{__jq.'+ids+'.'+n+'.catch_tap}}'
+					class:_class+' {{__jq.'+ids+'.class}}',
+					style:_style+' {{__jq.'+ids+'.style}}',
+					data:'{{__jq.'+ids+'.data}}',
+					animation:'{{__jq.'+ids+'.animation}}',
+					catchtap:'{{__jq.'+ids+'.catch_tap}}'
 				});
 
 			}
-
-			let __obj__ = {};
-			__obj__['data-'+ids] = obj.length;
-			totalObj.push(__obj__);
 		});
-
-		return totalObj;
-	}else{
-		return [];
 	}
 };
 

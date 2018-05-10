@@ -4,7 +4,7 @@
   <view class="loading_pre">{{loading_pre}}</view>
   <view wx:for="{{loading_imgs}}" wx:key="index" style="width:100%;height:0;overflow:hidden;"><image  src="{{item}}" bindload="loadingImgLoaded" binderror="loadingImgLoaded" /></view>
 </view>
-<view id="page" class=" {{__jq.page.class}}" style=" {{__jq.page.style}}" data="{{__jq.page.data}}" animation="{{__jq.page.animation}}" catchtap="{{__jq.page.catch_tap}}">
+<view id="page" bindtouchmove="scollerScroll" style="overflow:hidden; {{__jq.page.style}}" class=" {{__jq.page.class}}" data="{{__jq.page.data}}" animation="{{__jq.page.animation}}" catchtap="{{__jq.page.catch_tap}}">
   <view class="top box_h">
     <view class="top_home center {{__jq.home_btn.class}}" id="home_btn" style=" {{__jq.home_btn.style}}" data="{{__jq.home_btn.data}}" animation="{{__jq.home_btn.animation}}" catchtap="{{__jq.home_btn.catch_tap}}"><image  class="hover_animate" src="../../image/logo.png" mode="aspectFit" /></view>
     <view class="boxflex1"></view>
@@ -25,12 +25,12 @@
     <view class="show_title_number box_h">/ {{list.length}} projects</view>
   </view>
   <view class="show_main">
-    <view class="show_list" data-id="{{item.id}}" wx:for="{{list}}" wx:key="index" wx:item="item">
+    <view class="show_list hover_animate1 {{listClassData[n]}} {{__jq.list.class}}" data-id="{{item.id}}" wx:for="{{list}}" wx:key="index" wx:for-index="n" wx:item="item" id="list_{{n}}" jq="list" style="{{listTopData[n]}} {{__jq.list.style}}" data="{{__jq.list.data}}" animation="{{__jq.list.animation}}" catchtap="{{__jq.list.catch_tap}}">
       <view class="hover_animate">{{item.year}}</view>
       <view class="hover_animate list_area">{{item.name}}</view>
       <view class="hover_animate">{{item.msg}}</view>
       <view class="show_list_line hover_animate"></view>
-      <view class="show_img"><image  src="../../{{item.img}}" mode="widthFix" /></view>
+      <view class="show_img"><image  src="http://bensxu.duapp.com/h5/artSpace/{{item.img}}" mode="widthFix" /></view>
     </view>
   </view>
 </view>

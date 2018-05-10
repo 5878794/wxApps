@@ -255,7 +255,14 @@ module.exports = {
 
     device(){
         return wx.getSystemInfoSync();
+    },
+
+
+    sleep(ms){
+        return new Promise(success=>{
+            setTimeout(function(){
+                success();
+            },ms)
+        })
     }
-
-
 };

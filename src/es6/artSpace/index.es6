@@ -10,11 +10,14 @@ wxApp.ready({
 	data:{
 
 	},
+	loadedOk:function(){
+		this.addEvent();
+	},
 	onLoad:function(){
 		Object.assign(this,all);
 		this.allInit('index');
 
-		this.addEvent();
+
 	},
 	addEvent(){
 		let _this = this;

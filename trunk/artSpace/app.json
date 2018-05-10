@@ -1,13 +1,14 @@
 {
   "pages":[
+    "pages/show/index",
     "pages/index/index",
     "pages/contact/index",
     "pages/about/index",
     "pages/gallery/index",
     "pages/artist_info/index",
     "pages/artist/index",
-    "pages/show_info/index",
-    "pages/show/index"
+    "pages/show_info/index"
+
   ],
   "window":{
     "backgroundColor":"#171717",
