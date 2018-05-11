@@ -20,6 +20,12 @@ let aa = {
 	],
 	'contact':[
 		'../../image/arrow.png'
+	],
+	'gallery':[
+		'http://bensxu.duapp.com/h5/artSpace/image/pavilion/p1.jpg',
+		'http://bensxu.duapp.com/h5/artSpace/image/pavilion/p2.jpg',
+		'http://bensxu.duapp.com/h5/artSpace/image/pavilion/p3.jpg',
+		'http://bensxu.duapp.com/h5/artSpace/image/pavilion/p4.jpg'
 	]
 };
 

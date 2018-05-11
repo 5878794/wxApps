@@ -5,18 +5,20 @@ include ./include/top
 include ./include/menu
 
 +loading()
-+top()
-+menu()
+view(id='page')
+
+    +top()
+    +menu()
 
 
-view(class='gallery_main')
-    img(bindload='imageLoad' src='http://bensxu.duapp.com/h5/artSpace/{{nowImgSrc}}' mode='heightFix')
+    view(class='gallery_main')
+        img(bindload='imageLoad' src='http://bensxu.duapp.com/h5/artSpace/{{nowImgSrc}}' mode='heightFix')
 
-view(class='gallery_bottom box_h center')
-    view(class='gallery_bottom_left')
-        img(src='../../image/arrow.png')
-    view(class='gallery_text box_s')
-        view AURA SPACE
-        view(class='gallery_text1') GALLERY
-    view(class='gallery_bottom_right')
-        img(src='../../image/arrow.png')
+    view(class='gallery_bottom box_h center')
+        view(class='gallery_bottom_left')
+            img(src='../../image/arrow.png')
+        view(class='gallery_text box_s')
+            view AURA SPACE
+            view(class='gallery_text1') GALLERY
+        view(class='gallery_bottom_right')
+            img(src='../../image/arrow.png')

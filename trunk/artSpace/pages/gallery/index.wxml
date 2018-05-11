@@ -4,27 +4,29 @@
   <view class="loading_pre">{{loading_pre}}</view>
   <view wx:for="{{loading_imgs}}" wx:key="index" style="width:100%;height:0;overflow:hidden;"><image  src="{{item}}" bindload="loadingImgLoaded" binderror="loadingImgLoaded" /></view>
 </view>
-<view class="top box_h">
-  <view class="top_home center {{__jq.home_btn.class}}" id="home_btn" style=" {{__jq.home_btn.style}}" data="{{__jq.home_btn.data}}" animation="{{__jq.home_btn.animation}}" catchtap="{{__jq.home_btn.catch_tap}}"><image  class="hover_animate" src="../../image/logo.png" mode="aspectFit" /></view>
-  <view class="boxflex1"></view>
-  <view class="top_menu center {{__jq.menu_btn.class}}" id="menu_btn" style=" {{__jq.menu_btn.style}}" data="{{__jq.menu_btn.data}}" animation="{{__jq.menu_btn.animation}}" catchtap="{{__jq.menu_btn.catch_tap}}"><image  class="hover_animate" src="../../image/menu.png" mode="aspectFit" /></view>
-</view>
-<view class="menu {{__jq.menu.class}}" id="menu" style=" {{__jq.menu.style}}" data="{{__jq.menu.data}}" animation="{{__jq.menu.animation}}" catchtap="{{__jq.menu.catch_tap}}">
-  <view class="menu_body {{__jq.menu_body.class}}" id="menu_body" style=" {{__jq.menu_body.style}}" data="{{__jq.menu_body.data}}" animation="{{__jq.menu_body.animation}}" catchtap="{{__jq.menu_body.catch_tap}}"><image  class="menu_close hove_animate {{__jq.menu_close.class}}" id="menu_close" mode="aspectFit" src="../../image/close.png" style=" {{__jq.menu_close.style}}" data="{{__jq.menu_close.data}}" animation="{{__jq.menu_close.animation}}" catchtap="{{__jq.menu_close.catch_tap}}" />
-    <view class="menu_main">
-      <!--当前页面显示加 class='select'-->
-      <view class="menu_item box_h {{(list.url == nowPage)? 'select' : ''}} {{__jq.menu_list.class}}" id="menu_list" data-url="{{list.url}}" wx:for="{{menu}}" wx:key="index1" wx:for-index="t1" wx:for-item="list" style=" {{__jq.menu_list.style}}" data="{{__jq.menu_list.data}}" animation="{{__jq.menu_list.animation}}" catchtap="{{__jq.menu_list.catch_tap}}">
-        <view class="{{ (text ==' ') ? 'space' : '' }} hover_animate" wx:for="{{list.name}}" wx:key="index2" wx:for-item="text" wx:for-index="t2" style="opacity:{{menu_list_opacity_animate[t1][t2]}}">{{text}}</view>
+<view id="page" class=" {{__jq.page.class}}" style=" {{__jq.page.style}}" data="{{__jq.page.data}}" animation="{{__jq.page.animation}}" catchtap="{{__jq.page.catch_tap}}">
+  <view class="top box_h">
+    <view class="top_home center {{__jq.home_btn.class}}" id="home_btn" style=" {{__jq.home_btn.style}}" data="{{__jq.home_btn.data}}" animation="{{__jq.home_btn.animation}}" catchtap="{{__jq.home_btn.catch_tap}}"><image  class="hover_animate" src="../../image/logo.png" mode="aspectFit" /></view>
+    <view class="boxflex1"></view>
+    <view class="top_menu center {{__jq.menu_btn.class}}" id="menu_btn" style=" {{__jq.menu_btn.style}}" data="{{__jq.menu_btn.data}}" animation="{{__jq.menu_btn.animation}}" catchtap="{{__jq.menu_btn.catch_tap}}"><image  class="hover_animate" src="../../image/menu.png" mode="aspectFit" /></view>
+  </view>
+  <view class="menu {{__jq.menu.class}}" id="menu" style=" {{__jq.menu.style}}" data="{{__jq.menu.data}}" animation="{{__jq.menu.animation}}" catchtap="{{__jq.menu.catch_tap}}">
+    <view class="menu_body {{__jq.menu_body.class}}" id="menu_body" style=" {{__jq.menu_body.style}}" data="{{__jq.menu_body.data}}" animation="{{__jq.menu_body.animation}}" catchtap="{{__jq.menu_body.catch_tap}}"><image  class="menu_close hove_animate {{__jq.menu_close.class}}" id="menu_close" mode="aspectFit" src="../../image/close.png" style=" {{__jq.menu_close.style}}" data="{{__jq.menu_close.data}}" animation="{{__jq.menu_close.animation}}" catchtap="{{__jq.menu_close.catch_tap}}" />
+      <view class="menu_main">
+        <!--当前页面显示加 class='select'-->
+        <view class="menu_item box_h {{(list.url == nowPage)? 'select' : ''}} {{__jq.menu_list.class}}" id="menu_list" data-url="{{list.url}}" wx:for="{{menu}}" wx:key="index1" wx:for-index="t1" wx:for-item="list" style=" {{__jq.menu_list.style}}" data="{{__jq.menu_list.data}}" animation="{{__jq.menu_list.animation}}" catchtap="{{__jq.menu_list.catch_tap}}">
+          <view class="{{ (text ==' ') ? 'space' : '' }} hover_animate" wx:for="{{list.name}}" wx:key="index2" wx:for-item="text" wx:for-index="t2" style="opacity:{{menu_list_opacity_animate[t1][t2]}}">{{text}}</view>
+        </view>
       </view>
     </view>
   </view>
-</view>
-<view class="gallery_main"><image  bindload="imageLoad" src="http://bensxu.duapp.com/h5/artSpace/{{nowImgSrc}}" mode="heightFix" /></view>
-<view class="gallery_bottom box_h center">
-  <view class="gallery_bottom_left"><image  src="../../image/arrow.png" /></view>
-  <view class="gallery_text box_s">
-    <view>AURA SPACE</view>
-    <view class="gallery_text1">GALLERY</view>
+  <view class="gallery_main"><image  bindload="imageLoad" src="http://bensxu.duapp.com/h5/artSpace/{{nowImgSrc}}" mode="heightFix" /></view>
+  <view class="gallery_bottom box_h center">
+    <view class="gallery_bottom_left"><image  src="../../image/arrow.png" /></view>
+    <view class="gallery_text box_s">
+      <view>AURA SPACE</view>
+      <view class="gallery_text1">GALLERY</view>
+    </view>
+    <view class="gallery_bottom_right"><image  src="../../image/arrow.png" /></view>
   </view>
-  <view class="gallery_bottom_right"><image  src="../../image/arrow.png" /></view>
 </view>
