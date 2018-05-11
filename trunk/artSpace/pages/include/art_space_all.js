@@ -14,6 +14,7 @@ module.exports = {
 		this.showLoading();
 
 		let imgData = loadImg(page,id);
+		this.imgData = imgData;
 		this.page = page;
 		this.setData({
 			loading_imgs:imgData
@@ -55,7 +56,7 @@ module.exports = {
 	},
 
 	loadingImgLoaded(){
-		let length = loadImg(this.page).length,
+		let length = this.imgData.length,
 			loaded = this.loaded + 1;
 		this.loaded = loaded;
 

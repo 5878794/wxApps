@@ -21,10 +21,10 @@ view(
         view(class='show_title_number box_h') / {{list.works.length}} peoples
 
 
-    view(class='show_text box_s')
+    view(class='show_text box_s' id='show_text')
         view(class='show_text_main hover_animate2')
             view(wx:for='{{list.text}}' wx:key='index') {{item}}
-        view(class='show_text_arrow center')
+        view(class='show_text_arrow center' id='show_text_arrow')
             img(src='../../image/arrow.png' class='hover_animate')
 
     view(class='show_main')

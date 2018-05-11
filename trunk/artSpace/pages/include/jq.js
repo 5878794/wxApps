@@ -80,8 +80,7 @@ class jq{
 
     hasClass(text){
         let className = this[getParam]('class'),
-            classArray = className.split('');
-
+            classArray = className.split(' ');
 
         return (classArray.indexOf(text) > -1)
     }

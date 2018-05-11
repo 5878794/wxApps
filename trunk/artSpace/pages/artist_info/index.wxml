@@ -24,11 +24,11 @@
     <view class="show_title_name">{{list.name1}}</view>
     <view class="show_title_number box_h">/ {{list.works.length}} peoples</view>
   </view>
-  <view class="show_text box_s">
+  <view class="show_text box_s {{__jq.show_text.class}}" id="show_text" style=" {{__jq.show_text.style}}" data="{{__jq.show_text.data}}" animation="{{__jq.show_text.animation}}" catchtap="{{__jq.show_text.catch_tap}}">
     <view class="show_text_main hover_animate2">
       <view wx:for="{{list.text}}" wx:key="index">{{item}}</view>
     </view>
-    <view class="show_text_arrow center"><image  class="hover_animate" src="../../image/arrow.png" /></view>
+    <view class="show_text_arrow center {{__jq.show_text_arrow.class}}" id="show_text_arrow" style=" {{__jq.show_text_arrow.style}}" data="{{__jq.show_text_arrow.data}}" animation="{{__jq.show_text_arrow.animation}}" catchtap="{{__jq.show_text_arrow.catch_tap}}"><image  class="hover_animate" src="../../image/arrow.png" /></view>
   </view>
   <view class="show_main">
     <view class="show_list hover_animate1 {{listClassData[n]}} {{__jq.list.class}}" style="{{listTopData[n]}} {{__jq.list.style}}" id="list_{{n}}" jq="list" wx:for-index="n" wx:for="{{list.works}}" wx:key="index" data="{{__jq.list.data}}" animation="{{__jq.list.animation}}" catchtap="{{__jq.list.catch_tap}}"><image  src="http://bensxu.duapp.com/h5/artSpace/{{item}}" mode="widthFix" /></view>

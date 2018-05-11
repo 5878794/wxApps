@@ -11,6 +11,12 @@ let aa = {
 	],
 	'show':[
 		'http://bensxu.duapp.com/h5/artSpace/image/show/1.jpg'
+	],
+	'about':[
+		'http://bensxu.duapp.com/h5/artSpace/image/about/p1.png',
+		'http://bensxu.duapp.com/h5/artSpace/image/about/p2.png',
+		'http://bensxu.duapp.com/h5/artSpace/image/about/p3.png',
+		'http://bensxu.duapp.com/h5/artSpace/image/about/img.png'
 	]
 };
 
@@ -26,15 +32,21 @@ module.exports = function(page,id){
 		return [src];
 
 	}else if(page == 'artist_info') {
-		let src = [];
+		let object;
+
 		data.artist.map(rs=> {
 			if (rs.id == id) {
-				src = JSON.parse(JSON.stringify(rs.works));
-				src.push(rs.image);
+				object = rs;
 			}
 		});
 
-		return src;
+		let aa = [];
+		for(let i=0,l=object.works.length;i<l;i++){
+			aa.push('http://bensxu.duapp.com/h5/artSpace/'+object.works[i]);
+		}
+		aa.push('http://bensxu.duapp.com/h5/artSpace/'+object.image);
+
+		return aa;
 
 	}else if(page == 'artist'){
 		let src = [];

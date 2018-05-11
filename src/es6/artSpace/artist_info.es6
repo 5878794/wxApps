@@ -24,7 +24,7 @@ wxApp.ready({
 		this.winHeight = device.windowHeight;
 
 		this.addEffect().then(rs=>console.log(rs)).catch(rs=>console.log(rs));
-
+		this.bindEvent();
 	},
 	onLoad:function(opt){
 		if(!opt.id){
@@ -32,7 +32,7 @@ wxApp.ready({
 		}
 
 		Object.assign(this,all);
-		this.allInit('artist');
+		this.allInit('artist_info',opt.id);
 
 
 		this.pageData = this.getPageData(opt.id);
@@ -50,7 +50,6 @@ wxApp.ready({
 		return pageData;
 	},
 	async addEffect(){
-		console.log(this)
 		await this.getDomOffsetTop();
 		jq(this,'list').addClass('show_list_down11');
 		await wxApp.sleep(500);
@@ -78,7 +77,7 @@ wxApp.ready({
 	async scollerScroll(){
 		let {top} = await wxApp.getScrollState();
 		let	line_height = top + this.winHeight*3/4;
-		console.log(top)
+
 		let newDomTop = this.domTop.map(rs=>{
 			return rs-line_height;
 		});
@@ -110,5 +109,15 @@ wxApp.ready({
 		if(this.setTimer){
 			clearTimeout(this.setTimer);
 		}
+	},
+	bindEvent(){
+		let _this = this;
+		jq(this,'show_text_arrow').tap(function(){
+			if(jq(_this,'show_text').hasClass('select')){
+				jq(_this,'show_text').removeClass('select');
+			}else {
+				jq(_this, 'show_text').addClass('select');
+			}
+		})
 	}
 });
