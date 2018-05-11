@@ -4,32 +4,34 @@
   <view class="loading_pre">{{loading_pre}}</view>
   <view wx:for="{{loading_imgs}}" wx:key="index" style="width:100%;height:0;overflow:hidden;"><image  src="{{item}}" bindload="loadingImgLoaded" binderror="loadingImgLoaded" /></view>
 </view>
-<view class="top box_h">
-  <view class="top_home center {{__jq.home_btn.class}}" id="home_btn" style=" {{__jq.home_btn.style}}" data="{{__jq.home_btn.data}}" animation="{{__jq.home_btn.animation}}" catchtap="{{__jq.home_btn.catch_tap}}"><image  class="hover_animate" src="../../image/logo.png" mode="aspectFit" /></view>
-  <view class="boxflex1"></view>
-  <view class="top_menu center {{__jq.menu_btn.class}}" id="menu_btn" style=" {{__jq.menu_btn.style}}" data="{{__jq.menu_btn.data}}" animation="{{__jq.menu_btn.animation}}" catchtap="{{__jq.menu_btn.catch_tap}}"><image  class="hover_animate" src="../../image/menu.png" mode="aspectFit" /></view>
-</view>
-<view class="menu {{__jq.menu.class}}" id="menu" style=" {{__jq.menu.style}}" data="{{__jq.menu.data}}" animation="{{__jq.menu.animation}}" catchtap="{{__jq.menu.catch_tap}}">
-  <view class="menu_body {{__jq.menu_body.class}}" id="menu_body" style=" {{__jq.menu_body.style}}" data="{{__jq.menu_body.data}}" animation="{{__jq.menu_body.animation}}" catchtap="{{__jq.menu_body.catch_tap}}"><image  class="menu_close hove_animate {{__jq.menu_close.class}}" id="menu_close" mode="aspectFit" src="../../image/close.png" style=" {{__jq.menu_close.style}}" data="{{__jq.menu_close.data}}" animation="{{__jq.menu_close.animation}}" catchtap="{{__jq.menu_close.catch_tap}}" />
-    <view class="menu_main">
-      <!--当前页面显示加 class='select'-->
-      <view class="menu_item box_h {{(list.url == nowPage)? 'select' : ''}} {{__jq.menu_list.class}}" id="menu_list" data-url="{{list.url}}" wx:for="{{menu}}" wx:key="index1" wx:for-index="t1" wx:for-item="list" style=" {{__jq.menu_list.style}}" data="{{__jq.menu_list.data}}" animation="{{__jq.menu_list.animation}}" catchtap="{{__jq.menu_list.catch_tap}}">
-        <view class="{{ (text ==' ') ? 'space' : '' }} hover_animate" wx:for="{{list.name}}" wx:key="index2" wx:for-item="text" wx:for-index="t2" style="opacity:{{menu_list_opacity_animate[t1][t2]}}">{{text}}</view>
+<view id="page" bindtouchmove="scollerScroll" bind:touchend="pageScrollInterval" bind:touchstart="pageScrollClearInterval" style="overflow:hidden; {{__jq.page.style}}" class=" {{__jq.page.class}}" data="{{__jq.page.data}}" animation="{{__jq.page.animation}}" catchtap="{{__jq.page.catch_tap}}">
+  <view class="top box_h">
+    <view class="top_home center {{__jq.home_btn.class}}" id="home_btn" style=" {{__jq.home_btn.style}}" data="{{__jq.home_btn.data}}" animation="{{__jq.home_btn.animation}}" catchtap="{{__jq.home_btn.catch_tap}}"><image  class="hover_animate" src="../../image/logo.png" mode="aspectFit" /></view>
+    <view class="boxflex1"></view>
+    <view class="top_menu center {{__jq.menu_btn.class}}" id="menu_btn" style=" {{__jq.menu_btn.style}}" data="{{__jq.menu_btn.data}}" animation="{{__jq.menu_btn.animation}}" catchtap="{{__jq.menu_btn.catch_tap}}"><image  class="hover_animate" src="../../image/menu.png" mode="aspectFit" /></view>
+  </view>
+  <view class="menu {{__jq.menu.class}}" id="menu" style=" {{__jq.menu.style}}" data="{{__jq.menu.data}}" animation="{{__jq.menu.animation}}" catchtap="{{__jq.menu.catch_tap}}">
+    <view class="menu_body {{__jq.menu_body.class}}" id="menu_body" style=" {{__jq.menu_body.style}}" data="{{__jq.menu_body.data}}" animation="{{__jq.menu_body.animation}}" catchtap="{{__jq.menu_body.catch_tap}}"><image  class="menu_close hove_animate {{__jq.menu_close.class}}" id="menu_close" mode="aspectFit" src="../../image/close.png" style=" {{__jq.menu_close.style}}" data="{{__jq.menu_close.data}}" animation="{{__jq.menu_close.animation}}" catchtap="{{__jq.menu_close.catch_tap}}" />
+      <view class="menu_main">
+        <!--当前页面显示加 class='select'-->
+        <view class="menu_item box_h {{(list.url == nowPage)? 'select' : ''}} {{__jq.menu_list.class}}" id="menu_list" data-url="{{list.url}}" wx:for="{{menu}}" wx:key="index1" wx:for-index="t1" wx:for-item="list" style=" {{__jq.menu_list.style}}" data="{{__jq.menu_list.data}}" animation="{{__jq.menu_list.animation}}" catchtap="{{__jq.menu_list.catch_tap}}">
+          <view class="{{ (text ==' ') ? 'space' : '' }} hover_animate" wx:for="{{list.name}}" wx:key="index2" wx:for-item="text" wx:for-index="t2" style="opacity:{{menu_list_opacity_animate[t1][t2]}}">{{text}}</view>
+        </view>
       </view>
     </view>
   </view>
-</view>
-<view class="show_title">
-  <view class="show_title_name">ARTIST</view>
-  <view class="show_title_number box_h">/ {{list.length}} peoples</view>
-</view>
-<view class="show_main">
-  <view class="show_list" data-id="{{item.id}}" wx:for="{{list}}" wx:key="index" wx:item="item">
-    <view class="show_list_names">
-      <view class="hover_animate list_name">{{item.name1}}</view>
-      <view class="hover_animate list_area">{{item.name2}}</view>
+  <view class="show_title">
+    <view class="show_title_name">ARTIST</view>
+    <view class="show_title_number box_h">/ {{list.length}} peoples</view>
+  </view>
+  <view class="show_main">
+    <view class="select hover_animate1 show_list {{listClassData[n]}} {{__jq.list.class}}" style="{{listTopData[n]}} {{__jq.list.style}}" id="list_{{n}}" jq="list" data-id="{{item.id}}" wx:for="{{list}}" wx:for-index="n" wx:key="index" wx:item="item" data="{{__jq.list.data}}" animation="{{__jq.list.animation}}" catchtap="{{__jq.list.catch_tap}}">
+      <view class="show_list_names">
+        <view class="hover_animate list_name">{{item.name1}}</view>
+        <view class="hover_animate list_area">{{item.name2}}</view>
+      </view>
+      <view class="show_list_line hover_animate"></view>
+      <view class="show_img"><image  src="http://bensxu.duapp.com/h5/artSpace/{{item.image}}" mode="widthFix" /></view>
     </view>
-    <view class="show_list_line hover_animate"></view>
-    <view class="show_img"><image  src="http://bensxu.duapp.com/h5/artSpace/{{item.image}}" mode="widthFix" /></view>
   </view>
 </view>

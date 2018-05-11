@@ -25,13 +25,21 @@ module.exports = function(page,id){
 		});
 		return [src];
 
-	}else if(page == 'artist_info'){
+	}else if(page == 'artist_info') {
 		let src = [];
-		data.artist.map(rs=>{
-			if(rs.id == id){
+		data.artist.map(rs=> {
+			if (rs.id == id) {
 				src = JSON.parse(JSON.stringify(rs.works));
 				src.push(rs.image);
 			}
+		});
+
+		return src;
+
+	}else if(page == 'artist'){
+		let src = [];
+		data.artist.map(rs=>{
+			src.push('http://bensxu.duapp.com/h5/artSpace/'+rs.image)
 		});
 
 		return src;
