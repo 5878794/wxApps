@@ -20,13 +20,13 @@
       </view>
     </view>
   </view>
-  <view class="gallery_main"><image  bindload="imageLoad" src="http://bensxu.duapp.com/h5/artSpace/{{nowImgSrc}}" mode="heightFix" /></view>
+  <view class="gallery_main"><image  class="hover_animate" bindload="imageLoad" style="{{imgStyle}} {{divStyle}}" src="http://bensxu.duapp.com/h5/artSpace/{{nowImgSrc}}" /></view>
   <view class="gallery_bottom box_h center">
-    <view class="gallery_bottom_left"><image  src="../../image/arrow.png" /></view>
+    <view class="gallery_bottom_left {{__jq.left_btn.class}}" id="left_btn" style=" {{__jq.left_btn.style}}" data="{{__jq.left_btn.data}}" animation="{{__jq.left_btn.animation}}" catchtap="{{__jq.left_btn.catch_tap}}"><image  src="../../image/arrow.png" /></view>
     <view class="gallery_text box_s">
       <view>AURA SPACE</view>
       <view class="gallery_text1">GALLERY</view>
     </view>
-    <view class="gallery_bottom_right"><image  src="../../image/arrow.png" /></view>
+    <view class="gallery_bottom_right"><image  src="../../image/arrow.png" id="right_btn" class=" {{__jq.right_btn.class}}" style=" {{__jq.right_btn.style}}" data="{{__jq.right_btn.data}}" animation="{{__jq.right_btn.animation}}" catchtap="{{__jq.right_btn.catch_tap}}" /></view>
   </view>
 </view>

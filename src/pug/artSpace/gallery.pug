@@ -12,13 +12,13 @@ view(id='page')
 
 
     view(class='gallery_main')
-        img(bindload='imageLoad' src='http://bensxu.duapp.com/h5/artSpace/{{nowImgSrc}}' mode='heightFix')
+        img(bindload='imageLoad' class='hover_animate' style='{{imgStyle}} {{divStyle}}' src='http://bensxu.duapp.com/h5/artSpace/{{nowImgSrc}}')
 
     view(class='gallery_bottom box_h center')
-        view(class='gallery_bottom_left')
+        view(class='gallery_bottom_left' id='left_btn')
             img(src='../../image/arrow.png')
         view(class='gallery_text box_s')
             view AURA SPACE
             view(class='gallery_text1') GALLERY
         view(class='gallery_bottom_right')
-            img(src='../../image/arrow.png')
+            img(src='../../image/arrow.png' id='right_btn')
