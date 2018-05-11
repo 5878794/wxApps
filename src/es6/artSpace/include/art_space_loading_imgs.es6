@@ -17,6 +17,9 @@ let aa = {
 		'http://bensxu.duapp.com/h5/artSpace/image/about/p2.png',
 		'http://bensxu.duapp.com/h5/artSpace/image/about/p3.png',
 		'http://bensxu.duapp.com/h5/artSpace/image/about/img.png'
+	],
+	'contact':[
+		'../../image/arrow.png'
 	]
 };
 

@@ -15,7 +15,7 @@ wxApp.ready({
 	},
 	onLoad:function(){
 		Object.assign(this,all);
-		this.allInit('artist');
+		this.allInit('about');
 
 		let data = this.getData();
 		this.setData({
