@@ -4,26 +4,40 @@ include ./include/loading
 include ./include/top
 include ./include/menu
 
-
 +loading()
-+top()
-+menu()
+view(
+    id='page'
+    bindtouchmove='scollerScroll'
+    bind:touchend='pageScrollInterval'
+    bind:touchstart='pageScrollClearInterval'
+    style='overflow:hidden;'
+)
+    +top()
+    +menu()
 
 
-view(class='show_title')
-    view(class='show_title_name') {{list.name1}}
-    view(class='show_title_number box_h') / {{list.works.length}} peoples
+    view(class='show_title')
+        view(class='show_title_name') {{list.name1}}
+        view(class='show_title_number box_h') / {{list.works.length}} peoples
 
 
-view(class='show_text box_s')
-    view(class='show_text_main hover_animate2')
-        view(wx:for='{{list.text}}' wx:key='index') {{item}}
-    view(class='show_text_arrow center')
-        img(src='../../image/arrow.png' class='hover_animate')
+    view(class='show_text box_s')
+        view(class='show_text_main hover_animate2')
+            view(wx:for='{{list.text}}' wx:key='index') {{item}}
+        view(class='show_text_arrow center')
+            img(src='../../image/arrow.png' class='hover_animate')
 
-view(class='show_main')
-    view(class='show_list' wx:for='{{list.works}}' wx:key='index')
-        img(src='http://bensxu.duapp.com/h5/artSpace/{{item}}' mode='widthFix')
+    view(class='show_main')
+        view(
+            class='show_list hover_animate1 {{listClassData[n]}}'
+            style='{{listTopData[n]}}'
+            id='list_{{n}}'
+            jq='list'
+            wx:for-index='n'
+            wx:for='{{list.works}}'
+            wx:key='index'
+        )
+            img(src='http://bensxu.duapp.com/h5/artSpace/{{item}}' mode='widthFix')
 
 
 
