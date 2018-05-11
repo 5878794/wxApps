@@ -8,7 +8,7 @@ include ./include/bottom
 
 
 +loading()
-view(id='page')
+view(id='page' bindtouchmove='pageScroll' bind:touchend='pageScrollInterval' bind:touchstart='pageScrollClearInterval')
 
     +top()
     +menu()

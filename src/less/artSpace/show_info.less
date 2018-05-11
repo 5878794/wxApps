@@ -30,6 +30,7 @@
 }
 .show_info_texts{
   padding: 50rpx 40rpx; text-align: center; line-height: 150%;
+  position: relative; z-index:10;
 }
 .show_info_title{
    font-size: @fontSize1; color: @fontColor;
@@ -50,6 +51,8 @@
 
 .show_info_img{
   display: block; width: 90%; margin: 0 auto;
+  position: relative;
+  z-index: 20;
 }
 
 .show_info_bottom{
@@ -58,7 +61,7 @@
 }
 
 .show_info_btn{
-  width: 80%;
+  width: 75%;
   height: 70rpx;
   line-height: 70rpx;
   color: @fontColor;
@@ -71,6 +74,7 @@
   margin-top: 100rpx;
   -webkit-border-radius: 6rpx;
   border-radius: 6rpx;
+  position: relative; z-index: 100;
 }
 .show_info_btn:active{
    opacity:0.6
