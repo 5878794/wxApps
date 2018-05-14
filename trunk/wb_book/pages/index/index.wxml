@@ -1,0 +1,33 @@
+<view class="index_top box_s">
+  <view class="index_top_logo"></view>
+  <view class="index_top_search box_h center_s">
+    <input class="boxflex1" type="search" placeholder="搜索" name="search" bindinput="searchInput" value="{{search}}" />
+    <view class="index_top_btn"></view>
+  </view>
+</view>
+<!--banner-->
+<swiper class="index_banner" indicator-dots="true" autoplay="true" duration="1000" interval="5000" indicator-color="#fff" indicator-active-color="rgb(254,184,182)">
+  <block wx:for="{{banner}}" wx:key="index">
+    <swiper-item><image  src="{{item.imgSrc}}" data-url="{{item.url}}" mode="widthFix" bindtap="bannerTap" /></swiper-item>
+  </block>
+</swiper>
+<!--导航条-->
+<view class="index_dh box_h">
+  <view class="index_dh_item box_s center"><image  src="#" />
+    <view>读过</view>
+  </view>
+  <view class="index_dh_item box_s center"><image  src="#" />
+    <view>书库</view>
+  </view>
+  <view class="index_dh_item box_s center"><image  src="#" />
+    <view>排行</view>
+  </view>
+  <view class="index_dh_item box_s center"><image  src="#" />
+    <view>免费</view>
+  </view>
+  <view class="index_dh_item box_s center"><image  src="#" />
+    <view>充值</view>
+  </view>
+</view>
+<!--间隔条-->
+<view class="jg"></view>

@@ -46,23 +46,16 @@ let renderFn = function(projectName){
 			titleName = $('title').text();
 		$('title').remove();
 
-		html = $('body').html();
-		//正则解析html中含id的标签头
-		let ids = html.match(/(?<=\bid\s*=\s*[\'\"]\s*)[a-z0-9_-]+(?=[\s*\'\"])/ig);
-		let idss = html.match(/(?<=\bjq\s*=\s*[\'\"]\s*)[a-z0-9_-]+(?=[\s*\'\"])/ig);
-		//给带id的元素自动添加变量
-		addJQ($,ids);
-		addJQS($,idss);
+		//外包项目,不写js 不需要转意jq的东西
+		// html = $('body').html();
+		// //正则解析html中含id的标签头
+		// let ids = html.match(/(?<=\bid\s*=\s*[\'\"]\s*)[a-z0-9_-]+(?=[\s*\'\"])/ig);
+		// let idss = html.match(/(?<=\bjq\s*=\s*[\'\"]\s*)[a-z0-9_-]+(?=[\s*\'\"])/ig);
+		// //给带id的元素自动添加变量
+		// addJQ($,ids);
+		// addJQS($,idss);
 
 
-		// let classObj = addJQS($,idss);
-		//
-		// //添加1个隐藏的dom记录ids的种类和数量
-		// let view = $('<view id="__class_total__" style="width:0;height: 0;display: none;"></view>');
-		// classObj.map(_class=>{
-		// 	view.attr(_class);
-		// });
-		// $('body').append(view);
 
 		//获取添加变量后的html
 		html = $('body').html();
