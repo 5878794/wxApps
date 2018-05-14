@@ -135,7 +135,7 @@ module.exports = {
     //打开新页面
     //@param:url   str
     openUrl(url) {
-        wx.navigateTo({ url: url });
+        wx.redirectTo({ url: url });
     },
     closeAndOpenUrl(url){
         wx.redirectTo({url:url});
@@ -224,12 +224,24 @@ module.exports = {
     //如果传入的是class获取的是第一个找到的class的dom的属性
     //@param:id    .class/#id
     getDomParam(id) {
-        return new Promise(success => {
+        return new Promise(success=>{
+            console.log('in 1')
             let query = wx.createSelectorQuery();
+            console.log('in 2')
             query.select(id).boundingClientRect();
+            console.log('in 3')
             query.exec(function (res) {
-                if (res[0]) {
-                    success(res[0]);
+                console.log('re '+JSON.stringify(res))
+                if(res[0]){
+                    let backData = res[0] || {
+                            top:0,
+                            bottom:0,
+                            left:0,
+                            right:0,
+                            width:0,
+                            height:0
+                        };
+                    success(backData);
                 }
             })
         })
