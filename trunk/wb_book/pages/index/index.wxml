@@ -31,3 +31,4 @@
 </view>
 <!--间隔条-->
 <view class="jg"></view>
+<view style="width:100%;padding:0 15rpx;box-sizing:border-box;"></view>
