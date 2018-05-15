@@ -1,6 +1,8 @@
 mixin book_h(type)
     view(class='all_book_h box_h canClick' data-id='{{item.id}}')
-        img(class='all_book_h_img' src='{{item.img}}')
+        view(class='all_book_h_img')
+            img(class='all_book_h_img_image' src='{{item.img}}')
+            img(class='all_image_shadow' src='../../image/shadow.png')
         view(class='boxflex1 box_s')
             view(class='all_book_h_name breakall')
                 view {{item.name}}

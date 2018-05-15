@@ -13,18 +13,19 @@ page{
 
 .all_book{
   width: 240rpx; height: 415rpx; position: relative;
-  float:left;
+  float:left; margin-bottom: 15rpx;
 }
 .all_image_body{
-  width: 100%; height: 310rpx;
+  width: 100%; height: 310rpx; position: relative;
 }
-.all_book image{
+.all_image_img{
   display: block; width: @book_image_width; height:@book_image_height;
 }
 .all_book_name{
   width: 210rpx; text-align: center; height: 45rpx;
   line-height: 45rpx;  font-size: @font_book_size;
   color:@font_color; margin: 0 auto;
+  margin-top: 10rpx;
 }
 .all_book_type{
   width: 210rpx; height: 30rpx; line-height: 30rpx; text-align: center;
@@ -38,7 +39,10 @@ page{
 }
 .all_book_h_img{
   display: block; width: @book_image_width; height: @book_image_height;
-  margin-right: 20rpx;
+  margin-right: 20rpx; position: relative;
+}
+.all_book_h_img_image{
+  width: 100%; height: 100%;
 }
 .all_book_h_name{
   color: @font_color;
@@ -96,20 +100,21 @@ page{
 
 
 .all_title{
-  width: 100%; height: 125rpx; padding: 4rpx 30rpx 30rpx 30rpx;
+  width: 100%; height: 125rpx; padding: 4rpx 30rpx 4rpx 30rpx;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   background: #fff;
 }
 .all_title image{
-  display: block; width: 42rpx; height: 42rpx; margin-right: 10rpx;
+  display: block; width: 50rpx; height: 50rpx; margin-right: 20rpx;
 }
 .all_title_info{
   display: inline-block;
   font-size: @font_title_size;
   color:@font_color;
-  line-height: @font_title_size;
-  padding: 8rpx 15rpx;
+  //line-height: @font_title_size;
+  height: 40rpx;
+  padding: 0 14rpx;
   -webkit-border-radius:@font_title_size;
   border-radius:@font_title_size;
   border:1rpx solid @font_color;
@@ -149,11 +154,13 @@ page{
 .all_book_h2_title view{
   display: inline-block;
 }
+.all_book_h2_title image{
+  display: inline-block; width: 30rpx; height: 30rpx;
+  margin: 0 10rpx 0 20rpx;
+}
 .all_book_h2_author{
-  margin-left: 20rpx;
   font-size: @font_title_size;
   color: @font_book_type_color;
-  padding-left: 40rpx;
 }
 .all_book_h2_info{
   font-size: @font_title_size;
@@ -162,4 +169,13 @@ page{
 }
 .all_book_h2_bg{
   background: rgb(243,244,245);
+}
+
+
+.all_image_shadow{
+  position: absolute; left:50%; bottom: -1rpx;
+  width: 280rpx; height: 12rpx; margin-left: -140rpx;
+}
+.all_book_h .all_image_shadow{
+  bottom:-5rpx;
 }

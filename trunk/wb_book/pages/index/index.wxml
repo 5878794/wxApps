@@ -42,7 +42,7 @@
 </view>
 <!--最近主打-->
 <view class="all_title box_h center_s"><image  src="../../image/title1.png" />
-  <view class="boxflex1 diandian center_s">
+  <view class="boxflex1 diandian center_s" style="height:100%;">
     <view class="all_title_info">本期主打</view>
   </view>
   <view class="all_show_more canClick">查看全部<image  src="../../image/arrow.png" /></view>
@@ -50,7 +50,7 @@
 <view class="index_main1 box_h">
   <view class="index_main1_item center" wx:for="{{bookList1}}" wx:key="main1">
     <view class="canClick all_book box_s" data-id="{{item.id}}">
-      <view class="all_image_body center"><image  src="{{item.img}}" /></view>
+      <view class="all_image_body center"><image  class="all_image_img" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" /></view>
       <view class="all_book_name diandian">{{item.name}}</view>
       <view class="all_book_type diandian">{{item.typeName}}</view>
     </view>
@@ -60,14 +60,15 @@
 <view class="jg"></view>
 <!--精品好书-->
 <view class="all_title box_h center_s"><image  src="../../image/title2.png" />
-  <view class="boxflex1 diandian center_s">
+  <view class="boxflex1 diandian center_s" style="height:100%;">
     <view class="all_title_info">精品好书</view>
   </view>
 </view>
 <view class="index_main2 box_s">
   <block wx:for="{{bookList2}}" wx:key="main2">
     <view class="index_main2_row" wx:if="{{index==0}}">
-      <view class="all_book_h box_h canClick" data-id="{{item.id}}"><image  class="all_book_h_img" src="{{item.img}}" />
+      <view class="all_book_h box_h canClick" data-id="{{item.id}}">
+        <view class="all_book_h_img"><image  class="all_book_h_img_image" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" /></view>
         <view class="boxflex1 box_s">
           <view class="all_book_h_name breakall">
             <view>{{item.name}}</view>
@@ -86,7 +87,7 @@
     <block wx:for="{{bookList2}}" wx:key="main2_">
       <block wx:if="{{index!=0}}">
         <view class="canClick all_book box_s" data-id="{{item.id}}">
-          <view class="all_image_body center"><image  src="{{item.img}}" /></view>
+          <view class="all_image_body center"><image  class="all_image_img" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" /></view>
           <view class="all_book_name diandian">{{item.name}}</view>
           <view class="all_book_type diandian">{{item.typeName}}</view>
         </view>
@@ -98,14 +99,15 @@
 <view class="jg"></view>
 <!--热门畅销-->
 <view class="all_title box_h center_s"><image  src="../../image/title3.png" />
-  <view class="boxflex1 diandian center_s">
+  <view class="boxflex1 diandian center_s" style="height:100%;">
     <view class="all_title_info">热门畅销</view>
   </view>
 </view>
 <view class="index_main3 box_s">
   <block wx:for="{{bookList3}}" wx:key="main3">
     <block wx:if="{{index<2}}">
-      <view class="all_book_h box_h canClick" data-id="{{item.id}}"><image  class="all_book_h_img" src="{{item.img}}" />
+      <view class="all_book_h box_h canClick" data-id="{{item.id}}">
+        <view class="all_book_h_img"><image  class="all_book_h_img_image" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" /></view>
         <view class="boxflex1 box_s">
           <view class="all_book_h_name breakall">
             <view>{{item.name}}</view>
@@ -123,9 +125,9 @@
   <block wx:for="{{bookList3}}" wx:key="main3_">
     <block wx:if="{{index==2}}">
       <view class="all_book_h2 canClick box_s all_book_h2_bg" data-id="{{item.id}}">
-        <view class="all_book_h2_title diandian">
-          <view>{{item.name}}</view>
-          <view class="all_book_h2_author">{{item.author}}</view>
+        <view class="all_book_h2_title diandian center_s">
+          <view>{{item.name}}</view><image  src="../../image/user.png" />
+          <view class="all_book_h2_author boxflex1 diandian">{{item.author}}</view>
         </view>
         <view class="all_book_h2_info diandian2">{{item.info}}</view>
       </view>
@@ -134,9 +136,9 @@
   <block wx:for="{{bookList3}}" wx:key="main3_">
     <block wx:if="{{index>2}}">
       <view class="all_book_h2 canClick box_s " data-id="{{item.id}}">
-        <view class="all_book_h2_title diandian">
-          <view>{{item.name}}</view>
-          <view class="all_book_h2_author">{{item.author}}</view>
+        <view class="all_book_h2_title diandian center_s">
+          <view>{{item.name}}</view><image  src="../../image/user.png" />
+          <view class="all_book_h2_author boxflex1 diandian">{{item.author}}</view>
         </view>
         <view class="all_book_h2_info diandian2">{{item.info}}</view>
       </view>
@@ -147,14 +149,14 @@
 <view class="jg"></view>
 <!--惊喜新书-->
 <view class="all_title box_h center_s"><image  src="../../image/title4.png" />
-  <view class="boxflex1 diandian center_s">
+  <view class="boxflex1 diandian center_s" style="height:100%;">
     <view class="all_title_info">惊喜新书</view>
   </view>
 </view>
 <view class="index_mian4">
   <block wx:for="{{bookList4}}" wx:key="main4">
     <view class="canClick all_book box_s" data-id="{{item.id}}">
-      <view class="all_image_body center"><image  src="{{item.img}}" /></view>
+      <view class="all_image_body center"><image  class="all_image_img" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" /></view>
       <view class="all_book_name diandian">{{item.name}}</view>
       <view class="all_book_type diandian">{{item.typeName}}</view>
     </view>
