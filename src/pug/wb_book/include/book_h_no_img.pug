@@ -1,0 +1,6 @@
+mixin book_h_no_img()
+    view(class='all_book_h2 box_s ' data-id='{{item.id}}' )
+        view(class='all_book_h2_title diandian')
+            view {{item.name}}
+            view(class='all_book_h2_author') {{item.author}}
+        view(class='all_book_h2_info diandian2') {{item.info}}

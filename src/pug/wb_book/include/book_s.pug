@@ -1,7 +1,7 @@
 mixin book_s()
-    view(class='all_book box_s' data-id='{{book.id}}' data-url='{{book.url}}')
+    view(class='all_book box_s' data-id='{{item.id}}')
         view(class='all_image_body center')
-            img(src='{{book.img}}')
-        view(class='all_book_name diandian') {{book.name}}
-        view(class='all_book_type diandian') {{book.type}}
+            img(src='{{item.img}}')
+        view(class='all_book_name diandian') {{item.name}}
+        view(class='all_book_type diandian') {{item.typeName}}
 

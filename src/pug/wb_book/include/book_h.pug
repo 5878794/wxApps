@@ -1,25 +1,25 @@
 mixin book_h(type)
-    view(class='all_book_h box_h')
-        img(class='all_book_h_img' src='https://ss0.bdstatic.com/6ONWsjip0QIZ8tyhnq/it/u=3545401083,2251952841&fm=77&w_h=121_75&cs=2008984878,1171842780')
+    view(class='all_book_h box_h' data-id='{{item.id}}')
+        img(class='all_book_h_img' src='{{item.img}}')
         view(class='boxflex1 box_s')
             view(class='all_book_h_name breakall')
-                view 阿里的积分卡卡将
-                view(class='all_book_h_free') 免费
-                view(class='all_book_h_vip') VIP
+                view {{item.name}}
+                view(class='all_book_h_free' style="display:{{(item.isFree)?'inline-block':'none'}};") 免费
+                view(class='all_book_h_vip' style="display:{{(item.isVIP)?'inline-block':'none'}};") VIP
 
             if(type==1)
                 view(class='all_book_h_types')
-                    view(class='all_book_h_type') 类别
-                    view(class='all_book_h_state') 状态
+                    view(wx:for='{{item.types}}' wx:key='type' wx:item='type_name' class='all_book_h_type') {{type_name}}
+                    view(wx:for='{{item.states}}' wx:key='state' wx:item='state_name' class='all_book_h_state') {{state_name}}
                 view(class='all_book_h_texts box_h')
                     view 最新章节：
-                    view(class='boxflex1 breakall') 阿斯顿看风景啊深刻的减肥卡拉斯京阿斯顿看风景啊看世界的风
+                    view(class='boxflex1 breakall') {{item.lastChapter}}
                 view(class='all_book_h_texts box_h')
                     view 更新时间：
-                    view(class='boxflex1 breakall') 阿斯顿看风景啊深刻的减肥卡拉斯京阿斯顿看风景啊看世界的风
+                    view(class='boxflex1 breakall') {{item.updateTime}}
             else if(type==2)
-                view(class='all_book_h_info breakall') 阿斯顿看风景啊深刻的减肥卡拉斯京阿斯顿看风景啊看世界的风阿斯顿看风景啊深刻的减肥卡拉斯京阿斯顿看风景啊看世界的风阿斯顿看风景啊深刻的减肥卡拉斯京阿斯顿看风景啊看世界的风阿斯顿看风景啊深刻的减肥卡拉斯京阿斯顿看风景啊看世界的风
+                view(class='all_book_h_info breakall') {{item.info}}
 
-            view(class='all_book_h_author') 阿迪卡积分即可
+            view(class='all_book_h_author') {{item.author}}
 
 

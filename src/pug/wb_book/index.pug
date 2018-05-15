@@ -4,6 +4,7 @@ title 比心言情
 include ./include/book_s
 include ./include/book_h
 include ./include/title
+include ./include/book_h_no_img
 
 
 //顶部
@@ -52,7 +53,59 @@ view(class='index_dh box_h')
 view(class='jg')
 
 
-view(style='width:100%;padding:0 15rpx;box-sizing:border-box;')
+//最近阅读
+view(class='index_near')
+    view(class='index_near_bottom box_h center_s')
+        view(class='boxflex1') 最近阅读
+        view(class='index_near_number') 9544 人阅读
+
+
+//最近主打
++title(1,'本期主打',true)
+view(class='index_main1 box_h')
+    view(wx:for='{{bookList1}}' wx:key='main1' class='index_main1_item center')
+        +book_s()
+
+
+//间隔条
+view(class='jg')
+
+
+//精品好书
++title(2,'精品好书')
+view(class='index_main2 box_s')
+    block(wx:for='{{bookList2}}' wx:key='main2')
+        view(wx:if='{{index==0}}' class='index_main2_row')
+            +book_h(2)
+    view
+        block(wx:for='{{bookList2}}' wx:key='main2_')
+            block(wx:if='{{index!=0}}')
+                +book_s()
+
+
+//间隔条
+view(class='jg')
+
+
+//热门畅销
++title(3,'热门畅销')
+view(class='index_main3 box_s')
+    block(wx:for='{{bookList3}}' wx:key='main3' )
+        block(wx:if='{{index<2}}')
+            +book_h(2)
+    block(wx:for='{{bookList3}}' wx:key='main3_')
+        block(wx:if='{{index>1}}')
+            +book_h_no_img()
 
 
 
+//间隔条
+view(class='jg')
+
+
+
+//惊喜新书
++title(4,'惊喜新书')
+view(class='index_mian4')
+    block(wx:for='{{bookList4}}' wx:key='main4' )
+        +book_s()
