@@ -1,0 +1,58 @@
+title 比心言情
+
+
+include ./include/book_s
+
+
+
+//顶部
+view(class='index_top box_s')
+    view(class='index_top_logo')
+    view(class='index_top_search box_h center_s')
+        input(class='boxflex1' type='search' placeholder='搜索' name='search' bindinput='searchInput' value='{{search}}')
+        view(class='index_top_btn')
+
+
+//banner
+swiper(
+    class='index_banner'
+    indicator-dots='true'
+    autoplay='true'
+    duration='1000'
+    interval='5000'
+    indicator-color='#fff'
+    indicator-active-color='rgb(254,184,182)'
+)
+    block(wx:for='{{banner}}' wx:key='index')
+        swiper-item
+            img(src='{{item.imgSrc}}' data-url='{{item.url}}' mode='widthFix' bindtap='bannerTap')
+
+
+//导航条
+view(class='index_dh box_h')
+    view(class='index_dh_item box_s center')
+        img(src='#')
+        view 读过
+    view(class='index_dh_item box_s center')
+        img(src='#')
+        view 书库
+    view(class='index_dh_item box_s center')
+        img(src='#')
+        view 排行
+    view(class='index_dh_item box_s center')
+        img(src='#')
+        view 免费
+    view(class='index_dh_item box_s center')
+        img(src='#')
+        view 充值
+
+
+//间隔条
+view(class='jg')
+
+
+
+
+
+
+

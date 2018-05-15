@@ -39,6 +39,9 @@ let renderFn = function(projectName){
 	entryFiles.map(filePath=>{
 		let fileName = filePath.replace(projectPath,"").split('.')[0],
 			outPath = path.join(wxDir,'/'+projectName+'/pages/'+fileName+'/'+'index'+'.wxss'),
+			//压缩css
+			// cmdText = 'lessc -x '+filePath+' ' +outPath;
+			//不压缩
 			cmdText = 'lessc -x '+filePath+' ' +outPath;
 
 		runExec(cmdText);

@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "es6":"node ./cmd/es6_compile.es6 artSpace",
-    "jade": "node ./cmd/pug_compile.es6 artSpace ",
-    "less": "node ./cmd/less_compile.es6 artSpace ",
-    "html+css":"node ./cmd/pug_compile.es6 artSpace;node ./cmd/less_compile.es6 artSpace"
+    "es6": "node ./cmd/es6_compile.es6 wb_book",
+    "jade": "node ./cmd/pug_compile.es6 wb_book ",
+    "less": "node ./cmd/less_compile.es6 wb_book ",
+    "html+css": "node ./cmd/pug_compile.es6 wb_book;node ./cmd/less_compile.es6 wb_book"
   },
   "author": "",
   "license": "ISC",
