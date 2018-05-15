@@ -43,7 +43,7 @@ Page({
           //是否免费
           isFree:true,
           //是否vip
-          isVIP:false,
+          isVIP:true,
           //所属类别  没有传空数组
           types:['军事','历史'],
           //状态
