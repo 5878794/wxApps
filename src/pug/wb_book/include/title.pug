@@ -1,18 +1,18 @@
 mixin title(type,text,showMore)
-    view(class='all_title box_h')
+    view(class='all_title box_h center_s')
         if(type==1)
-            img(src='https://ss0.bdstatic.com/6ONWsjip0QIZ8tyhnq/it/u=3545401083,2251952841&fm=77&w_h=121_75&cs=2008984878,1171842780')
+            img(src='../../image/title1.png')
         else if(type==2)
-            img(src='https://ss0.bdstatic.com/6ONWsjip0QIZ8tyhnq/it/u=3545401083,2251952841&fm=77&w_h=121_75&cs=2008984878,1171842780')
+            img(src='../../image/title2.png')
         else if(type==3)
-            img(src='https://ss0.bdstatic.com/6ONWsjip0QIZ8tyhnq/it/u=3545401083,2251952841&fm=77&w_h=121_75&cs=2008984878,1171842780')
+            img(src='../../image/title3.png')
         else if(type==4)
-            img(src='https://ss0.bdstatic.com/6ONWsjip0QIZ8tyhnq/it/u=3545401083,2251952841&fm=77&w_h=121_75&cs=2008984878,1171842780')
+            img(src='../../image/title4.png')
 
 
         view(class='boxflex1 diandian center_s')
             view(class='all_title_info')=text
 
         if(showMore)
-            view(class='all_show_more') 查看全部
+            view(class='all_show_more canClick') 查看全部
                 img(src='../../image/arrow.png')

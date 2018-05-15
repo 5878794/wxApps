@@ -1,8 +1,10 @@
-<view class="index_top box_s">
+<view class="index_top box_s"><image  class="index_top_bg" src="../../image/index/logo.png" />
   <view class="index_top_logo"></view>
   <view class="index_top_search box_h center_s">
-    <input class="boxflex1" type="search" placeholder="搜索" name="search" bindinput="searchInput" value="{{search}}" />
-    <view class="index_top_btn"></view>
+    <view class="index_top_input_main boxflex1"><image  class="index_top_input_icon" src="../../image/search.png" />
+      <input type="search" placeholder="搜索" name="search" bindinput="searchInput" value="{{search}}" />
+    </view>
+    <view class="index_top_btn canClick"><image  class="index_top_btn1" src="../../image/search_btn.png" /></view>
   </view>
 </view>
 <!--banner-->
@@ -13,19 +15,19 @@
 </swiper>
 <!--导航条-->
 <view class="index_dh box_h">
-  <view class="index_dh_item box_s center"><image  src="#" />
+  <view class="index_dh_item box_s center canClick"><image  src="../../image/index/menu1.png" />
     <view>读过</view>
   </view>
-  <view class="index_dh_item box_s center"><image  src="#" />
+  <view class="index_dh_item box_s center canClick"><image  src="../../image/index/menu2.png" />
     <view>书库</view>
   </view>
-  <view class="index_dh_item box_s center"><image  src="#" />
+  <view class="index_dh_item box_s center canClick"><image  src="../../image/index/menu3.png" />
     <view>排行</view>
   </view>
-  <view class="index_dh_item box_s center"><image  src="#" />
+  <view class="index_dh_item box_s center canClick"><image  src="../../image/index/menu4.png" />
     <view>免费</view>
   </view>
-  <view class="index_dh_item box_s center"><image  src="#" />
+  <view class="index_dh_item box_s center canClick"><image  src="../../image/index/menu5.png" />
     <view>充值</view>
   </view>
 </view>
@@ -39,15 +41,15 @@
   </view>
 </view>
 <!--最近主打-->
-<view class="all_title box_h"><image  src="https://ss0.bdstatic.com/6ONWsjip0QIZ8tyhnq/it/u=3545401083,2251952841&fm=77&w_h=121_75&cs=2008984878,1171842780" />
+<view class="all_title box_h center_s"><image  src="../../image/title1.png" />
   <view class="boxflex1 diandian center_s">
     <view class="all_title_info">本期主打</view>
   </view>
-  <view class="all_show_more">查看全部<image  src="../../image/arrow.png" /></view>
+  <view class="all_show_more canClick">查看全部<image  src="../../image/arrow.png" /></view>
 </view>
 <view class="index_main1 box_h">
   <view class="index_main1_item center" wx:for="{{bookList1}}" wx:key="main1">
-    <view class="all_book box_s" data-id="{{item.id}}">
+    <view class="canClick all_book box_s" data-id="{{item.id}}">
       <view class="all_image_body center"><image  src="{{item.img}}" /></view>
       <view class="all_book_name diandian">{{item.name}}</view>
       <view class="all_book_type diandian">{{item.typeName}}</view>
@@ -57,7 +59,7 @@
 <!--间隔条-->
 <view class="jg"></view>
 <!--精品好书-->
-<view class="all_title box_h"><image  src="https://ss0.bdstatic.com/6ONWsjip0QIZ8tyhnq/it/u=3545401083,2251952841&fm=77&w_h=121_75&cs=2008984878,1171842780" />
+<view class="all_title box_h center_s"><image  src="../../image/title2.png" />
   <view class="boxflex1 diandian center_s">
     <view class="all_title_info">精品好书</view>
   </view>
@@ -65,7 +67,7 @@
 <view class="index_main2 box_s">
   <block wx:for="{{bookList2}}" wx:key="main2">
     <view class="index_main2_row" wx:if="{{index==0}}">
-      <view class="all_book_h box_h" data-id="{{item.id}}"><image  class="all_book_h_img" src="{{item.img}}" />
+      <view class="all_book_h box_h canClick" data-id="{{item.id}}"><image  class="all_book_h_img" src="{{item.img}}" />
         <view class="boxflex1 box_s">
           <view class="all_book_h_name breakall">
             <view>{{item.name}}</view>
@@ -73,7 +75,9 @@
             <view class="all_book_h_vip" style="display:{{(item.isVIP)?'inline-block':'none'}};">VIP</view>
           </view>
           <view class="all_book_h_info breakall">{{item.info}}</view>
-          <view class="all_book_h_author">{{item.author}}</view>
+          <view class="all_book_h_author box_h center_s"><image  src="../../image/user.png" />
+            <view class="boxflex1">{{item.author}}</view>
+          </view>
         </view>
       </view>
     </view>
@@ -81,7 +85,7 @@
   <view>
     <block wx:for="{{bookList2}}" wx:key="main2_">
       <block wx:if="{{index!=0}}">
-        <view class="all_book box_s" data-id="{{item.id}}">
+        <view class="canClick all_book box_s" data-id="{{item.id}}">
           <view class="all_image_body center"><image  src="{{item.img}}" /></view>
           <view class="all_book_name diandian">{{item.name}}</view>
           <view class="all_book_type diandian">{{item.typeName}}</view>
@@ -93,7 +97,7 @@
 <!--间隔条-->
 <view class="jg"></view>
 <!--热门畅销-->
-<view class="all_title box_h"><image  src="https://ss0.bdstatic.com/6ONWsjip0QIZ8tyhnq/it/u=3545401083,2251952841&fm=77&w_h=121_75&cs=2008984878,1171842780" />
+<view class="all_title box_h center_s"><image  src="../../image/title3.png" />
   <view class="boxflex1 diandian center_s">
     <view class="all_title_info">热门畅销</view>
   </view>
@@ -101,7 +105,7 @@
 <view class="index_main3 box_s">
   <block wx:for="{{bookList3}}" wx:key="main3">
     <block wx:if="{{index<2}}">
-      <view class="all_book_h box_h" data-id="{{item.id}}"><image  class="all_book_h_img" src="{{item.img}}" />
+      <view class="all_book_h box_h canClick" data-id="{{item.id}}"><image  class="all_book_h_img" src="{{item.img}}" />
         <view class="boxflex1 box_s">
           <view class="all_book_h_name breakall">
             <view>{{item.name}}</view>
@@ -109,14 +113,27 @@
             <view class="all_book_h_vip" style="display:{{(item.isVIP)?'inline-block':'none'}};">VIP</view>
           </view>
           <view class="all_book_h_info breakall">{{item.info}}</view>
-          <view class="all_book_h_author">{{item.author}}</view>
+          <view class="all_book_h_author box_h center_s"><image  src="../../image/user.png" />
+            <view class="boxflex1">{{item.author}}</view>
+          </view>
         </view>
       </view>
     </block>
   </block>
   <block wx:for="{{bookList3}}" wx:key="main3_">
-    <block wx:if="{{index>1}}">
-      <view class="all_book_h2 box_s " data-id="{{item.id}}">
+    <block wx:if="{{index==2}}">
+      <view class="all_book_h2 canClick box_s all_book_h2_bg" data-id="{{item.id}}">
+        <view class="all_book_h2_title diandian">
+          <view>{{item.name}}</view>
+          <view class="all_book_h2_author">{{item.author}}</view>
+        </view>
+        <view class="all_book_h2_info diandian2">{{item.info}}</view>
+      </view>
+    </block>
+  </block>
+  <block wx:for="{{bookList3}}" wx:key="main3_">
+    <block wx:if="{{index>2}}">
+      <view class="all_book_h2 canClick box_s " data-id="{{item.id}}">
         <view class="all_book_h2_title diandian">
           <view>{{item.name}}</view>
           <view class="all_book_h2_author">{{item.author}}</view>
@@ -129,14 +146,14 @@
 <!--间隔条-->
 <view class="jg"></view>
 <!--惊喜新书-->
-<view class="all_title box_h"><image  src="https://ss0.bdstatic.com/6ONWsjip0QIZ8tyhnq/it/u=3545401083,2251952841&fm=77&w_h=121_75&cs=2008984878,1171842780" />
+<view class="all_title box_h center_s"><image  src="../../image/title4.png" />
   <view class="boxflex1 diandian center_s">
     <view class="all_title_info">惊喜新书</view>
   </view>
 </view>
 <view class="index_mian4">
   <block wx:for="{{bookList4}}" wx:key="main4">
-    <view class="all_book box_s" data-id="{{item.id}}">
+    <view class="canClick all_book box_s" data-id="{{item.id}}">
       <view class="all_image_body center"><image  src="{{item.img}}" /></view>
       <view class="all_book_name diandian">{{item.name}}</view>
       <view class="all_book_type diandian">{{item.typeName}}</view>

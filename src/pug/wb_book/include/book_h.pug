@@ -1,5 +1,5 @@
 mixin book_h(type)
-    view(class='all_book_h box_h' data-id='{{item.id}}')
+    view(class='all_book_h box_h canClick' data-id='{{item.id}}')
         img(class='all_book_h_img' src='{{item.img}}')
         view(class='boxflex1 box_s')
             view(class='all_book_h_name breakall')
@@ -20,6 +20,8 @@ mixin book_h(type)
             else if(type==2)
                 view(class='all_book_h_info breakall') {{item.info}}
 
-            view(class='all_book_h_author') {{item.author}}
+            view(class='all_book_h_author box_h center_s')
+                img(src='../../image/user.png')
+                view(class='boxflex1') {{item.author}}
 
 

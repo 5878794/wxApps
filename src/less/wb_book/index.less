@@ -1,7 +1,12 @@
 @import "./fn/fn.less";
 
 .index_top{
-    width: 100%; height: 210rpx; background: green;
+    width: 100%; height: 210rpx;
+    position: relative;
+}
+.index_top_bg{
+    position: absolute; left:0; top:0; z-index: 0;
+    width: 100%; height: 100%;
 }
 .index_top_logo{
     width: 100%; height: 128rpx;
@@ -11,17 +16,29 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
-.index_top_search input{
+.index_top_input_main{
     display: block; height: 55rpx; line-height: 55rpx;
     -webkit-border-radius:28rpx;
     border-radius:28rpx;
     background: #fff; overflow: hidden;
-    padding-left: 80rpx;
+    padding-left: 70rpx;
     font-size: @font_book_size;
+    position: relative; z-index: 2;
+}
+.index_top_input_icon{
+    display: block; width: 28rpx; height: 28rpx;
+    position: absolute; left:20rpx; top:15rpx;
+}
+.index_top_input_main input{
+    display: block; width: 95%; height: 55rpx;
 }
 .index_top_btn{
-    width: 42rpx; height: 42rpx; background: red;
+    width: 42rpx; height: 42rpx;
     padding: 6rpx 0 6rpx 15rpx;
+    position: relative; z-index: 2;
+}
+.index_top_btn1{
+    width: 100%; height: 100%;
 }
 .index_banner{
     width: 100%; height: 370rpx; overflow: hidden;
@@ -33,7 +50,7 @@
 
 .index_dh{
     background: #fff; padding: 0 15rpx;
-    width: 100%; height: 160rpx;
+    width: 100%; height: 180rpx;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
@@ -41,7 +58,7 @@
     width: 25%;
 }
 .index_dh_item image{
-    width: 57rpx; height: 57rpx; background: red;
+    width: 70rpx; height: 70rpx;
 }
 .index_dh_item view{
     color: @font_color; font-size: @font_dh_size;

@@ -9,10 +9,14 @@ include ./include/book_h_no_img
 
 //顶部
 view(class='index_top box_s')
+    img(class='index_top_bg' src='../../image/index/logo.png')
     view(class='index_top_logo')
     view(class='index_top_search box_h center_s')
-        input(class='boxflex1' type='search' placeholder='搜索' name='search' bindinput='searchInput' value='{{search}}')
-        view(class='index_top_btn')
+        view(class='index_top_input_main boxflex1')
+            img(class='index_top_input_icon' src='../../image/search.png')
+            input(type='search' placeholder='搜索' name='search' bindinput='searchInput' value='{{search}}')
+        view(class='index_top_btn canClick')
+            img(class='index_top_btn1' src='../../image/search_btn.png')
 
 
 //banner
@@ -32,20 +36,20 @@ swiper(
 
 //导航条
 view(class='index_dh box_h')
-    view(class='index_dh_item box_s center')
-        img(src='#')
+    view(class='index_dh_item box_s center canClick')
+        img(src='../../image/index/menu1.png')
         view 读过
-    view(class='index_dh_item box_s center')
-        img(src='#')
+    view(class='index_dh_item box_s center canClick')
+        img(src='../../image/index/menu2.png')
         view 书库
-    view(class='index_dh_item box_s center')
-        img(src='#')
+    view(class='index_dh_item box_s center canClick')
+        img(src='../../image/index/menu3.png')
         view 排行
-    view(class='index_dh_item box_s center')
-        img(src='#')
+    view(class='index_dh_item box_s center canClick')
+        img(src='../../image/index/menu4.png')
         view 免费
-    view(class='index_dh_item box_s center')
-        img(src='#')
+    view(class='index_dh_item box_s center canClick')
+        img(src='../../image/index/menu5.png')
         view 充值
 
 
@@ -94,7 +98,10 @@ view(class='index_main3 box_s')
         block(wx:if='{{index<2}}')
             +book_h(2)
     block(wx:for='{{bookList3}}' wx:key='main3_')
-        block(wx:if='{{index>1}}')
+        block(wx:if='{{index==2}}')
+            +book_h_no_img(true)
+    block(wx:for='{{bookList3}}' wx:key='main3_')
+        block(wx:if='{{index>2}}')
             +book_h_no_img()
 
 
