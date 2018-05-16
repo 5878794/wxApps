@@ -1,0 +1,38 @@
+<view class="all_center_top box_s center"><image  class="all_center_top_bg" src="../../image/center/bg.png" /><image  class="all_center_top_icon" src="https://ss0.bdstatic.com/6ONWsjip0QIZ8tyhnq/it/u=3545401083,2251952841&fm=77&w_h=121_75&cs=2008984878,1171842780" />
+  <view class="all_center_top_name">阿达大方</view>
+  <view class="all_center_top_money box_h">
+    <view>您的账户余额</view>
+    <view class="all_center_top_money_">0.00</view>
+    <view>书币</view>
+  </view>
+</view>
+<!--标题-->
+<view class="all_title1 box_h center_s">
+  <view class="all_title1_icon"></view>
+  <view class="boxflex1 all_title1_texts">
+    <view class="all_title1_text1">微信充值</view>
+    <view class="all_title1_text2"></view>
+  </view>
+</view>
+<!--充值金额列表  数据见js-->
+<view class="recharge_list">
+  <view class="recharge_list_item box_s center {{(item.select)?'item_select':''}}" wx:for="{{list}}" wx:key="index">
+    <view class="recharge_list_item_name">{{item.money}}</view>
+    <view class="recharge_list_item_info">{{item.info}}</view>
+    <view class="recharge_list_item_icon" style="display:{{(item.send)? 'block':'none'}};">{{item.send}}</view>
+  </view>
+</view>
+<!--活动规则-->
+<view class="all_title1 box_h center_s">
+  <view class="all_title1_icon"></view>
+  <view class="boxflex1 all_title1_texts">
+    <view class="all_title1_text1">活动规则</view>
+    <view class="all_title1_text2"></view>
+  </view>
+</view>
+<!--规则列表-->
+<view class="recharge_rule box_h" wx:for="{{rule}}" wx:key="index1">
+  <view class="recharge_rule_no">{{index+1}}、</view>
+  <view class="boxflex1">{{item}}</view>
+</view>
+<view style="background:#fff;height:100rpx;width:100%;"></view>

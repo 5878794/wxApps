@@ -1,0 +1,12 @@
+mixin centerTop(type)
+    view(class='all_center_top box_s center')
+        img(class='all_center_top_bg' src='../../image/center/bg.png')
+        img(class='all_center_top_icon' src='https://ss0.bdstatic.com/6ONWsjip0QIZ8tyhnq/it/u=3545401083,2251952841&fm=77&w_h=121_75&cs=2008984878,1171842780')
+        view(class='all_center_top_name') 阿达大方
+        if(type==1)
+            view(class='all_center_top_money box_h')
+                view 您的账户余额
+                view(class='all_center_top_money_') 0.00
+                view 书币
+        if(type==2)
+            view(class='all_center_top_edit canClick') 查看或编辑个人资料

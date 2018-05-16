@@ -1,0 +1,14 @@
+mixin title1(text1,text2,refresh,clear)
+    view(class='all_title1 box_h center_s')
+        view(class='all_title1_icon')
+        view(class='boxflex1 all_title1_texts')
+            view(class='all_title1_text1')=text1
+            view(class='all_title1_text2')=text2
+        if(refresh || clear)
+            view(class='all_title1_btns canClick')
+                if(refresh)
+                    img(class='all_title1_btn_refresh' src='../../image/refresh.png')
+                    view 换一换
+                if(clear)
+                    img(class='all_title1_btn_clear' src='../../image/del.png')
+                    view 清空

@@ -1,0 +1,38 @@
+title 充值
+
+include ./include/center_top
+include ./include/title1
+
+
+//顶部
++centerTop(1)
+
+//标题
++title1('微信充值')
+
+
+//充值金额列表  数据见js
+view(class='recharge_list')
+    view(
+        wx:for='{{list}}'
+        wx:key='index'
+        class="recharge_list_item box_s center {{(item.select)?'item_select':''}}"
+    )
+        view(class='recharge_list_item_name') {{item.money}}
+        view(class='recharge_list_item_info') {{item.info}}
+        view(class='recharge_list_item_icon' style="display:{{(item.send)? 'block':'none'}};") {{item.send}}
+
+
+//活动规则
++title1('活动规则')
+//规则列表
+view(
+    class='recharge_rule box_h'
+    wx:for='{{rule}}'
+    wx:key='index1'
+)
+    view(class='recharge_rule_no') {{index+1}}、
+    view(class='boxflex1') {{item}}
+
+
+view(style='background:#fff;height:100rpx;width:100%;')
