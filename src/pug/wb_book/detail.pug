@@ -1,0 +1,57 @@
+title 详情
+
+
+include ./include/title1
+include ./include/title
+include ./include/book_h_min1
+include ./include/book_h
+include ./include/book_s
+
+
+view(class='detail_main')
+    block(wx:for='{{book}}' wx:key='index1')
+        +book_h(1)
+
+    view(class='detail_top_btns box_h center')
+        view(class='detail_top_btns1 canClick') 开始阅读
+        view(class='detail_top_btns2 canClick') 追书
+
+
+//间隔条
+view(class='jg')
+
+
+
+//作品简介
++title1('作品简介')
+view(class='detail_main1')
+    view(class='detail_info_info') 阿迪开发卡拉斯京的饭卡了世界的疯狂了啊深刻的理解饭卡善良的计分卡世界的疯狂就啊师傅打卡世界的风阿迪开发卡拉斯京的饭卡了世界的疯狂了啊深刻的理解饭卡善良的计分卡世界的疯狂就啊师傅打卡世界的风
+    view(class='detail_info_last box_h canClick')
+        view(class='detail_info_left') 已完结
+        view(class='boxflex1 box_s')
+            view 大法阿迪看了风景啊看的计分卡里加水淀粉阿斯顿看风景阿斯顿发
+            view 2018-11-11
+
+//间隔条
+view(class='jg')
+
+
+//目录
++title1('目录','1小时前更新')
+view(class='detail_main1')
+    //背景灰  view加class select
+    block(wx:for='{{list}}' wx:key='index2')
+        +book_h_min1()
+
+    view(class='dir_more canClick') 点击查看更多章节
+
+
+//间隔条
+view(class='jg')
+
+
+//踹你喜欢
++title(4,'猜你喜欢')
+view(class='detail_main2')
+    block(wx:for='{{love}}' wx:key='index3')
+        +book_s()
