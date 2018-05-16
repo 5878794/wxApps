@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/dir/index",
     "pages/ranking/index",
     "pages/readed/index",
     "pages/center/index",

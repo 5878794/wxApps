@@ -1,0 +1,19 @@
+<view class="all_title1 box_h center_s">
+  <view class="all_title1_icon"></view>
+  <view class="boxflex1 all_title1_texts">
+    <view class="all_title1_text1">目录</view>
+    <view class="all_title1_text2">1小时前更新</view>
+  </view>
+</view>
+<view class="dir_list">
+  <!--背景灰 view加class   'select'-->
+  <block wx:for="{{list}}" wx:key="index1">
+    <view class="book_h_min1_list box_h center_s canClick">
+      <view class="boxflex1 box_s">
+        <view>{{item.name}}</view>
+        <view class="book_h_min1_list_time">更新时间：{{item.updateTime}}</view>
+      </view><image  class="book_h_min1_list_arrow" src="../../image/arrow.png" />
+    </view>
+  </block>
+</view>
+<view class="dir_more canClick">点击查看更多章节</view>

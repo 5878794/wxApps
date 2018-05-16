@@ -1,0 +1,6 @@
+mixin book_h_min1()
+    view(class='book_h_min1_list box_h center_s canClick')
+        view(class='boxflex1 box_s')
+            view {{item.name}}
+            view(class='book_h_min1_list_time') 更新时间：{{item.updateTime}}
+        img(class='book_h_min1_list_arrow' src='../../image/arrow.png')

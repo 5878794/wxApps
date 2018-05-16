@@ -1,0 +1,18 @@
+title 目录
+
+
+include ./include/title1
+include ./include/book_h_min1
+
+
++title1('目录','1小时前更新')
+
+
+view(class='dir_list')
+    //背景灰 view加class   'select'
+    block(wx:for='{{list}}' wx:key='index1')
+        +book_h_min1()
+
+
+
+view(class='dir_more canClick') 点击查看更多章节
