@@ -11,8 +11,8 @@ mixin book_h(type)
 
             if(type==1)
                 view(class='all_book_h_types')
-                    view(wx:for='{{item.types}}' wx:key='type' wx:item='type_name' class='all_book_h_type') {{type_name}}
-                    view(wx:for='{{item.states}}' wx:key='state' wx:item='state_name' class='all_book_h_state') {{state_name}}
+                    view(wx:for='{{item.types}}' wx:key='type' wx:for-item='type_name' class='all_book_h_type') {{type_name}}
+                    view(wx:for='{{item.states}}' wx:key='state' wx:for-item='state_name' class='all_book_h_state') {{state_name}}
                 view(class='all_book_h_texts box_h')
                     view 最新章节：
                     view(class='boxflex1 breakall') {{item.lastChapter}}

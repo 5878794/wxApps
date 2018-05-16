@@ -1,0 +1,37 @@
+<view class="readed_tab">
+  <view class="box_h">
+    <!--选中的样式加select-->
+    <view class="readed_tab_item canClick">小说</view>
+    <view class="readed_tab_item canClick select">其它</view>
+  </view>
+</view>
+<!--书列表-->
+<view class="readed_list">
+  <block wx:for="{{list}}" wx:key="indexdd">
+    <view class="all_book_h box_h canClick" data-id="{{item.id}}">
+      <view class="all_book_h_img"><image  class="all_book_h_img_image" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" /></view>
+      <view class="boxflex1 box_s">
+        <view class="all_book_h_name breakall">
+          <view>{{item.name}}</view>
+          <view class="all_book_h_free" style="display:{{(item.isFree)?'inline-block':'none'}};">免费</view>
+          <view class="all_book_h_vip" style="display:{{(item.isVIP)?'inline-block':'none'}};">VIP</view>
+        </view>
+        <view class="all_book_h_types">
+          <view class="all_book_h_type" wx:for="{{item.types}}" wx:key="type" wx:for-item="type_name">{{type_name}}</view>
+          <view class="all_book_h_state" wx:for="{{item.states}}" wx:key="state" wx:for-item="state_name">{{state_name}}</view>
+        </view>
+        <view class="all_book_h_texts box_h">
+          <view>最新章节：</view>
+          <view class="boxflex1 breakall">{{item.lastChapter}}</view>
+        </view>
+        <view class="all_book_h_texts box_h">
+          <view>更新时间：</view>
+          <view class="boxflex1 breakall">{{item.updateTime}}</view>
+        </view>
+        <view class="all_book_h_author box_h center_s"><image  src="../../image/user.png" />
+          <view class="boxflex1">{{item.author}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
