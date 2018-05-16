@@ -1,0 +1,25 @@
+<view class="all_center_top box_s center"><image  class="all_center_top_bg" src="../../image/center/bg.png" /><image  class="all_center_top_icon" src="https://ss0.bdstatic.com/6ONWsjip0QIZ8tyhnq/it/u=3545401083,2251952841&fm=77&w_h=121_75&cs=2008984878,1171842780" />
+  <view class="all_center_top_name">阿达大方</view>
+  <view class="all_center_top_edit canClick">查看或编辑个人资料</view>
+</view>
+<!--按钮-->
+<view class="center_btns">
+  <!--选中的加select背景-->
+  <view class="center_btn_item box_h center_s canClick select"><image  class="center_btn_item_icon" src="../../image/center/icon1.png" />
+    <view class="boxflex1">藏书架</view>
+    <view class="center_btn_item_info">100本书在追</view><image  class="center_btn_item_arrow" src="../../image/arrow.png" />
+  </view>
+  <view class="center_btn_item box_h center_s canClick"><image  class="center_btn_item_icon" src="../../image/center/icon2.png" />
+    <view class="boxflex1">充值记录</view><image  class="center_btn_item_arrow" src="../../image/arrow.png" />
+  </view>
+  <view class="center_btn_item box_h center_s canClick"><image  class="center_btn_item_icon" src="../../image/center/icon3.png" />
+    <view class="boxflex1">订阅记录</view><image  class="center_btn_item_arrow" src="../../image/arrow.png" />
+  </view>
+</view>
+<!--间隔条-->
+<view class="jg"></view>
+<!--二维码区-->
+<view class="center_er">
+  <view>"关注官方微信公众号，方便下次阅读"</view>
+  <view>长按二维码可识别</view><image  src="../../image/center/bg.png" />
+</view>

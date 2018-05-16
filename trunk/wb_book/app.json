@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/center/index",
     "pages/recharge/index",
     "pages/index/index"
   ],

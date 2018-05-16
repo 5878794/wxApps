@@ -1,0 +1,35 @@
+title 充值
+
+include ./include/center_top
+
+
+//顶部
++centerTop(2)
+
+//按钮
+view(class='center_btns')
+    //选中的加select背景
+    view(class='center_btn_item box_h center_s canClick select')
+        img(class='center_btn_item_icon' src='../../image/center/icon1.png')
+        view(class='boxflex1') 藏书架
+        view(class='center_btn_item_info') 100本书在追
+        img(class='center_btn_item_arrow' src='../../image/arrow.png')
+    view(class='center_btn_item box_h center_s canClick')
+        img(class='center_btn_item_icon' src='../../image/center/icon2.png')
+        view(class='boxflex1') 充值记录
+        img(class='center_btn_item_arrow' src='../../image/arrow.png')
+    view(class='center_btn_item box_h center_s canClick')
+        img(class='center_btn_item_icon' src='../../image/center/icon3.png')
+        view(class='boxflex1') 订阅记录
+        img(class='center_btn_item_arrow' src='../../image/arrow.png')
+
+
+//间隔条
+view(class='jg')
+
+
+//二维码区
+view(class='center_er')
+    view "关注官方微信公众号，方便下次阅读"
+    view 长按二维码可识别
+    img(src='../../image/center/bg.png')
