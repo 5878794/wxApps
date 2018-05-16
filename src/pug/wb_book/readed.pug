@@ -1,14 +1,11 @@
 title 读过
 
 include ./include/book_h
+include ./include/tab
 
 
 //tab 切换条
-view(class='readed_tab')
-    view(class='box_h')
-        //选中的样式加select
-        view(class='readed_tab_item canClick') 小说
-        view(class='readed_tab_item canClick select') 其它
++tab('小说','其它')
 
 
 
