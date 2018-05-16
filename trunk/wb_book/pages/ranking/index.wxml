@@ -1,0 +1,33 @@
+<view class="readed_tab">
+  <view class="box_h">
+    <!--选中的样式加select-->
+    <view class="readed_tab_item canClick">人气榜</view>
+    <view class="readed_tab_item canClick select">追书榜</view>
+  </view>
+</view>
+<!--书列表-->
+<view class="ranking_list">
+  <!--顶部3个-->
+  <block wx:for="{{list}}" wx:key="indexdd">
+    <block wx:if="{{index<=2}}">
+      <view class="canClick all_book box_s" data-id="{{item.id}}">
+        <view class="all_image_body center"><image  class="all_image_img" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" /><image  class="all_image_img_number" src="../../image/ranking/{{index+1}}.png" />
+        </view>
+        <view class="all_book_name diandian">{{item.name}}</view>
+        <view class="all_book_type diandian">{{item.typeName}}</view>
+      </view>
+    </block>
+  </block>
+</view>
+<view class="ranking_list1">
+  <!--下面7个-->
+  <!--背景灰色加select-->
+  <block wx:for="{{list}}" wx:key="indexdd">
+    <block wx:if="{{index>2}}">
+      <view class="all_book_h_min box_h center_s canClick">
+        <view class="all_book_h_min_number">{{index+1}}</view>
+        <view class="boxflex1">{{item.name}}</view><image  class="all_book_h_min_arrow" src="../../image/arrow.png" />
+      </view>
+    </block>
+  </block>
+</view>

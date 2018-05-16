@@ -1,0 +1,25 @@
+title 排行
+
+include ./include/book_s
+include ./include/book_h_min
+include ./include/tab
+
+
+//tab 切换条
++tab('人气榜','追书榜')
+
+
+
+//书列表
+view(class='ranking_list')
+    //顶部3个
+    block(wx:for='{{list}}' wx:key='indexdd')
+        block(wx:if='{{index<=2}}')
+            +book_s(true)
+
+view(class='ranking_list1')
+    //下面7个
+    //背景灰色加select
+    block(wx:for='{{list}}' wx:key='indexdd')
+        block(wx:if='{{index>2}}')
+            +book_h_min()

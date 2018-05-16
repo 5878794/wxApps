@@ -50,7 +50,8 @@
 <view class="index_main1 box_h">
   <view class="index_main1_item center" wx:for="{{bookList1}}" wx:key="main1">
     <view class="canClick all_book box_s" data-id="{{item.id}}">
-      <view class="all_image_body center"><image  class="all_image_img" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" /></view>
+      <view class="all_image_body center"><image  class="all_image_img" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" />
+      </view>
       <view class="all_book_name diandian">{{item.name}}</view>
       <view class="all_book_type diandian">{{item.typeName}}</view>
     </view>
@@ -87,7 +88,8 @@
     <block wx:for="{{bookList2}}" wx:key="main2_">
       <block wx:if="{{index!=0}}">
         <view class="canClick all_book box_s" data-id="{{item.id}}">
-          <view class="all_image_body center"><image  class="all_image_img" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" /></view>
+          <view class="all_image_body center"><image  class="all_image_img" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" />
+          </view>
           <view class="all_book_name diandian">{{item.name}}</view>
           <view class="all_book_type diandian">{{item.typeName}}</view>
         </view>
@@ -156,7 +158,8 @@
 <view class="index_mian4">
   <block wx:for="{{bookList4}}" wx:key="main4">
     <view class="canClick all_book box_s" data-id="{{item.id}}">
-      <view class="all_image_body center"><image  class="all_image_img" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" /></view>
+      <view class="all_image_body center"><image  class="all_image_img" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" />
+      </view>
       <view class="all_book_name diandian">{{item.name}}</view>
       <view class="all_book_type diandian">{{item.typeName}}</view>
     </view>
