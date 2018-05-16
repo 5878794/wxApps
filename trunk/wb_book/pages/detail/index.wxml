@@ -61,7 +61,7 @@
     <view class="all_title1_text2">1小时前更新</view>
   </view>
 </view>
-<view class="detail_main1">
+<view class="detail_main3">
   <!--背景灰  view加class select-->
   <block wx:for="{{list}}" wx:key="index2">
     <view class="book_h_min1_list box_h center_s canClick">
