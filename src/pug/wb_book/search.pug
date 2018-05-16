@@ -1,0 +1,30 @@
+title 搜索
+
+
+include ./include/title1
+include ./include/book_s
+
+
+//搜索框部分
+view(class='search_main box_h center_s')
+    view(class='search_main_left boxflex1 box_h center_s')
+        img(src='../../image/search.png')
+        input(class='boxflex1' type='search' placeholder='搜索' name='search' bindinput='searchInput' value='{{search}}')
+    view(class='search_main_btn canClick') 取消
+
+
+//人们搜索
++title1('人们搜索','',true)
+view(class='search_book_list_main')
+    view(class='search_book_list')
+        block(wx:for='{{list}}' wx:key='index1')
+            +book_s()
+
+
+//历史搜索
++title1('历史搜索...','','',true)
+view(class='search_history')
+    block(wx:for='{{history}}' wx:key='index2')
+        //粉色背景  class加   select
+        view(class='canClick') {{item}}
+

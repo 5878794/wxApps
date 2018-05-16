@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/search/index",
     "pages/library/index",
     "pages/detail/index",
     "pages/dir/index",
