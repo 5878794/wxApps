@@ -1,0 +1,77 @@
+<view class="library_type box_h center_s"><image  src="../../image/library/icon1.png" />
+  <view class="boxflex1">分类</view>
+</view>
+<view class="library_type_item">
+  <block wx:for="{{type1}}" wx:key="index1">
+    <view class="canClick">{{item}}</view>
+  </block>
+</view>
+<!--字数-->
+<view class="library_type box_h center_s"><image  src="../../image/library/icon2.png" />
+  <view class="boxflex1">字数</view>
+</view>
+<view class="library_type_item">
+  <block wx:for="{{type2}}" wx:key="index2">
+    <view class="canClick">{{item}}</view>
+  </block>
+</view>
+<!--类型-->
+<view class="library_type box_h center_s"><image  src="../../image/library/icon3.png" />
+  <view class="boxflex1">类型</view>
+</view>
+<view class="library_type_item">
+  <block wx:for="{{type3}}" wx:key="index3">
+    <view class="canClick">{{item}}</view>
+  </block>
+</view>
+<!--状态-->
+<view class="library_type box_h center_s"><image  src="../../image/library/icon4.png" />
+  <view class="boxflex1">状态</view>
+</view>
+<view class="library_type_item">
+  <block wx:for="{{type4}}" wx:key="index4">
+    <view class="canClick">{{item}}</view>
+  </block>
+</view>
+<!--类别-->
+<view class="library_type box_h center_s"><image  src="../../image/library/icon5.png" />
+  <view class="boxflex1">类别</view>
+</view>
+<view class="library_type_item">
+  <block wx:for="{{type5}}" wx:key="index5">
+    <view class="canClick">{{item}}</view>
+  </block>
+</view>
+<!--间隔条-->
+<view class="jg"></view>
+<!--书列表-->
+<view class="library_list">
+  <view class="library_list_item" wx:for="{{list}}" wx:key="index6" style="{{(index==list.length-1)?'border:none;':''}}">
+    <view class="all_book_h box_h canClick" data-id="{{item.id}}">
+      <view class="all_book_h_img"><image  class="all_book_h_img_image" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" /></view>
+      <view class="boxflex1 box_s">
+        <view class="all_book_h_name breakall">
+          <view>{{item.name}}</view>
+          <view class="all_book_h_free" style="display:{{(item.isFree)?'inline-block':'none'}};">免费</view>
+          <view class="all_book_h_vip" style="display:{{(item.isVIP)?'inline-block':'none'}};">VIP</view>
+        </view>
+        <view class="all_book_h_types">
+          <view class="all_book_h_type" wx:for="{{item.types}}" wx:key="type" wx:for-item="type_name">{{type_name}}</view>
+          <view class="all_book_h_state" wx:for="{{item.states}}" wx:key="state" wx:for-item="state_name">{{state_name}}</view>
+        </view>
+        <view class="all_book_h_texts box_h">
+          <view>最新章节：</view>
+          <view class="boxflex1 breakall">{{item.lastChapter}}</view>
+        </view>
+        <view class="all_book_h_texts box_h">
+          <view>更新时间：</view>
+          <view class="boxflex1 breakall">{{item.updateTime}}</view>
+        </view>
+        <view class="all_book_h_author box_h center_s"><image  src="../../image/user.png" />
+          <view class="boxflex1">{{item.author}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="dir_more canClick">点击查看更多章节</view>

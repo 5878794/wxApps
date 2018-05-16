@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/library/index",
     "pages/detail/index",
     "pages/dir/index",
     "pages/ranking/index",
