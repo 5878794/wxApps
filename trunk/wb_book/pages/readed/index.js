@@ -4,7 +4,15 @@ const app = getApp();
 
 Page({
 	data: {
-		list:[]
+		list:[],
+
+		//导航选中
+		nav:{
+			icon1:false,
+			icon2:true,
+			icon3:false,
+			icon4:false
+		}
 
 	},
 	onLoad: function () {

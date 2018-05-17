@@ -28,7 +28,15 @@ Page({
     //热门畅销
     bookList3:[],
     //惊喜新书
-    bookList4:[]
+    bookList4:[],
+
+    //导航选中
+    nav:{
+        icon1:true,
+        icon2:false,
+        icon3:false,
+        icon4:false
+    }
 
   },
   onLoad: function () {

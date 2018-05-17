@@ -165,3 +165,19 @@
     </view>
   </block>
 </view>
+<!--导航-->
+<view class="all_nav_"></view>
+<view class="all_nav box_h center_s">
+  <view class="all_nav_item canClick box_s center all_nav_icon1 {{(nav.icon1)? 'select':''}}">
+    <view>首页</view>
+  </view>
+  <view class="all_nav_item canClick box_s center all_nav_icon2 {{(nav.icon2)? 'select':''}}">
+    <view>书架</view>
+  </view>
+  <view class="all_nav_item canClick box_s center all_nav_icon3 {{(nav.icon3)? 'select':''}}">
+    <view>搜索</view>
+  </view>
+  <view class="all_nav_item canClick box_s center all_nav_icon4 {{(nav.icon4)? 'select':''}}">
+    <view>个人中心</view>
+  </view>
+</view>

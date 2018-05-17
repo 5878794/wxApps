@@ -1,5 +1,7 @@
 {
   "pages":[
+    "pages/temp/index",
+    "pages/index/index",
     "pages/read/index",
     "pages/buy/index",
     "pages/free/index",
@@ -10,8 +12,8 @@
     "pages/ranking/index",
     "pages/readed/index",
     "pages/center/index",
-    "pages/recharge/index",
-    "pages/index/index"
+    "pages/recharge/index"
+
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -1,0 +1,11 @@
+
+<view wx:for="{{pages}}"
+    wx:key="index11"
+    bindtap="aaa"
+    data-url="{{item.url}}"
+>
+    {{item.name}}
+</view>
+
+
+    

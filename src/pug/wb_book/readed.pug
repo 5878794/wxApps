@@ -2,6 +2,7 @@ title 读过
 
 include ./include/book_h
 include ./include/tab
+include ./include/nav
 
 
 //tab 切换条
@@ -13,3 +14,8 @@ include ./include/tab
 view(class='readed_list')
     block(wx:for='{{list}}' wx:key='indexdd')
         +book_h(1)
+
+
+
+//nav
++nav()

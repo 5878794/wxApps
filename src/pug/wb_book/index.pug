@@ -5,6 +5,7 @@ include ./include/book_s
 include ./include/book_h
 include ./include/title
 include ./include/book_h_no_img
+include ./include/nav
 
 
 //顶部
@@ -116,3 +117,8 @@ view(class='jg')
 view(class='index_mian4')
     block(wx:for='{{bookList4}}' wx:key='main4' )
         +book_s()
+
+
+
+//导航
++nav()
