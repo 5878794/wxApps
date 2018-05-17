@@ -15,6 +15,7 @@ view(class='read_main')
 
 
     view(class='read_info')
+        view(wx:for='{{info}}' wx:key='index2' style='padding-bottom:20rpx;') {{item}}
 
 
 
@@ -33,6 +34,6 @@ view(class='jg')
 +title(3,'热门推荐')
 view(class='read_main1')
     block(wx:for='{{list}}' wx:key='index1')
-        view(class='read_list box_h center_s canClick')
+        view(class="read_list box_h center_s canClick {{(index==0)? 'read_bg':''}}")
             view(class='boxflex1 diandian') {{item.name}}
             view(class='read_list_info') 点击这里

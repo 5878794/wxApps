@@ -4,7 +4,9 @@
     <view class="read_time boxflex1">更新时间:2018-11-11</view>
     <view class="read_btn box_h"><image  class="canClick" src="../../image/read/icon01.png" /><image  class="canClick" src="../../image/read/icon02.png" /><image  class="canClick" src="../../image/read/icon03.png" /><image  class="canClick" src="../../image/read/icon04.png" /></view>
   </view>
-  <view class="read_info"></view>
+  <view class="read_info">
+    <view wx:for="{{info}}" wx:key="index2" style="padding-bottom:20rpx;">{{item}}</view>
+  </view>
   <view class="read_page box_h center_s">
     <view class="read_pre canClick">上一章</view>
     <view class="read_dir canClick">目录</view>
@@ -20,7 +22,7 @@
 </view>
 <view class="read_main1">
   <block wx:for="{{list}}" wx:key="index1">
-    <view class="read_list box_h center_s canClick">
+    <view class="read_list box_h center_s canClick {{(index==0)? 'read_bg':''}}">
       <view class="boxflex1 diandian">{{item.name}}</view>
       <view class="read_list_info">点击这里</view>
     </view>
