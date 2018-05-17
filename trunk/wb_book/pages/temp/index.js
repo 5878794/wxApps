@@ -52,7 +52,12 @@ Page({
            {
                name: '搜索',
                url: '../search/index'
-           }
+           },
+            {
+                name: '搜索结果',
+                url: '../search_result/index'
+            }
+
         ]
 
 

@@ -12,7 +12,8 @@
     "pages/ranking/index",
     "pages/readed/index",
     "pages/center/index",
-    "pages/recharge/index"
+    "pages/recharge/index",
+    "pages/search_result/index"
 
   ],
   "window":{

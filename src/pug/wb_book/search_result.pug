@@ -1,0 +1,14 @@
+title 搜索结果
+
+
+include ./include/title
+include ./include/book_h
+
+
+
++title(1,'搜索结果','','3条结果')
+
+
+view(class='searchResult_main')
+    block(wx:for='{{list}}' wx:key='index1')
+        +book_h(1)

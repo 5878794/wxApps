@@ -1,0 +1,35 @@
+<view class="all_title box_h center_s"><image  src="../../image/title1.png" />
+  <view class="boxflex1 diandian center_s" style="height:100%;">
+    <view class="all_title_info">搜索结果</view>
+  </view>
+  <view class="all_show_more">3条结果</view>
+</view>
+<view class="searchResult_main">
+  <block wx:for="{{list}}" wx:key="index1">
+    <view class="all_book_h box_h canClick" data-id="{{item.id}}">
+      <view class="all_book_h_img"><image  class="all_book_h_img_image" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" /></view>
+      <view class="boxflex1 box_s">
+        <view class="all_book_h_name breakall">
+          <text>{{item.name}}</text>
+          <text class="all_book_h_free" style="display:{{(item.isFree)?'inline-block':'none'}};">免费</text>
+          <text class="all_book_h_vip" style="display:{{(item.isVIP)?'inline-block':'none'}};">VIP</text>
+        </view>
+        <view class="all_book_h_types">
+          <view class="all_book_h_type" wx:for="{{item.types}}" wx:key="type" wx:for-item="type_name">{{type_name}}</view>
+          <view class="all_book_h_state" wx:for="{{item.states}}" wx:key="state" wx:for-item="state_name">{{state_name}}</view>
+        </view>
+        <view class="all_book_h_texts box_h">
+          <view>最新章节：</view>
+          <view class="boxflex1 breakall">{{item.lastChapter}}</view>
+        </view>
+        <view class="all_book_h_texts box_h">
+          <view>更新时间：</view>
+          <view class="boxflex1 breakall">{{item.updateTime}}</view>
+        </view>
+        <view class="all_book_h_author box_h center_s"><image  src="../../image/user.png" />
+          <view class="boxflex1">{{item.author}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
