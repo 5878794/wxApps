@@ -13,7 +13,9 @@
     "pages/readed/index",
     "pages/center/index",
     "pages/recharge/index",
-    "pages/search_result/index"
+    "pages/search_result/index",
+    "pages/recharge_record/index",
+    "pages/expenses_record/index"
 
   ],
   "window":{

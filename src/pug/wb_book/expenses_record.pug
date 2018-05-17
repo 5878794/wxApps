@@ -1,0 +1,13 @@
+title 消费记录
+
+
+include ./include/title1
+include ./include/record
+
+
+
++title1('消费记录')
+
+view(class='rechargeRecord_main')
+    block(wx:for='{{list}}' wx:key='index1')
+        +record(1)

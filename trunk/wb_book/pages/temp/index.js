@@ -56,6 +56,14 @@ Page({
             {
                 name: '搜索结果',
                 url: '../search_result/index'
+            },
+            {
+                name: '充值记录',
+                url: '../recharge_record/index'
+            },
+            {
+                name: '消费记录',
+                url: '../expenses_record/index'
             }
 
         ]

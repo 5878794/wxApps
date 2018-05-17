@@ -1,0 +1,23 @@
+<view class="all_title1 box_h center_s">
+  <view class="all_title1_icon"></view>
+  <view class="boxflex1 all_title1_texts">
+    <view class="all_title1_text1">消费记录</view>
+    <view class="all_title1_text2"></view>
+  </view>
+</view>
+<view class="rechargeRecord_main">
+  <block wx:for="{{list}}" wx:key="index1">
+    <view class="all_record box_s">
+      <view class="all_record_name">{{item.name}}</view>
+      <view class="all_record_info">订单号:{{item.info}}</view>
+      <view class="box_h center_s all_record_time">
+        <view class="all_record1_info boxflex1">
+          <text>订阅</text>
+          <text class="all_record_number">{{item.number}}</text>
+          <text>比心币</text>
+        </view>
+        <view class="all_record_time1">订阅时间:{{item.time}}</view>
+      </view>
+    </view>
+  </block>
+</view>
