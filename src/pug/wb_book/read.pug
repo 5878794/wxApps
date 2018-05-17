@@ -1,0 +1,38 @@
+title 章节阅读
+
+include ./include/title
+
+
+view(class='read_main')
+    view(class='read_title') 阿萨德飞机啊看风景阿道夫看见爱上肯定积分ad快放假啊速度快解放啊速度快放假
+    view(class='box_h center_s')
+        view(class='read_time boxflex1') 更新时间:2018-11-11
+        view(class='read_btn box_h')
+            img(src='../../image/read/icon01.png' class='canClick')
+            img(src='../../image/read/icon02.png' class='canClick')
+            img(src='../../image/read/icon03.png' class='canClick')
+            img(src='../../image/read/icon04.png' class='canClick')
+
+
+    view(class='read_info')
+
+
+
+    view(class='read_page box_h center_s')
+        view(class='read_pre canClick') 上一章
+        view(class='read_dir canClick') 目录
+        view(class='read_next canClick') 下一章
+
+
+
+//间隔条
+view(class='jg')
+
+
+
++title(3,'热门推荐')
+view(class='read_main1')
+    block(wx:for='{{list}}' wx:key='index1')
+        view(class='read_list box_h center_s canClick')
+            view(class='boxflex1 diandian') {{item.name}}
+            view(class='read_list_info') 点击这里

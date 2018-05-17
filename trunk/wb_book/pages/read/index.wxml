@@ -1,0 +1,28 @@
+<view class="read_main">
+  <view class="read_title">阿萨德飞机啊看风景阿道夫看见爱上肯定积分ad快放假啊速度快解放啊速度快放假</view>
+  <view class="box_h center_s">
+    <view class="read_time boxflex1">更新时间:2018-11-11</view>
+    <view class="read_btn box_h"><image  class="canClick" src="../../image/read/icon01.png" /><image  class="canClick" src="../../image/read/icon02.png" /><image  class="canClick" src="../../image/read/icon03.png" /><image  class="canClick" src="../../image/read/icon04.png" /></view>
+  </view>
+  <view class="read_info"></view>
+  <view class="read_page box_h center_s">
+    <view class="read_pre canClick">上一章</view>
+    <view class="read_dir canClick">目录</view>
+    <view class="read_next canClick">下一章</view>
+  </view>
+</view>
+<!--间隔条-->
+<view class="jg"></view>
+<view class="all_title box_h center_s"><image  src="../../image/title3.png" />
+  <view class="boxflex1 diandian center_s" style="height:100%;">
+    <view class="all_title_info">热门推荐</view>
+  </view>
+</view>
+<view class="read_main1">
+  <block wx:for="{{list}}" wx:key="index1">
+    <view class="read_list box_h center_s canClick">
+      <view class="boxflex1 diandian">{{item.name}}</view>
+      <view class="read_list_info">点击这里</view>
+    </view>
+  </block>
+</view>
