@@ -9,7 +9,7 @@ Page({
     //banner
     banner:[
       {
-        imgSrc:'https://ss0.bdstatic.com/6ONWsjip0QIZ8tyhnq/it/u=3545401083,2251952841&fm=77&w_h=121_75&cs=2008984878,1171842780',
+        imgSrc:'http://res.missmis.com/banner/banner_20180428122942775_thumb.jpg',
         url:'pages/index/index1'
       },
       {
