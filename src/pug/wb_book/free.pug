@@ -1,0 +1,31 @@
+title 限时免费
+
+include ./include/book_h
+include ./include/title
+
+
+
++title(3,'限时免费小说','','3条结果')
+
+
+//banner
+view(class='free_main')
+    img(class='free_banner' src='{{banner}}')
+    view(class='free_btn canClick') 签到领金币
+
+
+//列表
+view(class='free_main1')
+    view(class='free_time') 倒计时：02天23小时39分12秒
+
+    view(
+        wx:for='{{list}}'
+        wx:key='index1'
+        class='free_main_list'
+        style="{{(list.length-1 == index)? 'border:none;':''}}"
+    )
+        +book_h(1)
+
+
+
+
