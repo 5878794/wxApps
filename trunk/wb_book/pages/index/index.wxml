@@ -36,7 +36,10 @@
 <!--最近阅读-->
 <view class="index_near">
   <view class="index_near_bottom box_h center_s">
-    <view class="boxflex1">最近阅读</view>
+    <view class="boxflex1 diandian">
+      <text>最近阅读</text>
+      <text>妈咪有毒第一章你还好你还好你还好你还好你还好你还好你还好吗?</text>
+    </view>
     <view class="index_near_number">9544 人阅读</view>
   </view>
 </view>
@@ -52,8 +55,7 @@
     <view class="canClick all_book box_s" data-id="{{item.id}}">
       <view class="all_image_body center"><image  class="all_image_img" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" />
       </view>
-      <view class="all_book_name diandian">{{item.name}}</view>
-      <view class="all_book_type diandian">{{item.typeName}}</view>
+      <view class="all_book_name diandian2">{{item.name}}</view>
     </view>
   </view>
 </view>
@@ -72,9 +74,9 @@
         <view class="all_book_h_img"><image  class="all_book_h_img_image" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" /></view>
         <view class="boxflex1 box_s">
           <view class="all_book_h_name breakall">
-            <view>{{item.name}}</view>
-            <view class="all_book_h_free" style="display:{{(item.isFree)?'inline-block':'none'}};">免费</view>
-            <view class="all_book_h_vip" style="display:{{(item.isVIP)?'inline-block':'none'}};">VIP</view>
+            <text>{{item.name}}</text>
+            <text class="all_book_h_free" style="display:{{(item.isFree)?'inline-block':'none'}};">免费</text>
+            <text class="all_book_h_vip" style="display:{{(item.isVIP)?'inline-block':'none'}};">VIP</text>
           </view>
           <view class="all_book_h_info breakall">{{item.info}}</view>
           <view class="all_book_h_author box_h center_s"><image  src="../../image/user.png" />
@@ -90,8 +92,7 @@
         <view class="canClick all_book box_s" data-id="{{item.id}}">
           <view class="all_image_body center"><image  class="all_image_img" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" />
           </view>
-          <view class="all_book_name diandian">{{item.name}}</view>
-          <view class="all_book_type diandian">{{item.typeName}}</view>
+          <view class="all_book_name diandian2">{{item.name}}</view>
         </view>
       </block>
     </block>
@@ -112,9 +113,9 @@
         <view class="all_book_h_img"><image  class="all_book_h_img_image" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" /></view>
         <view class="boxflex1 box_s">
           <view class="all_book_h_name breakall">
-            <view>{{item.name}}</view>
-            <view class="all_book_h_free" style="display:{{(item.isFree)?'inline-block':'none'}};">免费</view>
-            <view class="all_book_h_vip" style="display:{{(item.isVIP)?'inline-block':'none'}};">VIP</view>
+            <text>{{item.name}}</text>
+            <text class="all_book_h_free" style="display:{{(item.isFree)?'inline-block':'none'}};">免费</text>
+            <text class="all_book_h_vip" style="display:{{(item.isVIP)?'inline-block':'none'}};">VIP</text>
           </view>
           <view class="all_book_h_info breakall">{{item.info}}</view>
           <view class="all_book_h_author box_h center_s"><image  src="../../image/user.png" />
@@ -160,8 +161,7 @@
     <view class="canClick all_book box_s" data-id="{{item.id}}">
       <view class="all_image_body center"><image  class="all_image_img" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" />
       </view>
-      <view class="all_book_name diandian">{{item.name}}</view>
-      <view class="all_book_type diandian">{{item.typeName}}</view>
+      <view class="all_book_name diandian2">{{item.name}}</view>
     </view>
   </block>
 </view>

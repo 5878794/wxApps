@@ -5,9 +5,9 @@ mixin book_h(type)
             img(class='all_image_shadow' src='../../image/shadow.png')
         view(class='boxflex1 box_s')
             view(class='all_book_h_name breakall')
-                view {{item.name}}
-                view(class='all_book_h_free' style="display:{{(item.isFree)?'inline-block':'none'}};") 免费
-                view(class='all_book_h_vip' style="display:{{(item.isVIP)?'inline-block':'none'}};") VIP
+                text {{item.name}}
+                text(class='all_book_h_free' style="display:{{(item.isFree)?'inline-block':'none'}};") 免费
+                text(class='all_book_h_vip' style="display:{{(item.isVIP)?'inline-block':'none'}};") VIP
 
             if(type==1)
                 view(class='all_book_h_types')

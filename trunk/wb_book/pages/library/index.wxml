@@ -2,8 +2,9 @@
   <view class="boxflex1">分类</view>
 </view>
 <view class="library_type_item">
+  <!--所有分类选中效果加class 名   :select-->
   <block wx:for="{{type1}}" wx:key="index1">
-    <view class="canClick">{{item}}</view>
+    <view class="canClick {{(index==0)?'select':''}}">{{item}}</view>
   </block>
 </view>
 <!--字数-->
@@ -12,7 +13,7 @@
 </view>
 <view class="library_type_item">
   <block wx:for="{{type2}}" wx:key="index2">
-    <view class="canClick">{{item}}</view>
+    <view class="canClick {{(index==0)?'select':''}}">{{item}}</view>
   </block>
 </view>
 <!--类型-->
@@ -21,7 +22,7 @@
 </view>
 <view class="library_type_item">
   <block wx:for="{{type3}}" wx:key="index3">
-    <view class="canClick">{{item}}</view>
+    <view class="canClick {{(index==0)?'select':''}}">{{item}}</view>
   </block>
 </view>
 <!--状态-->
@@ -30,7 +31,7 @@
 </view>
 <view class="library_type_item">
   <block wx:for="{{type4}}" wx:key="index4">
-    <view class="canClick">{{item}}</view>
+    <view class="canClick {{(index==0)?'select':''}}">{{item}}</view>
   </block>
 </view>
 <!--类别-->
@@ -39,7 +40,7 @@
 </view>
 <view class="library_type_item">
   <block wx:for="{{type5}}" wx:key="index5">
-    <view class="canClick">{{item}}</view>
+    <view class="canClick {{(index==0)?'select':''}}">{{item}}</view>
   </block>
 </view>
 <!--间隔条-->
@@ -51,9 +52,9 @@
       <view class="all_book_h_img"><image  class="all_book_h_img_image" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" /></view>
       <view class="boxflex1 box_s">
         <view class="all_book_h_name breakall">
-          <view>{{item.name}}</view>
-          <view class="all_book_h_free" style="display:{{(item.isFree)?'inline-block':'none'}};">免费</view>
-          <view class="all_book_h_vip" style="display:{{(item.isVIP)?'inline-block':'none'}};">VIP</view>
+          <text>{{item.name}}</text>
+          <text class="all_book_h_free" style="display:{{(item.isFree)?'inline-block':'none'}};">免费</text>
+          <text class="all_book_h_vip" style="display:{{(item.isVIP)?'inline-block':'none'}};">VIP</text>
         </view>
         <view class="all_book_h_types">
           <view class="all_book_h_type" wx:for="{{item.types}}" wx:key="type" wx:for-item="type_name">{{type_name}}</view>

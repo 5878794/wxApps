@@ -9,8 +9,10 @@ view(class='library_type box_h center_s')
     img(src='../../image/library/icon1.png')
     view(class='boxflex1') 分类
 view(class='library_type_item')
+    //所有分类选中效果加class 名   :select
+
     block(wx:for='{{type1}}' wx:key='index1')
-        view(class='canClick') {{item}}
+        view(class="canClick {{(index==0)?'select':''}}") {{item}}
 
 //字数
 view(class='library_type box_h center_s')
@@ -18,7 +20,7 @@ view(class='library_type box_h center_s')
     view(class='boxflex1') 字数
 view(class='library_type_item')
     block(wx:for='{{type2}}' wx:key='index2')
-        view(class='canClick') {{item}}
+        view(class="canClick {{(index==0)?'select':''}}") {{item}}
 
 //类型
 view(class='library_type box_h center_s')
@@ -26,7 +28,7 @@ view(class='library_type box_h center_s')
     view(class='boxflex1') 类型
 view(class='library_type_item')
     block(wx:for='{{type3}}' wx:key='index3')
-        view(class='canClick') {{item}}
+        view(class="canClick {{(index==0)?'select':''}}") {{item}}
 
 //状态
 view(class='library_type box_h center_s')
@@ -34,7 +36,7 @@ view(class='library_type box_h center_s')
     view(class='boxflex1') 状态
 view(class='library_type_item')
     block(wx:for='{{type4}}' wx:key='index4')
-        view(class='canClick') {{item}}
+        view(class="canClick {{(index==0)?'select':''}}") {{item}}
 
 
 //类别
@@ -43,7 +45,7 @@ view(class='library_type box_h center_s')
     view(class='boxflex1') 类别
 view(class='library_type_item')
     block(wx:for='{{type5}}' wx:key='index5')
-        view(class='canClick') {{item}}
+        view(class="canClick {{(index==0)?'select':''}}") {{item}}
 
 
 

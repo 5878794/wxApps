@@ -2,6 +2,7 @@
   <view class="search_main_left boxflex1 box_h center_s"><image  src="../../image/search.png" />
     <input class="boxflex1" type="search" placeholder="搜索" name="search" bindinput="searchInput" value="{{search}}" />
   </view>
+  <view class="search_main_btn1 canClick">搜索</view>
   <view class="search_main_btn canClick">取消</view>
 </view>
 <!--人们搜索-->
@@ -21,8 +22,7 @@
       <view class="canClick all_book box_s" data-id="{{item.id}}">
         <view class="all_image_body center"><image  class="all_image_img" src="{{item.img}}" /><image  class="all_image_shadow" src="../../image/shadow.png" />
         </view>
-        <view class="all_book_name diandian">{{item.name}}</view>
-        <view class="all_book_type diandian">{{item.typeName}}</view>
+        <view class="all_book_name diandian2">{{item.name}}</view>
       </view>
     </block>
   </view>
